@@ -1,15 +1,16 @@
 <template>
-  <div class="card">
-    <h1>App vue</h1>
+  <div>
+    <h1>hello</h1>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'App',
+  name: 'Login',
   components: {},
 };
 </script>
 
 <style lang="scss">
+@import './Login.css';
 </style>
