@@ -25,7 +25,7 @@ html{
   margin-right: 1rem;
 }
 
-.btn-floating.btn-large.waves-effect.waves-light {
+.btn-floating.btn-large {
   width: 6rem;
   height: 6rem;
 }

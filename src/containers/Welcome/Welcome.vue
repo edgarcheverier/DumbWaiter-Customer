@@ -8,26 +8,26 @@
     <div class="foodDrinksContainer">
       <div class="food">
         <button 
-          class="btn-floating btn-large waves-effect waves-light indigo accent-2" 
+          class="btn-floating btn-large waves-effect waves-light cyan" 
           @click="handleClickFood('Food')"><i class="material-icons">local_dining</i></button>
       </div>
       <div class="drinks">
         <button 
-          class="btn-floating btn-large waves-effect waves-light indigo accent-2" 
+          class="btn-floating btn-large waves-effect waves-light cyan" 
           @click="handleClickFood('Drinks')"><i class="material-icons">local_bar</i></button>
       </div>
     </div>
     <div class="dessertsContainer">
       <div class="desserts">
         <button 
-          class="btn-floating btn-large waves-effect waves-light indigo accent-2" 
+          class="btn-floating btn-large waves-effect waves-light cyan" 
           @click="handleClickFood('Desserts')"><i class="material-icons">cake</i></button>
       </div>
     </div>
     <div class="waiterContainer">
       <div class="waiter">
         <button 
-          class="btn-floating btn-large waves-effect waves-light indigo accent-2" 
+          class="btn-floating btn-large waves-effect waves-light" 
           @click="handleClickWaiter"><i class="material-icons">face</i></button>
       </div>
     </div>
@@ -44,7 +44,7 @@ export default {
       this.$router.push('/Menu');
     },
     handleClickWaiter: () => {
-      console.log('Waiter');
+      M.toast({ html: 'The Waiter Is Coming :)' });
     },
   },
 };
