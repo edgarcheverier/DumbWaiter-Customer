@@ -11,9 +11,15 @@ nav {
   margin-right: 0.8rem;
 }
 
+.photoContainer{
+  display: flex;
+  justify-content: center;
+}
+
 .foodPhoto {
-  width: 100%;
+  width: 95%;
   max-height: 12rem;
+  border-radius: 0.5rem;
 }
 
 .nameContainer {

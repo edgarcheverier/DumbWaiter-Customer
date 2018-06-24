@@ -4,10 +4,18 @@
       <div class="nav-wrapper">
         <h6 class="brand-logo center">{{ menuSelected }}</h6>
         <ul class="left">
-          <li><button @click="goBack"><i class="material-icons leftIcon">chevron_left</i></button></li>
+          <li>
+            <button @click="goBack">
+              <i class="material-icons leftIcon">chevron_left</i>
+            </button>
+          </li>
         </ul>
         <ul class="right">
-          <li><button><i class="material-icons rightIcon">local_grocery_store</i></button></li>
+          <li>
+            <button>
+              <i class="material-icons rightIcon">local_grocery_store</i>
+            </button>
+          </li>
         </ul>
       </div>
     </nav>
