@@ -1,0 +1,25 @@
+nav {
+  background-color: #6a89cc;
+  margin-bottom: 5rem;
+}
+
+.leftIcon {
+  margin-left: 0.8rem;
+}
+
+.rightIcon{
+  margin-right: 0.8rem;
+}
+
+.foodPhoto {
+  width: 100%;
+  max-height: 12rem;
+}
+
+.nameContainer {
+  display: flex;
+  justify-content: space-around;
+  margin: 0.8rem 0;
+  font-size: 1.1rem;
+  color: white;
+}
