@@ -5,6 +5,7 @@ import Menu from './containers/Menu/Menu.vue';
 import Card from './components/Card/Card.vue';
 import Welcome from './containers/Welcome/Welcome.vue';
 import VueRouter from 'vue-router';
+import store from './store';
 
 Vue.config.productionTip = false;
 Vue.use(VueRouter);
@@ -23,6 +24,7 @@ const router = new VueRouter({
 
 new Vue({
   router,
+  store,
   render: h => {
     return <router-view />;
   },
