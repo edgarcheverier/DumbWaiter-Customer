@@ -5,8 +5,22 @@ Vue.use(Vuex);
 
 export default new Vuex.Store({
   state: {
+    customer: {},
     menuSelected: '',
+    itemSelected: {},
     foodOptions: [
+      {
+        name: 'Pizza Napolitana',
+        price: '12€',
+        photo:
+          'https://locosxlagastronomia.com/wp-content/uploads/2018/03/pizza-napolitana.jpg',
+      },
+      {
+        name: 'Pasta Carbonara',
+        price: '15€',
+        photo:
+          'https://pioneerwoman.files.wordpress.com/2016/04/how-to-nail-pasta-carbonara-00a.jpg',
+      },
       {
         name: 'Pizza Napolitana',
         price: '12€',
@@ -52,6 +66,12 @@ export default new Vuex.Store({
   mutations: {
     menuSelected(state, option) {
       state.menuSelected = option;
+    },
+    itemSelected(state, item) {
+      state.itemSelected = item;
+    },
+    customerInformation(state, info) {
+      state.customer = info;
     },
   },
   actions: {},
