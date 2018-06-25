@@ -30,9 +30,10 @@
               <span class="itemName">{{ item.price }}</span>
             </div>
             <div class="photoContainer">
-              <img 
+              <img
                 :src="item.photo" 
-                class="foodPhoto" > 
+                class="foodPhoto" 
+                @click="handleClickImage(item)" > 
             </div>
           </div>
         </li>
@@ -69,6 +70,14 @@ export default {
   methods: {
     goBack() {
       this.$router.push('/Welcome');
+    },
+    handleClickImage(item) {
+      this.$store.commit('itemSelected', {
+        name: item.name,
+        price: item.price,
+        photo: item.photo,
+      });
+      this.$router.push('/Card');
     },
   },
 };
