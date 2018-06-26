@@ -3,13 +3,6 @@
     <nav>
       <div class="nav-wrapper">
         <h6 class="brand-logo center">Dumbwaiter</h6>
-        <ul class="right">
-          <li>
-            <button>
-              <i class="material-icons rightIcon">local_grocery_store</i>
-            </button>
-          </li>
-        </ul>
       </div>
     </nav>
     <div class="logoContainer">
@@ -20,7 +13,6 @@
     <div class="facebookContainer">
       <fb-signin-button
         :params="fbSignInParams" 
-        class="facebookButton" 
         type="submit"
         name="action"
         @success="onSignInSuccess"
@@ -52,6 +44,7 @@ window.fbAsyncInit = function() {
   js.src = '//connect.facebook.net/en_US/sdk.js';
   fjs.parentNode.insertBefore(js, fjs);
 })(document, 'script', 'facebook-jssdk');
+
 export default {
   name: 'Login',
   components: {},
@@ -68,6 +61,7 @@ export default {
       FB.api('/me', dude => {
         this.$router.push('/welcome');
         this.$store.commit('customerInformation', dude);
+        this.$store.commit('authBoolean');
         console.log(this.$store.state.customer.id);
         console.log(this.$store.state.customer.name);
         console.log(`Good to see you, ${dude}.`);

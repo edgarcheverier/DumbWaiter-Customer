@@ -1,39 +1,30 @@
 <template>
   <div>
-    <nav>
-      <div class="nav-wrapper">
-        <h6 class="brand-logo center">{{ menuSelected }}</h6>
-        <ul class="left">
-          <li>
-            <button @click="goBack">
-              <i class="material-icons leftIcon">chevron_left</i>
-            </button>
-          </li>
-        </ul>
-        <ul class="right">
-          <li>
-            <button>
-              <i class="material-icons rightIcon">local_grocery_store</i>
-            </button>
-          </li>
-        </ul>
-      </div>
-    </nav>
+    <MenuNav 
+      :menu-title="menuTitle" 
+      :go-back="goBack"/>
     <div>
       <ul>
         <li 
           v-for="(item, index) in items" 
           :key="index">
-          <div class="itemContainer">
-            <div class="nameContainer">
-              <span class="itemName">{{ item.name }}</span>
-              <span class="itemName">{{ item.price }}</span>
-            </div>
-            <div class="photoContainer">
-              <img
-                :src="item.photo" 
-                class="foodPhoto" 
-                @click="handleClickImage(item)" > 
+          <div class="row">
+            <div class="col s12 m6">
+              <div class="card">
+                <div class="card-image">
+                  <img 
+                    :src="item.photo" 
+                    @click="handleClickImage(item)">
+                  <span class="card-title">{{ item.name }}</span>
+                  <a 
+                    class="btn-floating halfway-fab waves-effect waves-light red addButton"
+                    @click="addToShoppingCar(item)" 
+                  ><i class="material-icons addIcon">add</i></a>
+                </div>
+                <div class="card-content">
+                  <p>{{ item.description }} - {{ item.price }}</p>
+                </div>
+              </div>
             </div>
           </div>
         </li>
@@ -42,31 +33,36 @@
   </div>
 </template>
 
+
 <script>
+import MenuNav from './MenuNav.vue';
+
 export default {
   name: 'Welcome',
+  components: {
+    MenuNav,
+  },
   data: function() {
     if (this.$store.state.menuSelected == 'Food') {
       return {
         items: this.$store.state.foodOptions,
+        menuTitle: this.$store.state.menuSelected,
       };
     } else if (this.$store.state.menuSelected == 'Drinks') {
       return {
         items: this.$store.state.drinksOptions,
+        menuTitle: this.$store.state.menuSelected,
       };
     } else if (
       this.$store.state.menuSelected == 'Desserts'
     ) {
       return {
         items: this.$store.state.dessertsOptions,
+        menuTitle: this.$store.state.menuSelected,
       };
     }
   },
-  computed: {
-    menuSelected() {
-      return this.$store.state.menuSelected;
-    },
-  },
+  computed: {},
   methods: {
     goBack() {
       this.$router.push('/Welcome');
@@ -75,9 +71,19 @@ export default {
       this.$store.commit('itemSelected', {
         name: item.name,
         price: item.price,
+        description: item.description,
         photo: item.photo,
       });
       this.$router.push('/Card');
+    },
+    addToShoppingCar(item) {
+      this.$store.commit('shoppingList', {
+        name: item.name,
+        price: item.price,
+        description: item.description,
+        photo: item.photo,
+      });
+      this.$router.push('/'); // here the Shopping List Page
     },
   },
 };
