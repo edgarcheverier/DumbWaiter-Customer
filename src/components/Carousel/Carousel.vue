@@ -1,45 +1,35 @@
 <template>
-  <carousel 
-    :pagination-enabled="false" 
-    :per-page="2.2">
-    <slide>
-      <div class="rowing">
-        <div class="column">
-          <div class="card-image">
-            <img 
-              class="card-image-item" 
-              src="https://images.unsplash.com/photo-1518646261099-bd070a676912?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=4948465739b5a76034aae5380d2f8b67&auto=format&fit=crop&w=1650&q=80" 
-              alt="soup bowl, asian">
-          </div>
+  <mover>
+    <h3>Currently trending: </h3>
+    <carousel 
+      :pagination-enabled="false" 
+      :per-page="2.3">
+      <slide>
+        <div class="card">
+          <img 
+            src="https://images.unsplash.com/photo-1518646261099-bd070a676912?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=4948465739b5a76034aae5380d2f8b67&auto=format&fit=crop&w=1650&q=80" 
+            alt="soup bowl, asian">
+          <p>Asian Soup Bowl</p>
         </div>
-      </div>
-    </slide>
-    <slide>
-      <div class="rowing">
-        <div class="column">
-          <div class="card-image">
-            <img 
-              class="card-image-item" 
-              src="https://images.unsplash.com/photo-1518646261099-bd070a676912?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=4948465739b5a76034aae5380d2f8b67&auto=format&fit=crop&w=1650&q=80" 
-              alt="soup bowl, asian">
-          </div>
+      </slide>
+      <slide>
+        <div class="card">
+          <img 
+            src="https://images.unsplash.com/photo-1518646261099-bd070a676912?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=4948465739b5a76034aae5380d2f8b67&auto=format&fit=crop&w=1650&q=80" 
+            alt="soup bowl, asian">
+          <p>Asian Soup Bowl</p>
         </div>
-      </div>
-    </slide>
-    <slide>
-      <div class="rowing">
-        <div class="column">
-          <div class="card-image">
-            <img 
-              class="card-image-item" 
-              src="https://images.unsplash.com/photo-1518646261099-bd070a676912?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=4948465739b5a76034aae5380d2f8b67&auto=format&fit=crop&w=1650&q=80" 
-              alt="soup bowl, asian">
-          </div>
+      </slide>
+      <slide>
+        <div class="card">
+          <img 
+            src="https://images.unsplash.com/photo-1518646261099-bd070a676912?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=4948465739b5a76034aae5380d2f8b67&auto=format&fit=crop&w=1650&q=80" 
+            alt="soup bowl, asian">
+          <p>Asian Soup Bowl</p>
         </div>
-      </div>
-    </slide>
-  </carousel>
-
+      </slide>
+    </carousel>
+  </mover>
 </template>
 
 <script>
@@ -58,31 +48,39 @@ export default {
 * {
   margin: 0;
   padding: 0;
-  background-color: #fff;
-}
-/* .contain {
-  margin: 0 auto;
-} */
-.rowing {
-  display: flex;
-  flex-wrap: wrap;
-  width: 100%;
-}
-.column {
-  flex: 1;
-}
-.card-image {
-  height: 160px;
-}
-.card-image-item {
-  height: 110px;
-  width: 100%;
-  border-radius: 7px;
-  padding: 3px;
-  /* box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25),
-    0 10px 10px rgba(0, 0, 0, 0.22); */
 }
 .VueCarousel {
-  margin-left: 16px;
+}
+.VueCarousel-slide:first-child {
+  height: 250px;
+  margin-left: 20px;
+}
+.card {
+  background: #fff;
+  border-radius: 4px;
+  display: inline-block;
+  height: 135px;
+  position: relative;
+  width: 150px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15),
+    0 6px 6px rgba(0, 0, 0, 0.23);
+}
+.card img {
+  height: 100px;
+  border-top-right-radius: 4px;
+  border-top-left-radius: 4px;
+  /* border-radius: 0 !important; */
+}
+.card p {
+  font: Raleway;
+  font-weight: 600;
+  font-size: 0.8em;
+  margin-left: 7px;
+}
+h3 {
+  font-family: Raleway;
+  font-weight: 700;
+  font-size: 1.1em;
+  margin: 0 0 10px 20px;
 }
 </style>

@@ -15,7 +15,6 @@
         <div class="card-content">
           <h1>Asian Soup Bowl</h1>
           <p>Boudin chicken fatback, jerky ground round chuck bacon sausage tenderloin turducken swine drumstick salami ball tip. Burgdoggen frankfurter drumstick pork belly sirloin. Venison pastrami swine chicken picanha, shoulder kevin.</p>
-          <h3 class="trending">Currently trending: </h3>
         </div>
       </div>
     </div>
@@ -69,10 +68,5 @@ export default {
   font-weight: 300;
   font-size: 0.8em;
   margin-bottom: 20px;
-}
-.trending {
-  font-family: Raleway;
-  font-weight: 700;
-  font-size: 1em;
 }
 </style>
