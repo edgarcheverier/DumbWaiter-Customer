@@ -29,3 +29,12 @@ nav {
   font-size: 1.1rem;
   color: white;
 }
+
+a.btn-floating.halfway-fab.waves-effect.waves-light.red.addButton {
+  width: 62px;
+  height: 62px;
+}
+
+i.material-icons.addIcon {
+  line-height: 62px;
+}
