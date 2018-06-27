@@ -1,6 +1,6 @@
 html{
   font-size: 16px;
-  background-color: #82ccdd;
+  background-color:#bbdefb;
 }
 
 .titlecontainer {
@@ -27,12 +27,20 @@ html{
 .dessertsContainer{
   display: flex;
   justify-content: center;
-  margin: 5rem;
+  margin: 3rem;
 } 
 
 .waiterContainer {
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between;
+  margin-top: 3.5rem;
+  margin-right: 1rem;
+  margin-left: 1rem;
+}
+
+.tableContainer {
+  display: flex;
+  justify-content: flex-start;
   margin-top: 3.5rem;
   margin-right: 1rem;
 }
@@ -54,6 +62,6 @@ a.btn-floating.btn-large.waves-effect.waves-light.imageTag{
 }
 
 .cyan {
-  background-color: #6a89cc !important;
+  background-color: #5f8cee !important;
   border-color: #6a89cc !important;
 }

@@ -61,7 +61,6 @@ export default {
       FB.api('/me', dude => {
         this.$router.push('/welcome');
         this.$store.commit('customerInformation', dude);
-        this.$store.commit('authBoolean');
         console.log(this.$store.state.customer.id);
         console.log(this.$store.state.customer.name);
         console.log(`Good to see you, ${dude}.`);

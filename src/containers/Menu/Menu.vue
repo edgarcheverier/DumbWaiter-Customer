@@ -83,7 +83,11 @@ export default {
         description: item.description,
         photo: item.photo,
       });
-      this.$router.push('/'); // here the Shopping List Page
+      M.toast({
+        html: 'Your order is added to the Shopping List :)',
+        classes: 'rounded',
+      });
+      this.$router.push('/Menu'); // here the Shopping List Page
     },
   },
 };
