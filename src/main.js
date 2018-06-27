@@ -1,5 +1,4 @@
 import Vue from 'vue';
-import VueRouter from 'vue-router';
 
 import Login from './containers/Login/Login.vue';
 import Menu from './containers/Menu/Menu.vue';
