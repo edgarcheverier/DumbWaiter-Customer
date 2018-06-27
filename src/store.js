@@ -1,6 +1,5 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
-import axios from 'axios';
 import gql from 'graphql-tag';
 
 import graphqlClient from './graphql';
@@ -9,82 +8,16 @@ Vue.use(Vuex);
 
 export default new Vuex.Store({
   state: {
-    restaurant: [],
+    test: {},
+    restaurant: {},
     customer: {}, // user name and id from facebook
     menuSelected: '', // Food, Drinks or Desserts
     itemSelected: {}, // Dish or Drink selected for the Card Page
     shoppingList: {}, // Dishes or Drinks ready to be order
     table: 10, // is ten for test is going to be added in the connection page
-    foodOptions: [
-      {
-        name: 'Pizza Napolitana',
-        price: '12€',
-        description:
-          'I am a very simple card. I am good at containing small bits of information.',
-        photo:
-          'https://locosxlagastronomia.com/wp-content/uploads/2018/03/pizza-napolitana.jpg',
-      },
-      {
-        name: 'Pasta Carbonara',
-        price: '15€',
-        description:
-          'I am a very simple card. I am good at containing small bits of information.',
-        photo:
-          'https://pioneerwoman.files.wordpress.com/2016/04/how-to-nail-pasta-carbonara-00a.jpg',
-      },
-      {
-        name: 'Pizza Napolitana',
-        price: '12€',
-        description:
-          'I am a very simple card. I am good at containing small bits of information.',
-        photo:
-          'https://locosxlagastronomia.com/wp-content/uploads/2018/03/pizza-napolitana.jpg',
-      },
-      {
-        name: 'Pasta Carbonara',
-        price: '15€',
-        description:
-          'I am a very simple card. I am good at containing small bits of information.',
-        photo:
-          'https://pioneerwoman.files.wordpress.com/2016/04/how-to-nail-pasta-carbonara-00a.jpg',
-      },
-    ],
-    drinksOptions: [
-      {
-        name: 'Guinness',
-        price: '6€',
-        description:
-          'I am a very simple card. I am good at containing small bits of information.',
-        photo:
-          'https://www.guinness-storehouse.com/content/images/ygyw_images/thumbs/guinness_draught.jpg',
-      },
-      {
-        name: 'Coca Cola',
-        price: '3€',
-        description:
-          'I am a very simple card. I am good at containing small bits of information.',
-        photo:
-          'http://www.cocacolaespana.es/content/dam/journey/es/es/private/historia/love-coca-cola/2015/logo-coca-cola-lead.png',
-      },
-    ],
-    dessertsOptions: [
-      {
-        name: 'Chocolate Cake',
-        price: '6€',
-        description:
-          'I am a very simple card. I am good at containing small bits of information.',
-        photo:
-          'https://img.taste.com.au/LHfi_7cR/w1200-h630-cfill/taste/2016/11/flourless-chocolate-hazelnut-cake-50137-1.jpeg',
-      },
-      {
-        name: 'Cheesecake',
-        price: '6€',
-        description:
-          'I am a very simple card. I am good at containing small bits of information.',
-        photo:
-          'https://driscolls.imgix.net/-/media/assets/recipes/raspberry-cheesecake-with-grand-marnier.ashx',
-      },
-    ],
+    foodOptions: [],
+    drinksOptions: [],
+    dessertsOptions: [],
   },
   mutations: {
     menuSelected(state, option) {
@@ -100,23 +33,64 @@ export default new Vuex.Store({
       state.shoppingList = info;
     },
     mutateRestaurant(state, info) {
-      state.restaurant = info;
+      let drinks = [];
+      let desserts = [];
+      let mains = [];
+
+      let restaurantIfon = {
+        name: info.restaurant[0].description,
+        photos: info.restaurant[0].photos,
+      };
+
+      info.restaurant[0].products.map(product => {
+        product.categories.map(categorie => {
+          if (categorie.name == 'drinks') {
+            drinks.push(product);
+          }
+          if (categorie.name == 'desserts') {
+            desserts.push(product);
+          }
+          if (categorie.name == 'mains') {
+            mains.push(product);
+          }
+        });
+      });
+      state.test = info.restaurant[0];
+      state.restaurant = restaurantIfon;
+      state.foodOptions = mains;
+      state.drinksOptions = drinks;
+      state.dessertsOptions = desserts;
     },
   },
   actions: {
     async getDataRest({ commit }, id) {
       let response = await graphqlClient.query({
         query: gql`
-          query Book($bookId: ID!) {
-            book(id: $bookId) {
+          {
+            restaurant(id: 1) {
               id
-              title
-              author
+              name
               description
+              latitude
+              longitude
+              photos {
+                url
+              }
+              products {
+                name
+                price
+                description
+                categories {
+                  name
+                }
+                photos {
+                  url
+                }
+              }
             }
           }
         `,
-        variables: { bookId: id },
+        //variables: { bookId: id },
       });
       await commit('mutateRestaurant', response.data);
     },
