@@ -13,7 +13,7 @@
               <div class="card">
                 <div class="card-image">
                   <img 
-                    :src="item.photo" 
+                    :src="item.photos[0].url" 
                     @click="handleClickImage(item)">
                   <span class="card-title">{{ item.name }}</span>
                   <a 
