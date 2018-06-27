@@ -1,12 +1,13 @@
 <template>
   <div>
-    <welcomeNav 
-      :user-image="userImage" 
+    <welcomeNav
+      :user-image="userImage"
+      :go-checkout="goCheckout"
       :go-to-user="goToUser"/>
-    <WelcomeOptions 
-      :handle-click-food="handleClickFood" 
-      :table-button="tableButton" 
-      :user-table="userTable" 
+    <WelcomeOptions
+      :handle-click-food="handleClickFood"
+      :table-button="tableButton"
+      :user-table="userTable"
       :handle-click-waiter="handleClickWaiter" />
   </div>
 </template>
@@ -41,6 +42,10 @@ export default {
     await console.log(this.$store.state.dessertsOptions);
   },
   methods: {
+    goCheckout() {
+      console.log('on my way');
+      this.$router.push('/Cart');
+    },
     handleClickFood(type) {
       this.$store.commit('menuSelected', type);
       this.$router.push('/Menu');

@@ -11,7 +11,7 @@
       </ul>
       <ul class="right">
         <li>
-          <button>
+          <button @click="props.goCheckout">
             <i class="material-icons rightIcon">local_grocery_store</i>
           </button>
         </li>

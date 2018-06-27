@@ -1,24 +1,25 @@
 <template>
   <div>
-    <MenuNav 
-      :menu-title="menuTitle" 
+    <MenuNav
+      :go-checkout="goCheckout"
+      :menu-title="menuTitle"
       :go-back="goBack"/>
     <div>
       <ul>
-        <li 
-          v-for="(item, index) in items" 
+        <li
+          v-for="(item, index) in items"
           :key="index">
           <div class="row">
             <div class="col s12 m6">
               <div class="card">
                 <div class="card-image">
-                  <img 
-                    :src="item.photos[0].url" 
+                  <img
+                    :src="item.photos[0].url"
                     @click="handleClickImage(item)">
                   <span class="card-title">{{ item.name }}</span>
-                  <a 
+                  <a
                     class="btn-floating halfway-fab waves-effect waves-light red addButton"
-                    @click="addToShoppingCar(item)" 
+                    @click="addToShoppingCar(item)"
                   ><i class="material-icons addIcon">add</i></a>
                 </div>
                 <div class="card-content">
@@ -66,6 +67,9 @@ export default {
   methods: {
     goBack() {
       this.$router.push('/Welcome');
+    },
+    goCheckout() {
+      this.$router.push('/Cart');
     },
     handleClickImage(item) {
       this.$store.commit('itemSelected', {
