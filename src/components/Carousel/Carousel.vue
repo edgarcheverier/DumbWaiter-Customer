@@ -49,17 +49,15 @@ export default {
   margin: 0;
   padding: 0;
 }
-.VueCarousel {
-}
 .VueCarousel-slide:first-child {
-  height: 250px;
+  height: 160px;
   margin-left: 20px;
 }
 .card {
   background: #fff;
   border-radius: 4px;
   display: inline-block;
-  height: 135px;
+  height: 145px;
   position: relative;
   width: 150px;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15),

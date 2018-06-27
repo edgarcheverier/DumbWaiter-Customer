@@ -13,12 +13,21 @@
     <div class="rowing">
       <div class="column">
         <div class="card-content">
-          <h1>Asian Soup Bowl</h1>
-          <p>Boudin chicken fatback, jerky ground round chuck bacon sausage tenderloin turducken swine drumstick salami ball tip. Burgdoggen frankfurter drumstick pork belly sirloin. Venison pastrami swine chicken picanha, shoulder kevin.</p>
+          <h1>Asian Soup Bowl - 9,67 €</h1>
+          <p>Boudin chicken fatback, jerky ground round chuck bacon sausage tenderloin turducken swine drumstick salami ball tip. </p>
+          <button class="order">Order</button>
+          <i class="up small material-icons">chevron_left</i>
+          <i class="down small material-icons">chevron_right</i>
+          
         </div>
       </div>
     </div>
+    <hr class="break">
     <carousel-list/>
+    <footer class="footer">
+      <p class="footer-checkout">Go to checkout</p>
+      <p class="footer-price">9,67 €</p>
+    </footer>
   </div>
 </template>
 
@@ -67,6 +76,67 @@ export default {
   font-family: Merriweather;
   font-weight: 300;
   font-size: 0.8em;
+}
+.break {
+  width: 90%;
+  align-self: center;
   margin-bottom: 20px;
+  margin-left: 20px;
+  opacity: 0.4;
+}
+.order {
+  background: #0a3d62;
+  border-radius: 4px;
+  height: 40px;
+  width: 80px;
+  align-items: center;
+  font-family: Raleway;
+  font-weight: 700;
+  color: #fff;
+  margin-left: 255px;
+}
+.btn-contain {
+  width: 100%;
+  height: 100px;
+  justify-content: space-around;
+}
+.increment {
+  height: 30px;
+  width: 40px;
+  background-color: #0a3d62;
+  align-items: center;
+  margin: 5px;
+}
+i {
+  background-color: #0a3d62;
+  color: #fff;
+  padding: 5px;
+  border-radius: 4px;
+}
+.up {
+  margin-right: 5px;
+}
+.item-up {
+  margin-left: 3px;
+}
+.footer {
+  width: 100%;
+  height: 50px;
+  background-color: #0a3d62;
+  justify-content: space-between;
+}
+.footer-checkout {
+  background-color: inherit;
+  margin-left: 20px;
+  color: #fff;
+  font-family: Raleway;
+  font-weight: 700;
+}
+.footer-price {
+  background-color: inherit;
+  margin-right: 20px;
+  color: #fff;
+  font-family: Raleway;
+  font-weight: 700;
 }
 </style>
