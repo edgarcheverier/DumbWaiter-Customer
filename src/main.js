@@ -1,11 +1,15 @@
 import Vue from 'vue';
+import VueRouter from 'vue-router';
+
 import Login from './containers/Login/Login.vue';
 import Menu from './containers/Menu/Menu.vue';
 import Card from './components/Card/Card.vue';
 import Welcome from './containers/Welcome/Welcome.vue';
+
 import User from './containers/User/User.vue';
 import VueRouter from 'vue-router';
 import FBSignInButton from 'vue-facebook-signin-button';
+
 import store from './store';
 
 Vue.config.productionTip = false;
