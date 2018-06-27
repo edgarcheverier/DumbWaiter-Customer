@@ -1,15 +1,20 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
+import axios from 'axios';
+import gql from 'graphql-tag';
+
+import graphqlClient from './graphql';
 
 Vue.use(Vuex);
 
 export default new Vuex.Store({
   state: {
+    restaurant: [],
     customer: {}, // user name and id from facebook
     menuSelected: '', // Food, Drinks or Desserts
-    authBoolean: false,
     itemSelected: {}, // Dish or Drink selected for the Card Page
     shoppingList: {}, // Dishes or Drinks ready to be order
+    table: 10, // is ten for test is going to be added in the connection page
     foodOptions: [
       {
         name: 'Pizza Napolitana',
@@ -91,12 +96,29 @@ export default new Vuex.Store({
     customerInformation(state, info) {
       state.customer = info;
     },
-    authBoolean(state) {
-      state.authBoolean = !state.authBoolean;
-    },
     shoppingList(state, info) {
       state.shoppingList = info;
     },
+    mutateRestaurant(state, info) {
+      state.restaurant = info;
+    },
   },
-  actions: {},
+  actions: {
+    async getDataRest({ commit }, id) {
+      let response = await graphqlClient.query({
+        query: gql`
+          query Book($bookId: ID!) {
+            book(id: $bookId) {
+              id
+              title
+              author
+              description
+            }
+          }
+        `,
+        variables: { bookId: id },
+      });
+      await commit('mutateRestaurant', response.data);
+    },
+  },
 });

@@ -28,7 +28,14 @@
     <div class="waiterContainer">
       <div class="buttonsLabel">
         <button 
-          class="btn-floating btn-large waves-effect waves-light z-depth-4" 
+          class="btn-floating btn-large waves-effect waves-light z-depth-4 blue lighten-1" 
+          @click="tableButton"
+        ><i class="material-icons">border_outer</i></button>
+        <label class="labelClass">Table Nº {{ userTable }}</label>
+      </div>
+      <div class="buttonsLabel">
+        <button 
+          class="btn-floating btn-large waves-effect waves-light z-depth-4  teal accent-4 lighten-1" 
           @click="handleClickWaiter"><i class="material-icons">face</i></button>
         <label class="labelClass">Waiter</label>
       </div>
@@ -38,6 +45,7 @@
 
 <script>
 import WelcomeNav from './WelcomeNav.vue';
+
 export default {
   name: 'Welcome',
   components: {
@@ -50,9 +58,15 @@ export default {
           this.$store.state.customer.id
         }/picture)`,
       },
+      userTable: this.$store.state.table,
     };
   },
   computed: {},
+  async beforeCreate() {
+    await console.log(this.$store.state.restaurant);
+    await this.$store.dispatch('getDataRest');
+    await console.log(this.$store.state.restaurant);
+  },
   methods: {
     handleClickFood(type) {
       this.$store.commit('menuSelected', type);
@@ -64,6 +78,12 @@ export default {
     handleClickWaiter: () => {
       M.toast({
         html: 'The Waiter Is Coming :)',
+        classes: 'rounded',
+      });
+    },
+    tableButton: () => {
+      M.toast({
+        html: 'Your ordeners will arrive here',
         classes: 'rounded',
       });
     },
