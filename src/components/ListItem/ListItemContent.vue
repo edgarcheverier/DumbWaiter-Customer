@@ -2,7 +2,7 @@
   <div class="list-item-wrap">
     <div class="list-item-content">
       <h1 id="list-item-header">{{ props.name }}</h1>
-      <p id="list-item-slugline">{{ props.description }}</p>
+      <!--  <p id="list-item-slugline">{{ props.description }}</p> -->
     </div>
     <p id="list-item-price">{{ props.price }} €</p>
   </div>
@@ -23,8 +23,8 @@
 #list-item-header {
   font-family: Raleway;
   font-weight: 400;
-  font-size: 2em;
-  margin-bottom: 1px;
+  font-size: 1.7em;
+  margin-bottom: 10px;
   margin-top: 10px;
 }
 #list-item-slugline {
@@ -35,10 +35,10 @@
 #list-item-price {
   position: absolute;
   font-family: Raleway;
-  font-weight: 400;
+  font-weight: 500;
   font-size: 1.2em;
   color: #fff;
-  top: 75%;
+  top: 80%;
   left: 5%;
 }
 </style>

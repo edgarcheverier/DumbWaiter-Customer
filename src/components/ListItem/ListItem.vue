@@ -1,6 +1,6 @@
 <template>
   <div id="wrapper">
-    <Navbar />
+   
     <ul>
       <li 
         v-for="(item, index) in items" 
@@ -16,7 +16,7 @@
         </div>
       </li>
     </ul>
-    <Footer />
+    
   </div>
 </template>
 
@@ -77,7 +77,6 @@ export default {
   list-style: none;
 }
 #wrapper {
-  height: 100vh;
 }
 #list-item-container {
   display: flex;
