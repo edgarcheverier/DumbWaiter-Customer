@@ -4,10 +4,12 @@
   color: white;
   margin-top: 10rem;
 }
+
 .logo {
   max-width: 8rem;
   max-height: 8rem;
 }
+
 .facebookContainer {
   display: flex;
   justify-content: center;

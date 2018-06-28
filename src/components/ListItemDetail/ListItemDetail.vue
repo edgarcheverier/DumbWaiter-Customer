@@ -1,5 +1,6 @@
 <template>
   <div id="list-item-detail-wrapper">
+    <Navbar/>
     <list-item-detail-image/>
     <list-item-detail-content/>
     <list-item-detail-buttons/>
@@ -10,16 +11,18 @@
 </template>
 
 <script>
+import Navbar from '../Navbar/Navbar';
+import ListItemDetailBreak from './ListItemDetailBreak';
 import ListItemDetailImage from './ListiItemDetailImage';
+import ListItemDetailCarousel from '../Carousel/Carousel';
 import ListItemDetailContent from './ListItemDetailContent';
 import ListItemDetailButtons from './ListItemDetailButtons';
-import ListItemDetailBreak from './ListItemDetailBreak';
-import ListItemDetailCarousel from '../Carousel/Carousel';
 import Footer from '../Footer/Footer';
 
 export default {
   name: 'ListItemDetail',
   components: {
+    Navbar,
     ListItemDetailImage,
     ListItemDetailContent,
     ListItemDetailButtons,
@@ -36,7 +39,6 @@ export default {
   padding: 0;
 }
 #list-item-detail-wrapper {
-  height: 100vh;
   display: flex;
   flex-direction: column;
 }
