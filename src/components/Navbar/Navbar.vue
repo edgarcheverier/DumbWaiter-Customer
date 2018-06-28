@@ -1,6 +1,6 @@
 <template>
   <div id="navbar-container">
-    <button>
+    <button @click="goBack">
       <ion-icon 
         id="back-button" 
         name="arrow-back"/>
@@ -12,7 +12,11 @@
 <script>
 export default {
   name: 'Navbar',
-  components: {},
+  methods: {
+    goBack() {
+      this.$router.push('/Welcome');
+    },
+  },
 };
 </script>
 
@@ -22,6 +26,7 @@ export default {
   height: 50px;
   background-color: #0a3d62;
   justify-content: flex-start;
+  margin-bottom: 0.5rem;
 }
 #back-button {
   margin-left: 10px;

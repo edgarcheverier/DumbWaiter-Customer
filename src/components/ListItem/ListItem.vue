@@ -1,11 +1,22 @@
 <template>
   <div id="wrapper">
-    <Navbar/>
-    <div id="list-item-container">
-      <list-item-image/>
-      <list-item-content/>
-    </div>
-    <Footer/>
+    <Navbar />
+    <ul>
+      <li 
+        v-for="(item, index) in items" 
+        :key="index">
+        <div id="list-item-container">
+          <list-item-image 
+            :image="item.photos[0].url"
+            :handle-click-image="handleClickImage(item)" />
+          <list-item-content 
+            :name="item.name" 
+            :description="item.description" 
+            :price="item.price"/>
+        </div>
+      </li>
+    </ul>
+    <Footer />
   </div>
 </template>
 
@@ -22,6 +33,39 @@ export default {
     ListItemImage,
     ListItemContent,
     Footer,
+  },
+  data: function() {
+    if (this.$store.state.menuSelected == 'Food') {
+      return {
+        items: this.$store.state.foodOptions,
+        menuTitle: this.$store.state.menuSelected,
+      };
+    } else if (this.$store.state.menuSelected == 'Drinks') {
+      return {
+        items: this.$store.state.drinksOptions,
+        menuTitle: this.$store.state.menuSelected,
+      };
+    } else if (
+      this.$store.state.menuSelected == 'Desserts'
+    ) {
+      return {
+        items: this.$store.state.dessertsOptions,
+        menuTitle: this.$store.state.menuSelected,
+      };
+    }
+  },
+  methods: {
+    handleClickImage(item) {
+      this.$store.commit('itemSelected', {
+        name: item.name,
+        price: item.price,
+        description: item.description,
+        photo: item.photo,
+      });
+    },
+    goCheckout() {
+      this.$router.push('/Cart');
+    },
   },
 };
 </script>

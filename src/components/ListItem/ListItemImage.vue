@@ -1,20 +1,13 @@
-<template>
+<template functional>
   <div id="list-item-contain">
     <div id="item-overlay"/>
-    <img 
+    <img
       id="list-image"
-      src="https://images.unsplash.com/photo-1518646261099-bd070a676912?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=4948465739b5a76034aae5380d2f8b67&auto=format&fit=crop&w=1650&q=80" 
+      :src="props.image"
       alt="food">
   </div>
 
 </template>
-
-<script>
-export default {
-  name: 'ListItemImage',
-  components: {},
-};
-</script>
 
 <style>
 #item-overlay {

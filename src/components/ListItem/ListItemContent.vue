@@ -1,20 +1,14 @@
-<template>
+<template functional>
   <div class="list-item-wrap">
     <div class="list-item-content">
-      <h1 id="list-item-header">Asian Soup Bowl</h1>
-      <p id="list-item-slugline">Boudin chicken fatback, jerky</p>
+      <h1 id="list-item-header">{{ props.name }}</h1>
+      <p id="list-item-slugline">{{ props.description }}</p>
     </div>
-    <p id="list-item-price">7,19 €</p>
+    <p id="list-item-price">{{ props.price }} €</p>
   </div>
 
 </template>
 
-<script>
-export default {
-  name: 'ListItemContent',
-  components: {},
-};
-</script>
 
 <style>
 .list-item-content {
