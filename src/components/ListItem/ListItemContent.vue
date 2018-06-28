@@ -28,20 +28,20 @@ export default {
 }
 #list-item-header {
   font-family: Raleway;
-  font-weight: 600;
+  font-weight: 400;
   font-size: 2em;
   margin-bottom: 1px;
   margin-top: 10px;
 }
 #list-item-slugline {
   font-family: Raleway;
-  font-weight: 600;
+  font-weight: 400;
   font-size: 1em;
 }
 #list-item-price {
   position: absolute;
   font-family: Raleway;
-  font-weight: 600;
+  font-weight: 400;
   font-size: 1.2em;
   color: #fff;
   top: 75%;
