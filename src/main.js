@@ -25,6 +25,7 @@ const router = new VueRouter({
     { path: '/Card', component: Card },
     { path: '/Cart', component: Cart },
     { path: '/Menu', component: Menu },
+    { path: '/Cart', component: Cart },
   ],
 });
 

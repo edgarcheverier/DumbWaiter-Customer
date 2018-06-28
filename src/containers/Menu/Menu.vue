@@ -60,7 +60,6 @@ export default {
         description: item.description,
         photo: item.photo,
         quantity: 1,
-        id: item.id,
       });
       console.log(this.$store.state.shoppingList);
       M.toast({
