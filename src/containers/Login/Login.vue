@@ -25,6 +25,7 @@
 </template>
 
 <script>
+//import FacebookInformation from '../../FacebookLogin/facebook.config.js';
 window.fbAsyncInit = function() {
   FB.init({
     appId: '246012439316213',

@@ -10,6 +10,7 @@ const GET_RESTAURANT = `
       url
     }
     products {
+      id
       name
       price
       description
