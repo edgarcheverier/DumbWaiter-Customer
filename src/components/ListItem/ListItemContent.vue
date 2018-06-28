@@ -22,7 +22,7 @@ export default {
   color: #fff;
   width: 100%;
   margin: 0 auto;
-  top: 30%;
+  top: 23%;
   left: 50%;
   transform: translate(-50%, -50%);
 }
