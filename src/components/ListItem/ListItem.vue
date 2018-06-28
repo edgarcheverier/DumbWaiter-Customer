@@ -76,8 +76,6 @@ export default {
   padding: 0;
   list-style: none;
 }
-#wrapper {
-}
 #list-item-container {
   display: flex;
   position: relative;
