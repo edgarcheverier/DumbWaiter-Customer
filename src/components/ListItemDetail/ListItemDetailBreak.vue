@@ -1,20 +1,20 @@
 <template>
-  <hr class="break">
+  <hr id="break">
 </template>
 
 <script>
 export default {
-  name: 'CardBreak',
+  name: 'ListItemDetailBreak',
   components: {},
 };
 </script>
 
 <style>
-.break {
-  display: flex;
+#break {
   width: 90%;
+  opacity: 0.4;
+  display: flex;
   align-self: center;
   margin: 20px 0 !important;
-  opacity: 0.4;
 }
 </style>
