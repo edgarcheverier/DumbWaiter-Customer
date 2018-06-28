@@ -31,6 +31,11 @@ export default {
     }
   },
   computed: {},
+  beforeCreate() {
+    if (this.$store.state.customer.name == undefined) {
+      this.$router.push('/');
+    }
+  },
   methods: {
     goBack() {
       this.$router.push('/Welcome');

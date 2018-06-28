@@ -5,7 +5,7 @@
     <card-buttons/>
     <card-break/>
     <carousel-list/>
-    <card-footer/>
+    <footer/>
   </div>
 </template>
 
@@ -14,8 +14,8 @@ import CardImage from '../Card/CardImage';
 import CardContent from '../Card/CardContent';
 import CardButtons from '../Card/CardButtons';
 import CardBreak from '../Card/CardBreak';
-import CardFooter from '../Card/CardFooter';
-import CarouselList from '../Carousel/Carousel.vue';
+import Footer from '../Footer/Footer';
+import CarouselList from '../Carousel/Carousel';
 
 export default {
   name: 'ListCard',
@@ -25,7 +25,7 @@ export default {
     CardButtons,
     CardBreak,
     CarouselList,
-    CardFooter,
+    Footer,
   },
 };
 </script>
@@ -34,7 +34,6 @@ export default {
 * {
   margin: 0;
   padding: 0;
-  background-color: #fff;
 }
 .contain {
   height: 100vh;

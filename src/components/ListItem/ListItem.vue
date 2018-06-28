@@ -1,30 +1,38 @@
 <template>
-  <div id="wrap-list-item">
-    <list-item-image/>
-    <list-item-content/>
+  <div id="wrapper">
+    <div id="list-item-container">
+      <list-item-image/>
+      <list-item-content/>
+    </div>
+    <Footer/>
   </div>
 </template>
 
 <script>
 import ListItemImage from './ListItemImage';
 import ListItemContent from './ListItemContent';
+import Footer from '../Footer/Footer';
 
 export default {
   name: 'ListItem',
   components: {
     ListItemImage,
     ListItemContent,
+    Footer,
   },
 };
 </script>
 
-<style >
+<style>
 * {
   margin: 0;
   padding: 0;
   list-style: none;
 }
-#wrap-list-item {
+#wrapper {
+  height: 100vh;
+}
+#list-item-container {
   display: flex;
   position: relative;
   text-align: center;

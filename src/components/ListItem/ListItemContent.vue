@@ -30,7 +30,7 @@ export default {
   font-family: Raleway;
   font-weight: 600;
   font-size: 2em;
-  margin-bottom: 5px;
+  margin-bottom: 1px;
   margin-top: 10px;
 }
 #list-item-slugline {
