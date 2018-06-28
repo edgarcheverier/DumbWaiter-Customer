@@ -59,9 +59,9 @@ export default {
   },
   methods: {
     onSignInSuccess(response) {
-      FB.api('/me', dude => {
+      FB.api('/me', customer => {
         this.$router.push('/welcome');
-        this.$store.commit('customerInformation', dude);
+        this.$store.commit('customerInformation', customer);
         console.log(this.$store.state.customer.id);
         console.log(this.$store.state.customer.name);
       });
