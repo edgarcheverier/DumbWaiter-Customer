@@ -8,8 +8,18 @@ export const mutations = {
   customerInformation(state, info) {
     state.customer = info;
   },
+  toggleQuantity(state, item) {
+state.shoppingList.forEach(order => {
+if(order.name === item.name) {
+  if
+}
+
+})
+
+
+
+  }
   shoppingList(state, info) {
-    console.log(info);
     if (state.shoppingList.length === 0) {
       state.shoppingList.push(info);
       return;

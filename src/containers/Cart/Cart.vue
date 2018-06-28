@@ -4,7 +4,7 @@
       :go-back="goBack"/>
 
     <div class="container">
-      <ItemCart 
+      <ItemCart
         v-for="(item, index) in shoppingListData"
         :key="index"
         :item="item"
@@ -36,7 +36,12 @@ export default {
     goBack() {
       this.$router.push('/Welcome');
     },
-    quantityToggle(item, direction) {},
+    quantityToggle(item, direction) {
+      this.$store.commit('toggleQuantity', {
+        item,
+        direction,
+      });
+    },
   },
 };
 </script>
