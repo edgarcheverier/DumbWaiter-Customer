@@ -1,9 +1,8 @@
 <template>
+  <div id="navbar-container">
+    <i class="medium material-icons">chevron_left</i>
+  </div>
   
-  <i 
-    class="medium material-icons">chevron_left</i>
-  
-
 </template>
 
 <script>

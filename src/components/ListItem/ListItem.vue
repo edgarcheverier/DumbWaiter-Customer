@@ -1,5 +1,6 @@
 <template>
   <div id="wrapper">
+    <Navbar/>
     <div id="list-item-container">
       <list-item-image/>
       <list-item-content/>
@@ -9,6 +10,7 @@
 </template>
 
 <script>
+import Navbar from '../Navbar/Navbar';
 import ListItemImage from './ListItemImage';
 import ListItemContent from './ListItemContent';
 import Footer from '../Footer/Footer';
@@ -16,6 +18,7 @@ import Footer from '../Footer/Footer';
 export default {
   name: 'ListItem',
   components: {
+    Navbar,
     ListItemImage,
     ListItemContent,
     Footer,
