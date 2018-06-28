@@ -40,6 +40,9 @@ export default {
     goBack() {
       this.$router.push('/Welcome');
     },
+    goCheckout() {
+      this.$router.push('/Cart');
+    },
     handleClickImage(item) {
       this.$store.commit('itemSelected', {
         name: item.name,
@@ -51,11 +54,13 @@ export default {
     },
     addToShoppingCar(item) {
       this.$store.commit('shoppingList', {
+        id: item.id,
         name: item.name,
         price: item.price,
         description: item.description,
         photo: item.photo,
       });
+      console.log(this.$store.state.shoppingList);
       M.toast({
         html: 'Your order is added to the Shopping List :)',
         classes: 'rounded',

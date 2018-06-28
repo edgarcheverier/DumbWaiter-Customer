@@ -1,12 +1,13 @@
 <template>
   <div>
-    <welcomeNav 
-      :user-image="userImage" 
+    <welcomeNav
+      :user-image="userImage"
+      :go-checkout="goCheckout"
       :go-to-user="goToUser"/>
-    <WelcomeOptions 
-      :handle-click-food="handleClickFood" 
-      :table-button="tableButton" 
-      :user-table="userTable" 
+    <WelcomeOptions
+      :handle-click-food="handleClickFood"
+      :table-button="tableButton"
+      :user-table="userTable"
       :handle-click-waiter="handleClickWaiter" />
   </div>
 </template>
@@ -32,15 +33,17 @@ export default {
   },
   computed: {},
   async beforeCreate() {
-    await this.$store.dispatch('getDataRest');
-    await console.log(this.$store.state.test);
-    await console.log(this.$store.state.restaurant.name);
-    await console.log(this.$store.state.restaurant.photos);
-    await console.log(this.$store.state.foodOptions);
-    await console.log(this.$store.state.drinksOptions);
-    await console.log(this.$store.state.dessertsOptions);
+    if (this.$store.state.customer.name !== undefined) {
+      await this.$store.dispatch('getDataRest');
+    } else {
+      this.$router.push('/');
+    }
   },
   methods: {
+    goCheckout() {
+      console.log('on my way');
+      this.$router.push('/Cart');
+    },
     handleClickFood(type) {
       this.$store.commit('menuSelected', type);
       this.$router.push('/Menu');
