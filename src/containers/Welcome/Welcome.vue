@@ -33,13 +33,11 @@ export default {
   },
   computed: {},
   async beforeCreate() {
-    await this.$store.dispatch('getDataRest');
-    await console.log(this.$store.state.test);
-    await console.log(this.$store.state.restaurant.name);
-    await console.log(this.$store.state.restaurant.photos);
-    await console.log(this.$store.state.foodOptions);
-    await console.log(this.$store.state.drinksOptions);
-    await console.log(this.$store.state.dessertsOptions);
+    if (this.$store.state.customer.name !== undefined) {
+      await this.$store.dispatch('getDataRest');
+    } else {
+      this.$router.push('/');
+    }
   },
   methods: {
     goCheckout() {

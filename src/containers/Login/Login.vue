@@ -12,8 +12,8 @@
     </div>
     <div class="facebookContainer">
       <fb-signin-button
-        :params="fbSignInParams" 
-        type="submit"
+        :params="fbSignInParams"
+        type="submit" 
         name="action"
         @success="onSignInSuccess"
         @error="onSignInError">
@@ -25,6 +25,7 @@
 </template>
 
 <script>
+//import FacebookInformation from '../../FacebookLogin/facebook.config.js';
 window.fbAsyncInit = function() {
   FB.init({
     appId: '246012439316213',
@@ -58,12 +59,11 @@ export default {
   },
   methods: {
     onSignInSuccess(response) {
-      FB.api('/me', dude => {
+      FB.api('/me', customer => {
         this.$router.push('/welcome');
-        this.$store.commit('customerInformation', dude);
+        this.$store.commit('customerInformation', customer);
         console.log(this.$store.state.customer.id);
         console.log(this.$store.state.customer.name);
-        console.log(`Good to see you, ${dude}.`);
       });
     },
     onSignInError(error) {
