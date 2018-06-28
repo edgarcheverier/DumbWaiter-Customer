@@ -13,7 +13,7 @@ export default new Vuex.Store({
     customer: {}, // user name and id from facebook
     menuSelected: '', // Food, Drinks or Desserts
     itemSelected: {}, // Dish or Drink selected for the Card Page
-    shoppingList: {}, // Dishes or Drinks ready to be order
+    shoppingList: [], // Dishes or Drinks ready to be order
     table: 10, // is ten for test is going to be added in the connection page
     foodOptions: [],
     drinksOptions: [],
@@ -30,7 +30,22 @@ export default new Vuex.Store({
       state.customer = info;
     },
     shoppingList(state, info) {
-      state.shoppingList = info;
+      console.log(info);
+      if (state.shoppingList.length === 0) {
+        state.shoppingList.push(info);
+        return;
+      } else {
+        if (
+          state.shoppingList.filter((el, key) => {
+            if (el.name == info.name) {
+              state.shoppingList[key].quantity += 1;
+              return true;
+            }
+          }).length === 0
+        ) {
+          state.shoppingList.push(info);
+        }
+      }
     },
     mutateRestaurant(state, info) {
       let drinks = [];

@@ -86,6 +86,8 @@ export default {
         price: item.price,
         description: item.description,
         photo: item.photo,
+        quantity: 1,
+        id: item.id,
       });
       M.toast({
         html: 'Your order is added to the Shopping List :)',
