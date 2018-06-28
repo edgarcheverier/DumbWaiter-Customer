@@ -45,7 +45,6 @@ window.fbAsyncInit = function() {
   js.src = '//connect.facebook.net/en_US/sdk.js';
   fjs.parentNode.insertBefore(js, fjs);
 })(document, 'script', 'facebook-jssdk');
-
 export default {
   name: 'Login',
   components: {},
@@ -60,6 +59,7 @@ export default {
   methods: {
     onSignInSuccess(response) {
       FB.api('/me', customer => {
+        console.log(response);
         this.$router.push('/welcome');
         this.$store.commit('customerInformation', customer);
         console.log(this.$store.state.customer.id);
