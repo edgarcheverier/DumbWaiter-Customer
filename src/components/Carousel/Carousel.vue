@@ -1,5 +1,5 @@
 <template>
-  <mover>
+  <div class="mover">
     <h3>Currently trending: </h3>
     <carousel 
       :pagination-enabled="false" 
@@ -29,7 +29,7 @@
         </div>
       </slide>
     </carousel>
-  </mover>
+  </div>
 </template>
 
 <script>
@@ -70,7 +70,7 @@ export default {
   /* border-radius: 0 !important; */
 }
 .card p {
-  font: Raleway;
+  font-family: Raleway;
   font-weight: 600;
   font-size: 0.8em;
   margin-left: 7px;

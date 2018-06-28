@@ -9,7 +9,22 @@ export const mutations = {
     state.customer = info;
   },
   shoppingList(state, info) {
-    state.shoppingList.push(info);
+    console.log(info);
+    if (state.shoppingList.length === 0) {
+      state.shoppingList.push(info);
+      return;
+    } else {
+      if (
+        state.shoppingList.filter((el, key) => {
+          if (el.name == info.name) {
+            state.shoppingList[key].quantity = 1;
+            return true;
+          }
+        }).length === 0
+      ) {
+        state.shoppingList.push(info);
+      }
+    }
   },
   mutateRestaurant(state, info) {
     let drinks = [];
