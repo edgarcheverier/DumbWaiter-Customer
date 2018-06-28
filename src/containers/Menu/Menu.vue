@@ -59,6 +59,7 @@ export default {
         price: item.price,
         description: item.description,
         photo: item.photo,
+        quantity: 1,
       });
       console.log(this.$store.state.shoppingList);
       M.toast({

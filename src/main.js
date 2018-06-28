@@ -4,6 +4,7 @@ import Login from './containers/Login/Login.vue';
 import Menu from './containers/Menu/Menu.vue';
 import Card from './components/Card/Card.vue';
 import Welcome from './containers/Welcome/Welcome.vue';
+import Cart from './containers/Cart/Cart.vue';
 
 import User from './containers/User/User.vue';
 import VueRouter from 'vue-router';
@@ -23,6 +24,7 @@ const router = new VueRouter({
     { path: '/User', component: User },
     { path: '/Card', component: Card },
     { path: '/Menu', component: Menu },
+    { path: '/Cart', component: Cart },
   ],
 });
 
