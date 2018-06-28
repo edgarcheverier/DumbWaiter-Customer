@@ -8,7 +8,8 @@
   </div>
 
 </template>
-
+<script>
+</script>
 
 <style>
 .list-item-content {
@@ -22,12 +23,16 @@
 }
 #list-item-header {
   font-family: Raleway;
-  font-weight: 400;
-  font-size: 1.7em;
-  margin-bottom: 10px;
-  margin-top: 10px;
+  font-weight: 600;
+  font-size: 2em;
+  margin-bottom: 1px;
+  margin-top: 25px;
 }
 #list-item-slugline {
+  width: 350px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
   font-family: Raleway;
   font-weight: 400;
   font-size: 1em;
