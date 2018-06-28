@@ -12,8 +12,8 @@
     </div>
     <div class="facebookContainer">
       <fb-signin-button
-        :params="fbSignInParams" 
-        type="submit"
+        :params="fbSignInParams"
+        type="submit" 
         name="action"
         @success="onSignInSuccess"
         @error="onSignInError">
@@ -63,7 +63,6 @@ export default {
         this.$store.commit('customerInformation', dude);
         console.log(this.$store.state.customer.id);
         console.log(this.$store.state.customer.name);
-        console.log(`Good to see you, ${dude}.`);
       });
     },
     onSignInError(error) {
