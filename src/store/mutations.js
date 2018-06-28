@@ -8,8 +8,8 @@ export const mutations = {
   customerInformation(state, info) {
     state.customer = info;
   },
+
   shoppingList(state, info) {
-    console.log(info);
     if (state.shoppingList.length === 0) {
       state.shoppingList.push(info);
       return;

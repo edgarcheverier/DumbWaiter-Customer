@@ -46,7 +46,8 @@ export default {
     },
     handleClickFood(type) {
       this.$store.commit('menuSelected', type);
-      this.$router.push('/Menu');
+      console.log(type, this.$store.state.menuSelected);
+      this.$router.push('/List');
     },
     goToUser() {
       this.$router.push('/User');

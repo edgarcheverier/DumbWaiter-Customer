@@ -1,7 +1,9 @@
 <template>
   <div id="footer-content">
-    <button id="footer-content-checkout">Go to checkout</button>
-    <p id="footer-content-price">9,67 €</p>
+    <button 
+      id="footer-content-checkout" >
+      Go to checkout</button>
+    <p id="footer-content-price"/>
   </div>
 </template>
 

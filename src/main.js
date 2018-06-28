@@ -1,7 +1,7 @@
 import Vue from 'vue';
 
 import Login from './containers/Login/Login.vue';
-import Menu from './containers/Menu/Menu.vue';
+import List from './containers/List/List.vue';
 import Welcome from './containers/Welcome/Welcome.vue';
 import ListItemDetail from './components/ListItemDetail/ListItemDetail.vue';
 import Cart from './containers/Cart/Cart.vue';
@@ -23,7 +23,7 @@ const router = new VueRouter({
     { path: '/Welcome', component: Welcome },
     { path: '/User', component: User },
     { path: '/detail', component: ListItemDetail },
-    { path: '/Menu', component: Menu },
+    { path: '/List', component: List },
     { path: '/Cart', component: Cart },
   ],
 });
