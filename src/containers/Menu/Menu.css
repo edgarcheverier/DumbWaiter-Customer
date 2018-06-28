@@ -1,0 +1,40 @@
+nav {
+  background-color: #6a89cc;
+  margin-bottom: 4rem;
+}
+
+.leftIcon {
+  margin-left: 0.8rem;
+}
+
+.rightIcon{
+  margin-right: 0.8rem;
+}
+
+.photoContainer{
+  display: flex;
+  justify-content: center;
+}
+
+.foodPhoto {
+  width: 95%;
+  max-height: 12rem;
+  border-radius: 0.5rem;
+}
+
+.nameContainer {
+  display: flex;
+  justify-content: space-around;
+  margin: 0.8rem 0;
+  font-size: 1.1rem;
+  color: white;
+}
+
+a.btn-floating.halfway-fab.waves-effect.waves-light.red.addButton {
+  width: 62px;
+  height: 62px;
+}
+
+i.material-icons.addIcon {
+  line-height: 62px;
+}

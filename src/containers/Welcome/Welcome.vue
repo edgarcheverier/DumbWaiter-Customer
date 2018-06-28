@@ -1,0 +1,69 @@
+<template>
+  <div>
+    <welcomeNav 
+      :user-image="userImage" 
+      :go-to-user="goToUser"/>
+    <WelcomeOptions 
+      :handle-click-food="handleClickFood" 
+      :table-button="tableButton" 
+      :user-table="userTable" 
+      :handle-click-waiter="handleClickWaiter" />
+  </div>
+</template>
+
+<script>
+import WelcomeNav from './WelcomeNav.vue';
+import WelcomeOptions from './WelcomeOptions.vue';
+export default {
+  name: 'Welcome',
+  components: {
+    WelcomeNav,
+    WelcomeOptions,
+  },
+  data: function() {
+    return {
+      userImage: {
+        backgroundImage: `url(http://graph.facebook.com/${
+          this.$store.state.customer.id
+        }/picture)`,
+      },
+      userTable: this.$store.state.table,
+    };
+  },
+  computed: {},
+  async beforeCreate() {
+    await this.$store.dispatch('getDataRest');
+    await console.log(this.$store.state.test);
+    await console.log(this.$store.state.restaurant.name);
+    await console.log(this.$store.state.restaurant.photos);
+    await console.log(this.$store.state.foodOptions);
+    await console.log(this.$store.state.drinksOptions);
+    await console.log(this.$store.state.dessertsOptions);
+  },
+  methods: {
+    handleClickFood(type) {
+      this.$store.commit('menuSelected', type);
+      this.$router.push('/Menu');
+    },
+    goToUser() {
+      this.$router.push('/User');
+    },
+    handleClickWaiter: () => {
+      M.toast({
+        html: 'The Waiter Is Coming :)',
+        classes: 'rounded',
+      });
+    },
+    tableButton: () => {
+      M.toast({
+        html: 'Your ordeners will arrive here',
+        classes: 'rounded',
+      });
+    },
+  },
+};
+</script>
+
+<style lang="scss" scoped>
+@import 'Welcome.css';
+</style>
