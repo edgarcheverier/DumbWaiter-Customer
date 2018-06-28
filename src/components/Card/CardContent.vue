@@ -23,6 +23,7 @@ export default {
   font-weight: 300;
   font-size: 1.7em;
   margin-bottom: 10px;
+  margin-top: 10px;
 }
 .card-content p {
   font-family: Merriweather;

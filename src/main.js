@@ -10,7 +10,7 @@ import User from './containers/User/User.vue';
 import VueRouter from 'vue-router';
 import FBSignInButton from 'vue-facebook-signin-button';
 
-import store from './store';
+import store from './store/store.js';
 
 Vue.config.productionTip = false;
 Vue.use(VueRouter);
@@ -35,5 +35,3 @@ new Vue({
     return <router-view />;
   },
 }).$mount('#app');
-
-//, rule: function() {return store.state.authBoolean}

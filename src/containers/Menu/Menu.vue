@@ -1,47 +1,14 @@
 <template>
-  <div>
-    <MenuNav
-      :go-checkout="goCheckout"
-      :menu-title="menuTitle"
-      :go-back="goBack"/>
-    <div>
-      <ul>
-        <li
-          v-for="(item, index) in items"
-          :key="index">
-          <div class="row">
-            <div class="col s12 m6">
-              <div class="card">
-                <div class="card-image">
-                  <img
-                    :src="item.photos[0].url"
-                    @click="handleClickImage(item)">
-                  <span class="card-title">{{ item.name }}</span>
-                  <a
-                    class="btn-floating halfway-fab waves-effect waves-light red addButton"
-                    @click="addToShoppingCar(item)"
-                  ><i class="material-icons addIcon">add</i></a>
-                </div>
-                <div class="card-content">
-                  <p>{{ item.description }} - {{ item.price }}</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </li>
-      </ul>
-    </div>
-  </div>
+  <list-item/>
 </template>
 
-
 <script>
-import MenuNav from './MenuNav.vue';
+import ListItem from '../../components/ListItem/ListItem';
 
 export default {
   name: 'Welcome',
   components: {
-    MenuNav,
+    ListItem,
   },
   data: function() {
     if (this.$store.state.menuSelected == 'Food') {
@@ -64,6 +31,11 @@ export default {
     }
   },
   computed: {},
+  beforeCreate() {
+    if (this.$store.state.customer.name == undefined) {
+      this.$router.push('/');
+    }
+  },
   methods: {
     goBack() {
       this.$router.push('/Welcome');
@@ -82,6 +54,7 @@ export default {
     },
     addToShoppingCar(item) {
       this.$store.commit('shoppingList', {
+        id: item.id,
         name: item.name,
         price: item.price,
         description: item.description,
@@ -89,6 +62,7 @@ export default {
         quantity: 1,
         id: item.id,
       });
+      console.log(this.$store.state.shoppingList);
       M.toast({
         html: 'Your order is added to the Shopping List :)',
         classes: 'rounded',
@@ -99,6 +73,15 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
-@import 'Menu.css';
+<style scoped>
+* {
+  margin: 0;
+  padding: 0;
+}
+.contain {
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  height: 100vh;
+}
 </style>

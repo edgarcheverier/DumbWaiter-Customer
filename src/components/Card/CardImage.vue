@@ -17,6 +17,6 @@ export default {
   flex: 1;
 } */
 .card-image-hero {
-  height: 250px;
+  height: 220px;
 }
 </style>
