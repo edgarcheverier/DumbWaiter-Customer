@@ -1,6 +1,6 @@
 <template functional>
   <nav>
-    <div class="nav-wrapper">
+    <div class="c">
       <h6 class="brand-logo center">{{ props.menuTitle }}</h6>
       <ul class="left">
         <li>
@@ -19,3 +19,10 @@
     </div>
   </nav>
 </template>
+
+<style lang="scss" scoped>
+
+
+
+
+</style>

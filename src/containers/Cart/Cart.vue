@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="max-container">
     <CartNav
       :go-back="goBack"
       :go-checkout="goCheckout"
@@ -14,9 +14,11 @@
         :sub-total="subTotal"
       />
     </div>
-    <div class="footer"/>
+
     <CartPay
       :total="total"
+      :shopping-list="shoppingListData"
+      :dispatch-order="dispatchOrder"
     />
 
 
@@ -35,7 +37,6 @@ export default {
     ItemCart,
   },
   data: function() {
-    console.log(this.$store.state.foodOptions);
     return {
       shoppingListData: this.$store.state.shoppingList,
       total: this.$store.state.subTotal,
@@ -45,6 +46,11 @@ export default {
   methods: {
     goBack() {
       this.$router.push('/Welcome');
+    },
+    dispatchOrder(e) {
+      e.preventDefault();
+      console.log('sending order to kitchen');
+      this.$store.commit('processOrder', {});
     },
     goCheckout() {},
     subTotal() {
@@ -61,17 +67,23 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-body {
-  font-size: 16px;
-  background-color: #82ccdd;
+.max-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 .container {
   display: flex;
-  height: 60vh;
+  flex-direction: column;
+  flex-flow: column;
+  align-items: center;
+  height: 63vh;
   width: 80%;
-  background-color: white;
+  background-color: yellow;
+  // justify-content: flex-start;
   /* margin: 5px; */
   padding-top: 5px;
+  overflow: auto;
 }
 .footer {
   margin: 6vh;
@@ -206,43 +218,6 @@ form {
   margin: 0 auto;
   text-align: center;
   padding-top: 50px;
-}
-
-.value-button {
-  display: inline-block;
-  border: 1px solid #ddd;
-  margin: 0px;
-  width: 40px;
-  height: 20px;
-  text-align: center;
-  vertical-align: middle;
-  padding: 11px 0;
-  background: #eee;
-  -webkit-touch-callout: none;
-  -webkit-user-select: none;
-  -khtml-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-}
-
-.value-button:hover {
-  cursor: pointer;
-}
-
-form #decrease {
-  margin-right: -4px;
-  border-radius: 8px 0 0 8px;
-}
-
-form #increase {
-  margin-left: -4px;
-  border-radius: 0 8px 8px 0;
-}
-
-form #input-wrap {
-  margin: 0px;
-  padding: 0px;
 }
 
 .quantity {
