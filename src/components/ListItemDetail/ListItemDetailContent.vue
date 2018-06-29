@@ -1,7 +1,7 @@
 <template>
   <div id="list-item-detail-content-container">
-    <h1 id="content-header">Asian Soup Bowl - 9,67 €</h1>
-    <p id="content-description">Boudin chicken fatback, jerky ground round chuck bacon sausage tenderloin turducken swine drumstick salami ball tip.</p>
+    <h1 id="content-header">{{ name }} - {{ price }}€</h1>
+    <p id="content-description">{{ description }} </p>
   </div>
 </template>
 
@@ -9,6 +9,14 @@
 export default {
   name: 'ListItemDetailContent',
   components: {},
+  data: function() {
+    return {
+      name: this.$store.state.itemSelected.name,
+      price: this.$store.state.itemSelected.price,
+      description: this.$store.state.itemSelected
+        .description,
+    };
+  },
 };
 </script>
 

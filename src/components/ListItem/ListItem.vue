@@ -8,7 +8,7 @@
         <div id="list-item-container">
           <list-item-image 
             :image="item.photos[0].url"
-            :handle-click-image="handleClickImage(item)" />
+            :handleclickimage="() => handleclickimage(item)" />
           <list-item-content 
             :name="item.name" 
             :description="item.description" 
@@ -55,13 +55,16 @@ export default {
     }
   },
   methods: {
-    handleClickImage(item) {
+    handleclickimage(item) {
       this.$store.commit('itemSelected', {
+        id: item.ide,
         name: item.name,
         price: item.price,
         description: item.description,
-        photo: item.photo,
+        photo: item.photos[0].url,
       });
+      console.log(this.$store.state.itemSelected);
+      this.$router.push('/detail');
     },
     goCheckout() {
       this.$router.push('/Cart');
