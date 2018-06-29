@@ -1,6 +1,6 @@
 <template>
   <div id="wrapper">
-   
+    <Navbar/>
     <ul>
       <li 
         v-for="(item, index) in items" 

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <welcomeNav
+    <Navbar
       :user-image="userImage"
       :go-checkout="goCheckout"
       :go-to-user="goToUser"/>
@@ -13,12 +13,13 @@
 </template>
 
 <script>
-import WelcomeNav from './WelcomeNav.vue';
+import Navbar from '../../components/Navbar/Navbar';
 import WelcomeOptions from './WelcomeOptions.vue';
 export default {
   name: 'Welcome',
   components: {
     WelcomeOptions,
+    Navbar,
   },
   data: function() {
     return {
