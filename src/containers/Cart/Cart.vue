@@ -1,7 +1,9 @@
 <template>
   <div>
     <CartNav
-      :go-back="goBack"/>
+      :go-back="goBack"
+      :go-checkout="goCheckout"
+    />
 
     <div class="container">
       <ItemCart
@@ -9,26 +11,34 @@
         :key="index"
         :item="item"
         :quantity-toggle="quantityToggle"
+        :sub-total="subTotal"
       />
     </div>
     <div class="footer"/>
+    <CartPay
+      :total="total"
+    />
+
+
   </div>
 </template>
 
 <script>
 import CartNav from './CartNav.vue';
 import ItemCart from './ItemCart.vue';
+import CartPay from './CartPay.vue';
 export default {
   name: 'Cart',
   components: {
     CartNav,
+    CartPay,
     ItemCart,
   },
   data: function() {
     console.log(this.$store.state.foodOptions);
-
     return {
       shoppingListData: this.$store.state.shoppingList,
+      total: this.$store.state.subTotal,
     };
   },
   computed: {},
@@ -36,9 +46,13 @@ export default {
     goBack() {
       this.$router.push('/Welcome');
     },
-    quantityToggle(item, direction) {
+    goCheckout() {},
+    subTotal() {
+      this.$store.commit('calculateSubtotal', {});
+    },
+    quantityToggle(id, direction) {
       this.$store.commit('toggleQuantity', {
-        item,
+        id,
         direction,
       });
     },
@@ -47,7 +61,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-html {
+body {
   font-size: 16px;
   background-color: #82ccdd;
 }
