@@ -16,10 +16,9 @@
         </div>
       </li>
     </ul>
-    
+    <Footer/>
   </div>
 </template>
-
 
 <script>
 import Navbar from '../Navbar/Navbar';

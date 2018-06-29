@@ -3,7 +3,7 @@
     <button 
       id="footer-content-checkout" >
       Go to checkout</button>
-    <p id="footer-content-price"/>
+    <p id="footer-content-price">20 €</p>
   </div>
 </template>
 
