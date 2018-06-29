@@ -25,13 +25,13 @@ export default {
 #item-overlay {
   background: rgba(0, 0, 0, 0.2);
   position: absolute;
-  width: 100%;
+  width: 95%;
   height: 180px;
-  margin: 10px 0;
+  margin: 10px 9px;
   border-radius: 4px;
 }
 #list-image {
-  width: 100%;
+  width: 95%;
   height: 180px;
   margin: 10px 0;
   border-radius: 4px;

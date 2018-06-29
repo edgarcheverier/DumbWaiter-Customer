@@ -1,20 +1,29 @@
 <template functional>
   <nav>
     <div class="nav-wrapper">
-      <h6 class="brand-logo center">Dumbwaiter</h6>
-      <div class="left">
-        <a
-          :style="props.userImage"
-          class="btn-floating btn-large waves-effect waves-light imageTag z-depth-1"
-          @click="props.goToUser"/>
+      <div class="head">
+        <h6>Dumbwaiter</h6>
       </div>
-      <ul class="right">
-        <li>
-          <button @click="props.goCheckout">
-            <i class="material-icons rightIcon" >local_grocery_store</i>
-          </button>
-        </li>
-      </ul>
+      <img 
+        src="props.userImage" 
+        alt="">
+      <div class="profile"/>
     </div>
   </nav>
 </template>
+
+<style>
+.nav-wrapper {
+  height: 50px;
+  width: 100%;
+  justify-content: space-around;
+  border-bottom: 2px solid #fff;
+}
+h6 {
+  font-family: Raleway;
+  color: #fff;
+  width: 40px;
+  font-weight: 300;
+  font-size: 1.4em;
+}
+</style>

@@ -1,14 +1,28 @@
 html {
-  font-size: 16px;
+  font-size: 1em;
+  padding: 0;
+  margin: 0;
+  background-color: #0a3d62;
+  font-family: Raleway;
 }
 
-.titlecontainer {
-  margin-bottom: 5rem;
+.contain {
+  margin-top: 70px;
 }
+
+i {
+  color: #fff;
+  margin-top: 1.1rem;
+}
+
+/* .titlecontainer {
+  margin-bottom: 5rem;
+} */
 
 .foodDrinksContainer {
   display: flex;
   justify-content: space-around;
+  margin-top: 20px;
 }
 
 .buttonsLabel {
@@ -33,8 +47,8 @@ html {
   display: flex;
   justify-content: space-between;
   margin-top: 3.5rem;
-  margin-right: 1rem;
-  margin-left: 1rem;
+  margin-right: 3rem;
+  margin-left: 3rem;
 }
 
 .tableContainer {
@@ -47,11 +61,15 @@ html {
 .btn-floating.btn-large {
   width: 6rem;
   height: 6rem;
+  border-radius: 4px;
+  background-color: inherit;
+  box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.15), 0 6px 6px rgba(0, 0, 0, 0.23);
 }
 
 .btn-floating.btn-large i {
-  line-height: 6rem;
+  line-height: -5rem;
   font-size: 2.5rem;
+  margin-top: 0.1rem;
 }
 
 a.btn-floating.btn-large.waves-effect.waves-light.imageTag {

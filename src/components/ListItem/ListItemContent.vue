@@ -15,35 +15,42 @@
 .list-item-content {
   position: absolute;
   color: #fff;
-  width: 100%;
+  width: 90%;
+  height: 150px;
   margin: 0 auto;
-  top: 23%;
+  top: 40%;
   left: 50%;
+  align-content: center;
   transform: translate(-50%, -50%);
 }
 #list-item-header {
   font-family: Raleway;
+  white-space: wrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
   font-weight: 600;
-  font-size: 2em;
-  margin-bottom: 1px;
-  margin-top: 25px;
+  font-size: 1.7em;
+  margin-bottom: 5px;
+  margin-top: 20px;
 }
 #list-item-slugline {
-  width: 350px;
+  height: 80px;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
   font-family: Raleway;
-  font-weight: 600;
-  font-size: 1em;
+  font-weight: 400;
+  font-size: 0.9em;
+  width: 90%;
+  margin: 0 auto;
 }
 #list-item-price {
   position: absolute;
   font-family: Raleway;
-  font-weight: 600;
+  font-weight: 500;
   font-size: 1.2em;
   color: #fff;
-  top: 75%;
+  top: 78%;
   left: 5%;
 }
 </style>

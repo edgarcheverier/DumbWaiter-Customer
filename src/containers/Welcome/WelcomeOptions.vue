@@ -1,5 +1,5 @@
 <template functional>
-  <div>
+  <div class="contain">
     <div class="foodDrinksContainer">
       <div class="buttonsLabel">
         <button 
