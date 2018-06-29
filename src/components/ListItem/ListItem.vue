@@ -20,6 +20,7 @@
   </div>
 </template>
 
+
 <script>
 import Navbar from '../Navbar/Navbar';
 import ListItemImage from './ListItemImage';

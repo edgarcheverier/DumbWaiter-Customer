@@ -37,6 +37,7 @@ export default {
 * {
   margin: 0;
   padding: 0;
+  background-color: #fff;
 }
 #list-item-detail-wrapper {
   display: flex;
