@@ -1,37 +1,56 @@
 <template functional>
   <div class="cart-item">
 
-        <p>{{props.item.name}} - {{props.item.price}}x{{props.item.quantity}} {{props.item.price*props.item.quantity}}</p>
-        <form>
-  <div class="value-button" id="decrease"  @click="props.quantityToggle(props.item.id, -1), props.subTotal()" value="Decrease Value">-</div>
-  <div type="number">{{props.item.quantity}}</div>
-  <div class="value-button" id="increase" @click="props.quantityToggle(props.item.id, 1), props.subTotal()" value="Increase Value">+</div>
-</form>
+        <p>{{props.item.name}} - {{props.item.price}}</p>
+        <div class="form-life">
+          <button class="arrow-up" id="increase" @click="props.quantityToggle(props.item.id, 1), props.subTotal()" >+</button>
+<p>
+    {{props.item.quantity}}
+</p>
+  <button class="arrow-down" id="decrease"  @click="props.quantityToggle(props.item.id, -1), props.subTotal()" >-</button>
+</div>
 
   </div>
 </template>
 <style>
 .cart-item {
-height: 20vh;
-width: 80vw;
+display: flex;
+flex-direction: row;
+height: 8vh;
+width: 70vw;
+box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+margin: 1vh;
+padding: 5px;
+background-color: white;
 
 }
 
+.form-life{
+display: flex;
+flex-direction: column;
+width: 10px;
+margin-top: 10px;
+}
+
+.arrow-up {
+  width: 0;
+height: 0;
+border-left: 10px solid transparent;
+border-right: 10px solid transparent;
+
+border-bottom: 10px solid black;
+}
+.arrow-down {
+  width: 0;
+height: 0;
+border-left: 10px solid transparent;
+border-right: 10px solid transparent;
+
+border-top: 10px solid black;
+}
+
 .value-button {
-  display: inline-block;
-  border: 1px solid #ddd;
-  width: 40px;
-  height: 20px;
-  text-align: center;
-  vertical-align: middle;
-  padding: 11px 0;
-  background: #eee;
-  -webkit-touch-callout: none;
-  -webkit-user-select: none;
-  -khtml-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
+
 }
 
 .value-button:hover {

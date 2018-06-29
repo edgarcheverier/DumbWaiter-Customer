@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="max-container">
     <CartNav
       :go-back="goBack"
       :go-checkout="goCheckout"
@@ -14,9 +14,11 @@
         :sub-total="subTotal"
       />
     </div>
-    <div class="footer"/>
+
     <CartPay
       :total="total"
+      :shopping-list="shoppingListData"
+      :dispatch-order="dispatchOrder"
     />
 
 
@@ -35,7 +37,6 @@ export default {
     ItemCart,
   },
   data: function() {
-    console.log(this.$store.state.foodOptions);
     return {
       shoppingListData: this.$store.state.shoppingList,
       total: this.$store.state.subTotal,
@@ -45,6 +46,11 @@ export default {
   methods: {
     goBack() {
       this.$router.push('/Welcome');
+    },
+    dispatchOrder(e) {
+      e.preventDefault();
+      console.log('sending order to kitchen');
+      this.$store.commit('processOrder', {});
     },
     goCheckout() {},
     subTotal() {
@@ -61,18 +67,23 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-body {
-  font-size: 16px;
-  background-color: #82ccdd;
+.max-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 .container {
   display: flex;
   flex-direction: column;
-  height: 60vh;
+  flex-flow: column;
+  align-items: center;
+  height: 63vh;
   width: 80%;
   background-color: yellow;
+  // justify-content: flex-start;
   /* margin: 5px; */
   padding-top: 5px;
+  overflow: auto;
 }
 .footer {
   margin: 6vh;
@@ -208,12 +219,6 @@ form {
   text-align: center;
   padding-top: 50px;
 }
-
-
-
-
-
-
 
 .quantity {
   text-align: center;

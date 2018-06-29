@@ -21,11 +21,6 @@
 </template>
 
 <style lang="scss" scoped>
-.c {
-  background-color: black;
-  height: 20vh;
-  width: 75vw;
-}
 
 
 
