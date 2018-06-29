@@ -4,7 +4,7 @@
     <img
       id="list-image"
       :src="props.image"
-      alt="food">
+      alt="food2">
   </div>
 
 </template>
