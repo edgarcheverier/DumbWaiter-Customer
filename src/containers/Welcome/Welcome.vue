@@ -1,9 +1,5 @@
 <template>
   <div>
-    <welcomeNav
-      :user-image="userImage"
-      :go-checkout="goCheckout"
-      :go-to-user="goToUser"/>
     <WelcomeOptions
       :handle-click-food="handleClickFood"
       :table-button="tableButton"
@@ -13,7 +9,6 @@
 </template>
 
 <script>
-import WelcomeNav from './WelcomeNav.vue';
 import WelcomeOptions from './WelcomeOptions.vue';
 export default {
   name: 'Welcome',

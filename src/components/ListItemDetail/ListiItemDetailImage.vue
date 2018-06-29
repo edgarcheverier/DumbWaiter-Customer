@@ -9,10 +9,10 @@
 export default {
   name: 'ListItemDetailImage',
   components: {},
-  data: function() {
-    return {
-      image: this.$store.state.itemSelected.photo,
-    };
+  computed: {
+    image() {
+      return this.$store.state.itemSelected.photo;
+    },
   },
 };
 </script>

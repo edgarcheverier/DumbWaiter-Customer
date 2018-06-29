@@ -4,28 +4,15 @@
     <carousel 
       :pagination-enabled="false" 
       :per-page="2.3">
-      <slide>
+      <slide 
+        v-for="(item, index) in items" 
+        :key="index">
         <div class="card">
           <img 
-            src="https://images.unsplash.com/photo-1518646261099-bd070a676912?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=4948465739b5a76034aae5380d2f8b67&auto=format&fit=crop&w=1650&q=80" 
-            alt="soup bowl, asian">
-          <p>Asian Soup Bowl</p>
-        </div>
-      </slide>
-      <slide>
-        <div class="card">
-          <img 
-            src="https://images.unsplash.com/photo-1518646261099-bd070a676912?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=4948465739b5a76034aae5380d2f8b67&auto=format&fit=crop&w=1650&q=80" 
-            alt="soup bowl, asian">
-          <p>Asian Soup Bowl</p>
-        </div>
-      </slide>
-      <slide>
-        <div class="card">
-          <img 
-            src="https://images.unsplash.com/photo-1518646261099-bd070a676912?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=4948465739b5a76034aae5380d2f8b67&auto=format&fit=crop&w=1650&q=80" 
-            alt="soup bowl, asian">
-          <p>Asian Soup Bowl</p>
+            :src="item.photos[0].url"
+            alt="soup bowl, asian"
+            @click="() => handleclickimage(item)"> 
+          <p>{{ item.name }}</p>
         </div>
       </slide>
     </carousel>
@@ -40,6 +27,38 @@ export default {
   components: {
     Carousel,
     Slide,
+  },
+  data: function() {
+    if (this.$store.state.menuSelected == 'Food') {
+      return {
+        items: this.$store.state.foodOptions,
+        menuTitle: this.$store.state.menuSelected,
+      };
+    } else if (this.$store.state.menuSelected == 'Drinks') {
+      return {
+        items: this.$store.state.drinksOptions,
+        menuTitle: this.$store.state.menuSelected,
+      };
+    } else if (
+      this.$store.state.menuSelected == 'Desserts'
+    ) {
+      return {
+        items: this.$store.state.dessertsOptions,
+        menuTitle: this.$store.state.menuSelected,
+      };
+    }
+  },
+  methods: {
+    handleclickimage(item) {
+      this.$store.commit('itemSelected', {
+        id: item.ide,
+        name: item.name,
+        price: item.price,
+        description: item.description,
+        photo: item.photos[0].url,
+      });
+      this.$router.push('/detail');
+    },
   },
 };
 </script>
