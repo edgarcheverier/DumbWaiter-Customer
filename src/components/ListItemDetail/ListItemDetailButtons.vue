@@ -41,6 +41,10 @@ export default {
     handleClick() {
       this.itemSelected.quantity = this.quantity;
       this.$store.commit('shoppingList', this.itemSelected);
+      this.$store.commit(
+        'updateAmount',
+        this.itemSelected.price
+      );
       console.log(
         'before to go to the cart',
         this.itemSelected

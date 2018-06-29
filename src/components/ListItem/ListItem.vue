@@ -5,11 +5,12 @@
       <li 
         v-for="(item, index) in items" 
         :key="index">
-        <div id="list-item-container">
+        <div 
+          id="list-item-container">
           <list-item-image 
-            :image="item.photos[0].url"
-            :handleclickimage="() => handleclickimage(item)" />
+            :image="item.photos[0].url"/>
           <list-item-content 
+            :item="item"
             :name="item.name" 
             :description="item.description" 
             :price="item.price"/>
@@ -23,7 +24,6 @@
 import Navbar from '../Navbar/Navbar';
 import ListItemImage from './ListItemImage';
 import ListItemContent from './ListItemContent';
-import Footer from '../Footer/Footer';
 
 export default {
   name: 'ListItem',
@@ -31,7 +31,6 @@ export default {
     Navbar,
     ListItemImage,
     ListItemContent,
-    Footer,
   },
   data: function() {
     if (this.$store.state.menuSelected == 'Food') {
@@ -53,18 +52,10 @@ export default {
       };
     }
   },
+  beforeCreate() {
+    this.$store.commit('updatePath', '/Welcome');
+  },
   methods: {
-    handleclickimage(item) {
-      this.$store.commit('itemSelected', {
-        id: item.ide,
-        name: item.name,
-        price: item.price,
-        description: item.description,
-        photo: item.photos[0].url,
-      });
-      console.log(this.$store.state.itemSelected);
-      this.$router.push('/detail');
-    },
     goCheckout() {
       this.$router.push('/Cart');
     },

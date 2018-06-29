@@ -1,7 +1,6 @@
 <template>
   <div 
-    id="list-item-contain" 
-    @click="handleclickimage">
+    id="list-item-contain" >
     <div id="item-overlay"/>
     <img
       id="list-image"
@@ -16,7 +15,6 @@ export default {
   name: 'ListItemImage',
   props: {
     image: String,
-    handleclickimage: Function,
   },
 };
 </script>

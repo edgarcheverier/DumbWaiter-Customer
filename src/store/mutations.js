@@ -1,4 +1,12 @@
 export const mutations = {
+  updatePath(state, path) {
+    state.navPath = path;
+  },
+  updateAmount(state, amount) {
+    let currentValue = state.amount;
+    currentValue += amount;
+    state.amount = currentValue;
+  },
   menuSelected(state, option) {
     state.menuSelected = option;
   },

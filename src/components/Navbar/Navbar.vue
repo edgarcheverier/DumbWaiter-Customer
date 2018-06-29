@@ -7,9 +7,10 @@
           id="back-button" 
           name="arrow-back"/>
       </button>
-      <p id="price">20 €</p>
+      <p id="price">{{ amount }} €</p>
       <button 
-        id="checkout-button" >
+        id="checkout-button"
+        @click="goCheckout" >
       <ion-icon name="ios-card"/></button>
     </div>
 
@@ -19,9 +20,20 @@
 <script>
 export default {
   name: 'Navbar',
+  computed: {
+    path() {
+      return this.$store.state.navPath;
+    },
+    amount() {
+      return this.$store.state.amount;
+    },
+  },
   methods: {
     goBack() {
-      this.$router.push('/Welcome');
+      this.$router.push(this.path);
+    },
+    goCheckout() {
+      this.$router.push('/Cart');
     },
   },
 };
