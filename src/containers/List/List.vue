@@ -24,6 +24,7 @@ export default {
 * {
   margin: 0;
   padding: 0;
+  background: #fff;
 }
 .contain {
   display: flex;

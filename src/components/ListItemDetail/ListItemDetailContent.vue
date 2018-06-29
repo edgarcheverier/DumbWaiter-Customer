@@ -33,7 +33,7 @@ export default {
   margin-bottom: 10px;
   font-family: Raleway;
 }
-#content-decription {
+#content-description {
   font-weight: 300;
   font-size: 0.8em;
   font-family: Merriweather;
