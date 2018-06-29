@@ -1,13 +1,25 @@
-<template functional>
-  <div id="list-item-contain">
+<template>
+  <div 
+    id="list-item-contain" 
+    @click="handleclickimage">
     <div id="item-overlay"/>
     <img
       id="list-image"
-      :src="props.image"
-      alt="food">
+      :src="image"
+      alt="food"
+    >
   </div>
 
 </template>
+<script>
+export default {
+  name: 'ListItemImage',
+  props: {
+    image: String,
+    handleclickimage: Function,
+  },
+};
+</script>
 
 <style>
 #item-overlay {
