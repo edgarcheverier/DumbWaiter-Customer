@@ -67,9 +67,10 @@ body {
 }
 .container {
   display: flex;
+  flex-direction: column;
   height: 60vh;
   width: 80%;
-  background-color: white;
+  background-color: yellow;
   /* margin: 5px; */
   padding-top: 5px;
 }
@@ -208,42 +209,11 @@ form {
   padding-top: 50px;
 }
 
-.value-button {
-  display: inline-block;
-  border: 1px solid #ddd;
-  margin: 0px;
-  width: 40px;
-  height: 20px;
-  text-align: center;
-  vertical-align: middle;
-  padding: 11px 0;
-  background: #eee;
-  -webkit-touch-callout: none;
-  -webkit-user-select: none;
-  -khtml-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-}
 
-.value-button:hover {
-  cursor: pointer;
-}
 
-form #decrease {
-  margin-right: -4px;
-  border-radius: 8px 0 0 8px;
-}
 
-form #increase {
-  margin-left: -4px;
-  border-radius: 0 8px 8px 0;
-}
 
-form #input-wrap {
-  margin: 0px;
-  padding: 0px;
-}
+
 
 .quantity {
   text-align: center;
