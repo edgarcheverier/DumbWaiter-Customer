@@ -9,13 +9,16 @@
 export default {
   name: 'ListItemDetailContent',
   components: {},
-  data: function() {
-    return {
-      name: this.$store.state.itemSelected.name,
-      price: this.$store.state.itemSelected.price,
-      description: this.$store.state.itemSelected
-        .description,
-    };
+  computed: {
+    name() {
+      return this.$store.state.itemSelected.name;
+    },
+    price() {
+      return this.$store.state.itemSelected.price;
+    },
+    description() {
+      return this.$store.state.itemSelected.description;
+    },
   },
 };
 </script>
