@@ -27,6 +27,9 @@ export default {
     ListItemDetailBreak,
     ListItemDetailCarousel,
   },
+  beforeCreate() {
+    this.$store.commit('updatePath', '/List');
+  },
 };
 </script>
 

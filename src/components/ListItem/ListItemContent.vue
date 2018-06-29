@@ -1,11 +1,16 @@
-<template functional>
+<template>
   <div class="list-item-wrap">
-    <div class="list-item-content">
-      <h1 id="list-item-header">{{ props.name }}</h1>
-      <p id="list-item-slugline">{{ props.description }}</p>
+    <div 
+      class="list-item-content" 
+      @click="() => handleclickimage(item)">
+      <h1 id="list-item-header">{{ name }}</h1>
+      <p id="list-item-slugline">{{ description }}</p>
     </div>
-    <p id="list-item-price">{{ props.price }} €</p>
-    <button id="list-item-checkout-button">
+    <p id="list-item-price">{{ price }} €</p>
+    <button 
+      id="list-item-checkout-button"
+      @click="() => addItem(item)" 
+    >
       <ion-icon 
         id="checkout" 
         name="add-circle"/>
@@ -14,7 +19,45 @@
 
 </template>
 <script>
+export default {
+  name: 'ListItemContent',
+  props: {
+    name: String,
+    description: String,
+    price: Number,
+    item: Object,
+  },
+  methods: {
+    handleclickimage(item) {
+      console.log(item);
+      this.$store.commit('itemSelected', {
+        id: item.ide,
+        name: item.name,
+        price: item.price,
+        description: item.description,
+        photo: item.photos[0].url,
+      });
+      console.log(this.$store.state.itemSelected);
+      this.$router.push('/detail');
+    },
+    addItem(item) {
+      let itemSelect = {
+        id: item.id,
+        quantity: 1,
+        name: item.name,
+        price: item.price,
+        description: item.description,
+        photo: item.photos[0].url,
+      };
+      this.$store.commit('shoppingList', itemSelect);
+      this.$store.commit('updateAmount', itemSelect.price);
+      alert(`${item.name} added to the Cart`);
+      console.log('before to go to the cart', itemSelect);
+    },
+  },
+};
 </script>
+
 
 <style>
 .list-item-content {

@@ -1,5 +1,7 @@
 export const state = {
   restaurant: {},
+  navPath: '',
+  amount: 0,
   customer: {}, // user name and id from facebook
   menuSelected: '', // Food, Drinks or Desserts for Menu Page
   itemSelected: {}, // Dish or Drink selected for the Card Page
