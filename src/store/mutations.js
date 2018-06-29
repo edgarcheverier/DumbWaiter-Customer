@@ -8,6 +8,25 @@ export const mutations = {
   customerInformation(state, info) {
     state.customer = info;
   },
+  toggleQuantity(state, info) {
+    state.shoppingList.forEach((order, index) => {
+      if (order.id === info.id) {
+        order.quantity += info.direction;
+        if (order.quantity === 0) {
+          state.shoppingList.splice(index, 1);
+        }
+      }
+    });
+  },
+  calculateSubtotal(state, info) {
+    let mappedList = state.shoppingList.map(order => {
+      return order.price * order.quantity;
+    });
+    state.subTotal.total = mappedList.reduce((a, b) => {
+      return a + b;
+    });
+    console.log(state.subTotal);
+  },
 
   shoppingList(state, info) {
     if (state.shoppingList.length === 0) {

@@ -43,6 +43,7 @@ export default {
     goCheckout() {
       this.$router.push('/Cart');
     },
+
     handleClickImage(item) {
       this.$store.commit('itemSelected', {
         name: item.name,
