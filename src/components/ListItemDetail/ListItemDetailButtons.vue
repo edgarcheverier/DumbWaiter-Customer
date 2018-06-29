@@ -1,6 +1,8 @@
 <template>
   <div id="list-item-detail-buttons-container">
-    <button id="order-button">Order</button>
+    <button 
+      id="order-button" 
+      @click="handleClick">Order</button>
     <p id="count-tracker">Count: 1</p>
     <div>
       <button id="count-increase">
@@ -17,6 +19,17 @@
 export default {
   name: 'ListiItemDetailButtons',
   component: {},
+  data: function() {
+    return {
+      itemSelected: this.$store.state.itemSelected,
+    };
+  },
+  methods: {
+    handleClick() {
+      this.$store.commit('shoppingList', this.itemSelected);
+      this.$router.push('/Cart');
+    },
+  },
 };
 </script>
 
