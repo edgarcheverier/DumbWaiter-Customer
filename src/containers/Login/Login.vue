@@ -1,14 +1,14 @@
 <template>
   <div>
     <div class="logoContainer">
-      <img 
-        class="logo" 
+      <img
+        class="logo"
         src="../../assets/img/reception.svg">
     </div>
     <div class="facebookContainer">
       <fb-signin-button
         :params="fbSignInParams"
-        type="submit" 
+        type="submit"
         name="action"
         @success="onSignInSuccess"
         @error="onSignInError">
@@ -18,9 +18,10 @@
     </div>
   </div>
 </template>
-
 <script>
-//import FacebookInformation from '../../FacebookLogin/facebook.config.js';
+
+import authService from '../../services/auth.service';
+
 window.fbAsyncInit = function() {
   FB.init({
     appId: '246012439316213',
@@ -40,6 +41,7 @@ window.fbAsyncInit = function() {
   js.src = '//connect.facebook.net/en_US/sdk.js';
   fjs.parentNode.insertBefore(js, fjs);
 })(document, 'script', 'facebook-jssdk');
+
 export default {
   name: 'Login',
   components: {},
@@ -51,18 +53,26 @@ export default {
       },
     };
   },
-  methods: {
-    onSignInSuccess(response) {
-      FB.api('/me', customer => {
-        console.log(response);
+  beforeCreate() {
+    const token = localStorage.getItem('token');
+    authService.verifyToken(token, (response) => {
+      if(response.isvalid) {
+        this.$store.commit('customerInformation', response.user);
         this.$router.push('/welcome');
-        this.$store.commit('customerInformation', customer);
-        console.log(this.$store.state.customer.id);
-        console.log(this.$store.state.customer.name);
+      }
+    });
+  },
+  methods: {
+   async onSignInSuccess (response) {
+      console.log(response.authResponse);
+      const authFacebook = await authService.authFacebook(response.authResponse, (response) => {
+        this.$store.commit('customerInformation', response.user);
+        localStorage.setItem('token', response.token);
+        this.$router.push('/welcome');
       });
     },
     onSignInError(error) {
-      console.log('OH NOES', error);
+      console.log('Sign in with facebook faile', error);
     },
   },
 };

@@ -1,7 +1,8 @@
 <template>
   <div id="footer-content">
     <button 
-      id="footer-content-checkout" >
+      id="footer-content-checkout" 
+      @click="goToCart" >
       Go to checkout</button>
     <p id="footer-content-price">20 €</p>
   </div>
@@ -12,6 +13,11 @@
 export default {
   name: 'Footer',
   components: {},
+  methods: {
+    goToCart() {
+      this.$router.push('/Cart');
+    },
+  },
 };
 </script>
 
