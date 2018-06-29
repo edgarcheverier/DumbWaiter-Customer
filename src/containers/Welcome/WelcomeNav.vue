@@ -1,11 +1,13 @@
 <template functional>
   <nav>
     <div class="nav-wrapper">
-      <h6>Dumbwaiter</h6>
-      <a
-        :style="props.userImage"
-        class="btn-floating btn-large waves-effect waves-light imageTag z-depth-1"
-        @click="props.goToUser"/>
+      <div class="head">
+        <h6>Dumbwaiter</h6>
+      </div>
+      <img 
+        src="props.userImage" 
+        alt="">
+      <div class="profile"/>
     </div>
   </nav>
 </template>
@@ -13,8 +15,9 @@
 <style>
 .nav-wrapper {
   height: 50px;
-  width: 90%;
-  margin: 0 auto;
+  width: 100%;
+  justify-content: space-around;
+  border-bottom: 2px solid #fff;
 }
 h6 {
   font-family: Raleway;
@@ -22,6 +25,5 @@ h6 {
   width: 40px;
   font-weight: 300;
   font-size: 1.4em;
-  margin-left: 10px;
 }
 </style>

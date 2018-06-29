@@ -6,6 +6,10 @@ html {
   font-family: Raleway;
 }
 
+.contain {
+  margin-top: 70px;
+}
+
 i {
   color: #fff;
   margin-top: 1.1rem;
@@ -18,6 +22,7 @@ i {
 .foodDrinksContainer {
   display: flex;
   justify-content: space-around;
+  margin-top: 20px;
 }
 
 .buttonsLabel {

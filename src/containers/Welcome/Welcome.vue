@@ -18,7 +18,6 @@ import WelcomeOptions from './WelcomeOptions.vue';
 export default {
   name: 'Welcome',
   components: {
-    WelcomeNav,
     WelcomeOptions,
   },
   data: function() {

@@ -1,10 +1,5 @@
 <template>
   <div>
-    <nav>
-      <div class="nav-wrapper">
-        <h6 class="brand-logo center">Dumbwaiter</h6>
-      </div>
-    </nav>
     <div class="logoContainer">
       <img 
         class="logo" 
