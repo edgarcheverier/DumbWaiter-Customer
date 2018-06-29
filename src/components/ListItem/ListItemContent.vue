@@ -5,6 +5,11 @@
       <p id="list-item-slugline">{{ props.description }}</p>
     </div>
     <p id="list-item-price">{{ props.price }} €</p>
+    <button id="list-item-checkout-button">
+      <ion-icon 
+        id="checkout" 
+        name="add-circle"/>
+    </button>
   </div>
 
 </template>
@@ -34,7 +39,7 @@
   margin-top: 20px;
 }
 #list-item-slugline {
-  height: 80px;
+  height: 40px;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -50,7 +55,16 @@
   font-weight: 500;
   font-size: 1.2em;
   color: #fff;
-  top: 78%;
+  top: 74%;
   left: 5%;
+}
+#list-item-checkout-button {
+  position: absolute;
+  top: 71%;
+  right: 3%;
+  color: #fff;
+}
+#checkout {
+  font-size: 2rem;
 }
 </style>

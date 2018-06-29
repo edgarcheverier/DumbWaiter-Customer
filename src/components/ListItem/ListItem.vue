@@ -1,6 +1,6 @@
 <template>
   <div id="wrapper">
-   
+    <Navbar/>
     <ul>
       <li 
         v-for="(item, index) in items" 
@@ -16,10 +16,8 @@
         </div>
       </li>
     </ul>
-    
   </div>
 </template>
-
 
 <script>
 import Navbar from '../Navbar/Navbar';

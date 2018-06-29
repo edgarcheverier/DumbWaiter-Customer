@@ -4,7 +4,7 @@
       id="footer-content-checkout" 
       @click="goToCart" >
       Go to checkout</button>
-    <p id="footer-content-price"/>
+    <p id="footer-content-price">20 €</p>
   </div>
 </template>
 

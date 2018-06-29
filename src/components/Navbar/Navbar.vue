@@ -1,12 +1,19 @@
 <template>
   <div id="navbar-container">
-    <button @click="goBack">
-      <ion-icon 
-        id="back-button" 
-        name="arrow-back"/>
-    </button>
+    
+    <div id="navbar-content">
+      <button @click="goBack">
+        <ion-icon 
+          id="back-button" 
+          name="arrow-back"/>
+      </button>
+      <p id="price">20 €</p>
+      <button 
+        id="checkout-button" >
+      <ion-icon name="ios-card"/></button>
+    </div>
+
   </div>
-  
 </template>
 
 <script>
@@ -22,15 +29,37 @@ export default {
 
 <style>
 #navbar-container {
-  display: flex;
+  top: 0;
+  background-color: #fff;
+  width: 100%;
   height: 50px;
-  background-color: #0a3d62;
-  justify-content: flex-start;
-  margin-bottom: 0.5rem;
+  z-index: 1000;
+  display: flex;
+  position: sticky;
+}
+#navbar-content {
+  width: 90%;
+  margin: 0 auto;
+  display: flex;
+  font-weight: 700;
+  font-family: Raleway;
+  justify-content: space-between;
+  align-items: center;
 }
 #back-button {
-  margin-left: 10px;
+  color: #eb2f06;
+  font-size: 2.1em;
+  margin-left: -7px;
+}
+#price {
+  font-weight: 600;
+  color: #eb2f06;
+  font-size: 1.3em;
+}
+#checkout-button {
   font-size: 2em;
-  color: #fff;
+  font-weight: 600;
+  color: #eb2f06;
+  margin: 8px -4px 0 0;
 }
 </style>
