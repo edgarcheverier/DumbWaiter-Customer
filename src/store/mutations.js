@@ -2,6 +2,12 @@ export const mutations = {
   updatePath(state, path) {
     state.navPath = path;
   },
+  updatelongitude(state, value) {
+    state.longitude = value;
+  },
+  updatelatitude(state, value) {
+    state.latitude = value;
+  },
   updateAmount(state, amount) {
     let currentValue = state.amount;
     currentValue += amount;
