@@ -13,10 +13,10 @@ import FBSignInButton from 'vue-facebook-signin-button';
 import store from './store/store.js';
 
 const options = {
-  key: 'your-publishable-key',
-  image: 'https://cdn.meme.am/images/100x100/15882140.jpg',
+  key: 'pk_test_fLPmqxecZJczNSmVGLv3YN1c',
+  image: '',
   locale: 'auto',
-  currency: 'PHP',
+  currency: 'Euro',
   billingAddress: true,
   panelLabel: 'Subscribe {{amount}}',
 };
