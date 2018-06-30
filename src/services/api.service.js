@@ -1,5 +1,5 @@
 //TODO move the backendUrl to .env or similar
-const backendUrl = 'http://192.168.1.222:2018';
+const backendUrl = 'http://192.168.1.218:2018';
 const fetchService = (
   url,
   method,
