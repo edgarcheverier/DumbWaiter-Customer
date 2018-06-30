@@ -5,15 +5,25 @@ import List from './containers/List/List.vue';
 import Welcome from './containers/Welcome/Welcome.vue';
 import ListItemDetail from './components/ListItemDetail/ListItemDetail.vue';
 import Cart from './containers/Cart/Cart.vue';
-
+import VueStripeCheckout from 'vue-stripe-checkout';
 import User from './containers/User/User.vue';
 import VueRouter from 'vue-router';
 import FBSignInButton from 'vue-facebook-signin-button';
 
 import store from './store/store.js';
 
+const options = {
+  key: 'your-publishable-key',
+  image: 'https://cdn.meme.am/images/100x100/15882140.jpg',
+  locale: 'auto',
+  currency: 'PHP',
+  billingAddress: true,
+  panelLabel: 'Subscribe {{amount}}',
+};
+
 Vue.config.productionTip = false;
 Vue.use(VueRouter);
+Vue.use(VueStripeCheckout, options);
 Vue.use(FBSignInButton);
 const router = new VueRouter({
   mode: 'history',

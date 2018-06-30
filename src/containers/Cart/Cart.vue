@@ -73,13 +73,14 @@ export default {
   align-items: center;
 }
 .container {
+  border-radius: 4px;
   display: flex;
   flex-direction: column;
   flex-flow: column;
   align-items: center;
   height: 63vh;
   width: 80%;
-  background-color: yellow;
+  background-color: white;
   // justify-content: flex-start;
   /* margin: 5px; */
   padding-top: 5px;

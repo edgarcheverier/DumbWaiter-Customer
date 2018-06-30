@@ -1,22 +1,35 @@
 <template functional>
   <div class="cart-item">
-
+    <div class="cart-item__info">
         <p>{{props.item.name}} - {{props.item.price}}</p>
         <div class="form-life">
-          <button class="arrow-up" id="increase" @click="props.quantityToggle(props.item.id, 1), props.subTotal()" >+</button>
-<p>
-    {{props.item.quantity}}
-</p>
-  <button class="arrow-down" id="decrease"  @click="props.quantityToggle(props.item.id, -1), props.subTotal()" >-</button>
-</div>
-
-  </div>
+          </div>
+        </div>
+        <div class="cart-item__arrows">
+          <button class="arrow-up" id="increase" @click="props.quantityToggle(props.item.id, 1), props.subTotal()" ></button>
+          <p>{{props.item.quantity}}</p>
+          <button class="arrow-down" id="decrease"  @click="props.quantityToggle(props.item.id, -1), props.subTotal()" ></button>
+        </div>
+    </div>
 </template>
 <style>
+.cart-item__arrows{
+  display: flex;
+  width: 35px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+}
+.cart-item__info{
+  flex: 1;
+}
+
+
 .cart-item {
+  border-radius: 4px;
 display: flex;
 flex-direction: row;
-height: 8vh;
 width: 70vw;
 box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 margin: 1vh;
