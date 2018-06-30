@@ -1,0 +1,76 @@
+<template functional>
+  <div class="cart-item">
+    <div class="cart-item__info">
+      <p>{{ props.item.name }} - {{ props.item.price }}</p>
+      <div class="form-life"/>
+    </div>
+    <div class="cart-item__arrows">
+      <button
+        id="increase"
+        class="arrow-up"
+        @click="props.quantityToggle(props.item.id, 1)" />
+      <p>{{ props.item.quantity }}</p>
+      <button
+        id="decrease"
+        class="arrow-down"
+        @click="props.quantityToggle(props.item.id, -1)" />
+    </div>
+  </div>
+</template>
+<script>
+</script>
+<style>
+.cart-item__arrows {
+  display: flex;
+  width: 35px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.cart-item__info {
+  flex: 1;
+}
+
+.cart-item {
+  border-radius: 4px;
+  display: flex;
+  flex-direction: row;
+  width: 70vw;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2),
+    0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  margin: 1vh;
+  padding: 5px;
+  background-color: white;
+}
+
+.form-life {
+  display: flex;
+  flex-direction: column;
+  width: 10px;
+  margin-top: 10px;
+}
+
+.arrow-up {
+  width: 0;
+  height: 0;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+
+  border-bottom: 10px solid black;
+}
+.arrow-down {
+  width: 0;
+  height: 0;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+
+  border-top: 10px solid black;
+}
+
+.value-button {
+}
+
+.value-button:hover {
+  cursor: pointer;
+}
+</style>

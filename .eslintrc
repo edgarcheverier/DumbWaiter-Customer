@@ -13,10 +13,6 @@
   "rules": {
     "prettier/prettier": "error",
     "curly": ["error", "all"],
-    "max-len": ["error", {
-      "code": 60,
-      "ignoreUrls": true
-    }],
     "no-mixed-operators": "error",
     "no-unexpected-multiline": "error",
     "quotes": ["error", "single"]
