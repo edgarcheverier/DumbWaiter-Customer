@@ -3,9 +3,9 @@ export const mutations = {
     state.navPath = path;
   },
   updateAmount(state, amount) {
-    let currentValue = state.amount;
+    let currentValue = state.amount.total;
     currentValue += amount;
-    state.amount = currentValue;
+    state.amount.total = currentValue;
   },
   menuSelected(state, option) {
     state.menuSelected = option;
@@ -31,10 +31,12 @@ export const mutations = {
     let mappedList = state.shoppingList.map(order => {
       return order.price * order.quantity;
     });
-    state.subTotal.total = mappedList.reduce((a, b) => {
+    state.amount.total = mappedList.reduce((a, b) => {
       return a + b;
     });
-    console.log(state.subTotal);
+  },
+  processOrder(state, info) {
+    console.log(info);
   },
 
   shoppingList(state, info) {
