@@ -1,4 +1,6 @@
 export const state = {
+  longitude: 0,
+  latitude: 0,
   restaurant: {},
   navPath: '',
   amount: { total: 0 },
