@@ -49,6 +49,7 @@ export default {
         'before to go to the cart',
         this.itemSelected
       );
+      this.quantity = 1;
       this.$router.push('/detail');
     },
   },

@@ -42,5 +42,6 @@ export default {
 #list-item-detail-wrapper {
   display: flex;
   flex-direction: column;
+  padding-bottom: 10px;
 }
 </style>
