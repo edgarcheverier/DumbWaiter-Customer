@@ -4,7 +4,8 @@
     <ul>
       <li 
         v-for="(item, index) in items" 
-        :key="index">
+        :key="index"  
+      >
         <div 
           id="list-item-container">
           <list-item-image 

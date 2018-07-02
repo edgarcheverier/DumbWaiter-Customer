@@ -2,7 +2,7 @@
   <div class="list-item-wrap">
     <div 
       class="list-item-content" 
-      @click="() => handleclickimage(item)">
+      @click="handleClickModal(item)">
       <h1 id="list-item-header">{{ name }}</h1>
       <p id="list-item-slugline">{{ description }}</p>
     </div>
@@ -15,12 +15,20 @@
         id="checkout" 
         name="add-circle"/>
     </button>
+    <Modal 
+      ref="modal" 
+      icon="success"/>
   </div>
 
 </template>
+
 <script>
+import Modal from '../Modal';
 export default {
   name: 'ListItemContent',
+  components: {
+    Modal,
+  },
   props: {
     name: String,
     description: String,
@@ -39,6 +47,16 @@ export default {
       });
       console.log(this.$store.state.itemSelected);
       this.$router.push('/detail');
+    },
+    handleClickModal(item) {
+      this.$store.commit('itemSelected', {
+        id: item.ide,
+        name: item.name,
+        price: item.price,
+        description: item.description,
+        photo: item.photos[0].url,
+      });
+      this.$refs.modal.open();
     },
     addItem(item) {
       let itemSelect = {

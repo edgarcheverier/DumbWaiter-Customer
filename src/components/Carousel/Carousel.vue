@@ -86,7 +86,6 @@ export default {
   height: 100px;
   border-top-right-radius: 4px;
   border-top-left-radius: 4px;
-  /* border-radius: 0 !important; */
 }
 .card p {
   font-family: Raleway;

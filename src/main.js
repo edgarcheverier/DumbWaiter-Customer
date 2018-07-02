@@ -15,6 +15,9 @@ import VModal from 'vue-js-modal';
 
 import store from './store/store.js';
 
+import SweetModal from 'sweet-modal-vue/src/plugin.js';
+Vue.use(SweetModal);
+
 const options = {
   key: 'pk_test_fLPmqxecZJczNSmVGLv3YN1c',
   image: '',
@@ -53,6 +56,7 @@ Vue.use(VModal);
 Vue.use(VueRouter);
 Vue.use(VueStripeCheckout, options);
 Vue.use(FBSignInButton);
+
 const router = new VueRouter({
   mode: 'history',
   base: __dirname,
