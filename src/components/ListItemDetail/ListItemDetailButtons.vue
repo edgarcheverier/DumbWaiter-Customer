@@ -40,12 +40,20 @@ export default {
     },
     handleClick() {
       let amount = this.itemSelected.price * this.quantity;
-      this.itemSelected = {
-        ...this.itemSelected,
+      let item = {
+        id: this.itemSelected.id,
+        name: this.itemSelected.name,
+        price: this.itemSelected.price,
         quantity: this.quantity,
       };
-      this.$store.commit('shoppingList', this.itemSelected);
+      this.$store.commit('shoppingList', item);
       this.$store.commit('updateAmount', amount);
+      alert(`${item.name}, added to your cart`);
+      console.log(
+        `itemSeclected ${item.name}, ${item.id}, ${
+          item.price
+        }, ${item.quantity}`
+      );
       this.quantity = 1;
     },
   },

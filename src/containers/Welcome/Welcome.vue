@@ -41,6 +41,9 @@ export default {
     }
   },
   */
+  beforeCreate() {
+    this.$store.commit('updatePath', '/Maps');
+  },
   methods: {
     goCheckout() {
       console.log('on my way');

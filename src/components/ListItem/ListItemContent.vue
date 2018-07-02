@@ -31,9 +31,10 @@ export default {
     handleclickimage(item) {
       console.log(item);
       this.$store.commit('itemSelected', {
-        id: item.ide,
+        id: item.id,
         name: item.name,
         price: item.price,
+        quantity: 1,
         description: item.description,
         photo: item.photos[0].url,
       });
@@ -46,8 +47,6 @@ export default {
         quantity: 1,
         name: item.name,
         price: item.price,
-        description: item.description,
-        photo: item.photos[0].url,
       };
       this.$store.commit('shoppingList', itemSelect);
       this.$store.commit('updateAmount', itemSelect.price);
