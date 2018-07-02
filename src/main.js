@@ -11,6 +11,7 @@ import User from './containers/User/User.vue';
 import VueRouter from 'vue-router';
 import FBSignInButton from 'vue-facebook-signin-button';
 import * as VueGoogleMaps from 'vue2-google-maps';
+import VModal from 'vue-js-modal';
 
 import store from './store/store.js';
 
@@ -48,6 +49,7 @@ Vue.use(VueGoogleMaps, {
   // installComponents: true,
 });
 Vue.config.productionTip = false;
+Vue.use(VModal);
 Vue.use(VueRouter);
 Vue.use(VueStripeCheckout, options);
 Vue.use(FBSignInButton);

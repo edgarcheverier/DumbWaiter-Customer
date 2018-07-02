@@ -32,6 +32,7 @@ export default {
     };
   },
   computed: {},
+  /*
   async beforeCreate() {
     if (this.$store.state.customer.name !== undefined) {
       await this.$store.dispatch('getDataRest');
@@ -39,6 +40,7 @@ export default {
       this.$router.push('/');
     }
   },
+  */
   methods: {
     goCheckout() {
       console.log('on my way');

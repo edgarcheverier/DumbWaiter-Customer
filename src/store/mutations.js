@@ -1,4 +1,7 @@
 export const mutations = {
+  allRestaurants(state, restaurants) {
+    state.allRestaurants = restaurants;
+  },
   updatePath(state, path) {
     state.navPath = path;
   },
@@ -68,11 +71,11 @@ export const mutations = {
     let mains = [];
 
     let restaurantIfon = {
-      name: info.restaurant[0].description,
-      photos: info.restaurant[0].photos,
+      name: info.name,
+      photos: info.photos,
     };
 
-    info.restaurant[0].products.map(product => {
+    info.products.map(product => {
       product.categories.map(categorie => {
         if (categorie.name == 'drinks') {
           drinks.push(product);
@@ -85,7 +88,6 @@ export const mutations = {
         }
       });
     });
-    state.test = info.restaurant[0];
     state.restaurant = restaurantIfon;
     state.foodOptions = mains;
     state.drinksOptions = drinks;
