@@ -1,4 +1,7 @@
 export const mutations = {
+  restaurantKey(state, key) {
+    state.restaurantKey = key;
+  },
   allRestaurants(state, restaurants) {
     state.allRestaurants = restaurants;
   },
@@ -49,19 +52,21 @@ export const mutations = {
   },
 
   shoppingList(state, info) {
-    if (state.shoppingList.length === 0) {
-      state.shoppingList.push(info);
-      return;
+    if (info.quantity == 1) {
+      let product = {
+        id: info.id,
+        name: info.name,
+        price: info.price,
+      };
+      state.shoppingList.push(product);
     } else {
-      if (
-        state.shoppingList.filter((el, key) => {
-          if (el.name == info.name) {
-            state.shoppingList[key].quantity = 1;
-            return true;
-          }
-        }).length === 0
-      ) {
-        state.shoppingList.push(info);
+      for (let i = 0; i < info.quantity; i++) {
+        let product = {
+          id: info.id,
+          name: info.name,
+          price: info.price,
+        };
+        state.shoppingList.push(product);
       }
     }
   },
