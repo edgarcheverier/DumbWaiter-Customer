@@ -12,9 +12,10 @@ import VueRouter from 'vue-router';
 import FBSignInButton from 'vue-facebook-signin-button';
 import * as VueGoogleMaps from 'vue2-google-maps';
 
-import Overdrive from 'vue-overdrive';
-
 import store from './store/store.js';
+
+import SweetModal from 'sweet-modal-vue/src/plugin.js';
+Vue.use(SweetModal);
 
 const options = {
   key: 'pk_test_fLPmqxecZJczNSmVGLv3YN1c',
@@ -53,7 +54,6 @@ Vue.config.productionTip = false;
 Vue.use(VueRouter);
 Vue.use(VueStripeCheckout, options);
 Vue.use(FBSignInButton);
-Vue.use(Overdrive);
 
 const router = new VueRouter({
   mode: 'history',
