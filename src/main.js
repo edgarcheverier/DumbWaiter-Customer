@@ -10,6 +10,8 @@ import User from './containers/User/User.vue';
 import VueRouter from 'vue-router';
 import FBSignInButton from 'vue-facebook-signin-button';
 
+import Overdrive from 'vue-overdrive';
+
 import store from './store/store.js';
 
 const options = {
@@ -25,6 +27,8 @@ Vue.config.productionTip = false;
 Vue.use(VueRouter);
 Vue.use(VueStripeCheckout, options);
 Vue.use(FBSignInButton);
+Vue.use(Overdrive);
+
 const router = new VueRouter({
   mode: 'history',
   base: __dirname,
