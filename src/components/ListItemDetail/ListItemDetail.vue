@@ -1,11 +1,10 @@
 <template>
   <div id="list-item-detail-wrapper">
-    <Navbar/>
     <list-item-detail-image/>
-    <list-item-detail-content/>
+    <list-item-detail-content/> 
     <list-item-detail-buttons/>
     <list-item-detail-break/> 
-    <list-item-detail-carousel/>
+    <list-item-detail-carousel/>  
   </div>
 </template>
 

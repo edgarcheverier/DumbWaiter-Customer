@@ -13,7 +13,7 @@
         @success="onSignInSuccess"
         @error="onSignInError">
         Sign in with Facebook
-        <i class="material-icons right">account_circle</i>
+        <ion-icon name="logo-facebook"/>
       </fb-signin-button>
     </div>
   </div>

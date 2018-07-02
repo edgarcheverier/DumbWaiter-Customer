@@ -79,11 +79,13 @@ export default {
   height: 145px;
   position: relative;
   width: 150px;
+  z-index: 99999 !important;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15),
     0 6px 6px rgba(0, 0, 0, 0.23);
 }
 .card img {
   height: 100px;
+  width: 150px;
   border-top-right-radius: 4px;
   border-top-left-radius: 4px;
 }
