@@ -1,14 +1,14 @@
 <template>
   <div id="navbar-container">
-    
+
     <div id="navbar-content">
       <button @click="goBack">
-        <ion-icon 
-          id="back-button" 
+        <ion-icon
+          id="back-button"
           name="arrow-back"/>
       </button>
       <p id="price">{{ amount }} €</p>
-      <button 
+      <button
         id="checkout-button"
         @click="goCheckout" >
       <ion-icon name="ios-card"/></button>
@@ -25,7 +25,7 @@ export default {
       return this.$store.state.navPath;
     },
     amount() {
-      return this.$store.state.amount;
+      return this.$store.state.amount.total;
     },
   },
   methods: {

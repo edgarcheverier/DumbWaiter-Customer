@@ -18,7 +18,6 @@
     <CartPay
       :total="total"
       :shopping-list="shoppingListData"
-      :dispatch-order="dispatchOrder"
     />
 
 
