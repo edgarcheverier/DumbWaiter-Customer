@@ -1,4 +1,5 @@
 export const state = {
+  allRestaurants: [],
   longitude: 0,
   latitude: 0,
   restaurant: {},

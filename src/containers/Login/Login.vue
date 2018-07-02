@@ -19,7 +19,6 @@
   </div>
 </template>
 <script>
-
 import authService from '../../services/auth.service';
 
 window.fbAsyncInit = function() {
@@ -55,21 +54,30 @@ export default {
   },
   beforeCreate() {
     const token = localStorage.getItem('token');
-    authService.verifyToken(token, (response) => {
-      if(response.isvalid) {
-        this.$store.commit('customerInformation', response.user);
-        this.$router.push('/welcome');
+    authService.verifyToken(token, response => {
+      if (response.isvalid) {
+        this.$store.commit(
+          'customerInformation',
+          response.user
+        );
+        this.$router.push('/Maps');
       }
     });
   },
   methods: {
-   async onSignInSuccess (response) {
+    async onSignInSuccess(response) {
       console.log(response.authResponse);
-      const authFacebook = await authService.authFacebook(response.authResponse, (response) => {
-        this.$store.commit('customerInformation', response.user);
-        localStorage.setItem('token', response.token);
-        this.$router.push('/welcome');
-      });
+      const authFacebook = await authService.authFacebook(
+        response.authResponse,
+        response => {
+          this.$store.commit(
+            'customerInformation',
+            response.user
+          );
+          localStorage.setItem('token', response.token);
+          this.$router.push('/Maps');
+        }
+      );
     },
     onSignInError(error) {
       console.log('Sign in with facebook faile', error);
