@@ -1,13 +1,15 @@
 import Vue from 'vue';
 
-import Login from './containers/Login/Login.vue';
-import Maps from './containers/Maps/Maps.vue';
-import List from './containers/List/List.vue';
-import Welcome from './containers/Welcome/Welcome.vue';
+import Login from './components/Login/Login.vue';
+import Maps from './components/Maps/Maps.vue';
+import List from './components/List/List.vue';
+import Welcome from './components/Welcome/Welcome.vue';
 import ListItemDetail from './components/ListItemDetail/ListItemDetail.vue';
-import Cart from './containers/Cart/Cart.vue';
+import Cart from './components/Cart/Cart.vue';
 import VueStripeCheckout from 'vue-stripe-checkout';
-import User from './containers/User/User.vue';
+import User from './components/User/User.vue';
+import Connection from './components/Connection/Connection.vue';
+
 import VueRouter from 'vue-router';
 import FBSignInButton from 'vue-facebook-signin-button';
 import * as VueGoogleMaps from 'vue2-google-maps';
@@ -64,6 +66,7 @@ const router = new VueRouter({
     { path: '/', component: Login },
     { path: '/Maps', component: Maps },
     { path: '/Welcome', component: Welcome },
+    { path: '/Connection', component: Connection },
     { path: '/User', component: User },
     { path: '/detail', component: ListItemDetail },
     { path: '/List', component: List },
