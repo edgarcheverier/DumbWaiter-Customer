@@ -2,7 +2,7 @@
   <img 
     id="detail-hero-image" 
     :src="image"
-    alt="soup bowl, asian">
+    alt="">
 </template>
 
 <script>

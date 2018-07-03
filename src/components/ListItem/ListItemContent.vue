@@ -17,13 +17,13 @@
     </button>
     <Modal 
       ref="modal" 
-      icon="success"/>
+    />
   </div>
 
 </template>
 
 <script>
-import Modal from '../Modal';
+import Modal from '../Modal/Modal';
 export default {
   name: 'ListItemContent',
   components: {

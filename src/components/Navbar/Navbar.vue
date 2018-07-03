@@ -1,6 +1,5 @@
 <template>
   <div id="navbar-container">
-
     <div id="navbar-content">
       <button @click="goBack">
         <ion-icon
@@ -53,24 +52,23 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 #navbar-container {
   top: 0;
-  background-color: #fff;
   width: 100%;
-  height: 50px;
+  height: 70px;
   z-index: 1000;
   display: flex;
   position: sticky;
+  background-color: #fff;
 }
 #navbar-content {
-  width: 90%;
-  margin: 0 auto;
   display: flex;
-  font-weight: 700;
-  font-family: Raleway;
-  justify-content: space-between;
+  width: 93%;
+  margin: 0 auto;
   align-items: center;
+  justify-content: space-between;
+  font-family: Raleway;
 }
 #back-button {
   color: #eb2f06;
@@ -80,12 +78,12 @@ export default {
 .price {
   font-weight: 600;
   color: #eb2f06;
-  font-size: 1.3em;
+  font-weight: 400;
+  font-size: 1.5em;
 }
-#checkout-button {
-  font-size: 2em;
-  font-weight: 600;
+ion-icon {
+  font-size: 3.5em;
   color: #eb2f06;
-  margin: 8px -4px 0 0;
+  background-color: #fff;
 }
 </style>

@@ -1,90 +1,55 @@
 <template>
-  <div>
-    <div class="logoContainer">
-      <img
-        class="logo"
-        src="../../assets/img/reception.svg">
+  <div id="wrapper">
+    <div id="logo-container">
+      <h3 id="logo-text">Dumbwaiter</h3>
+      <img 
+        id="logo-image"
+        src="./../../assets/img/reception.svg" 
+        alt="logo">
     </div>
-    <div class="facebookContainer">
-      <fb-signin-button
-        :params="fbSignInParams"
-        type="submit"
-        name="action"
-        @success="onSignInSuccess"
-        @error="onSignInError">
-        Sign in with Facebook
-        <i class="material-icons right">account_circle</i>
-      </fb-signin-button>
-    </div>
+    <facebook-login/>
   </div>
 </template>
-<script>
-import authService from '../../services/auth.service';
 
-window.fbAsyncInit = function() {
-  FB.init({
-    appId: '246012439316213',
-    cookie: true,
-    xfbml: true,
-    version: 'v3.0',
-  });
-};
-(function(d, s, id) {
-  var js,
-    fjs = d.getElementsByTagName(s)[0];
-  if (d.getElementById(id)) {
-    return;
-  }
-  js = d.createElement(s);
-  js.id = id;
-  js.src = '//connect.facebook.net/en_US/sdk.js';
-  fjs.parentNode.insertBefore(js, fjs);
-})(document, 'script', 'facebook-jssdk');
+<script>
+import FacebookLogin from './FacebookLogin';
 
 export default {
   name: 'Login',
-  components: {},
-  data() {
-    return {
-      fbSignInParams: {
-        scope: 'email,public_profile',
-        return_scopes: true,
-      },
-    };
-  },
-  beforeCreate() {
-    const token = localStorage.getItem('token');
-    authService.verifyToken(token, response => {
-      if (response.isvalid) {
-        this.$store.commit(
-          'customerInformation',
-          response.user
-        );
-        this.$router.push('/Maps');
-      }
-    });
-  },
-  methods: {
-    async onSignInSuccess(response) {
-      console.log(response.authResponse);
-      const authFacebook = await authService.authFacebook(
-        response.authResponse,
-        response => {
-          this.$store.commit(
-            'customerInformation',
-            response.user
-          );
-          localStorage.setItem('token', response.token);
-          this.$router.push('/Maps');
-        }
-      );
-    },
-    onSignInError(error) {
-      console.log('Sign in with facebook faile', error);
-    },
+  components: {
+    FacebookLogin,
   },
 };
 </script>
-<style lang="scss" scoped>
-@import './Login.css';
+
+<style scoped>
+#wrapper {
+  width: 100%;
+  display: flex;
+  height: 100vh;
+  background: #fa983a;
+  flex-direction: column;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-image: url('https://images.unsplash.com/photo-1513792117172-ef6bc78042c1?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=370e34ca0e07fdcef373767f1c463090&auto=format&fit=crop&w=800&q=60');
+}
+#logo-container {
+  margin-top: 40%;
+  margin-bottom: 68%;
+  display: inherit;
+  align-items: center;
+  flex-direction: inherit;
+  justify-content: center;
+  color: #ffffff;
+}
+#logo-text {
+  font-size: 2.5em;
+  text-transform: uppercase;
+}
+#logo-image {
+  width: 8em;
+  height: 8em;
+  margin: 15px;
+}
+@import '../../assets/styles/global.css';
 </style>

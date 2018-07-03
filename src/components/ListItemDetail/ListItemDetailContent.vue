@@ -1,14 +1,18 @@
 <template>
   <div id="list-item-detail-content-container">
     <h1 id="content-header">{{ name }} - {{ price }}€</h1>
+    <list-item-detail-break/> 
     <p id="content-description">{{ description }} </p>
   </div>
 </template>
 
 <script>
+import ListItemDetailBreak from './ListItemDetailBreak';
 export default {
   name: 'ListItemDetailContent',
-  components: {},
+  components: {
+    ListItemDetailBreak,
+  },
   computed: {
     name() {
       return this.$store.state.itemSelected.name;
@@ -25,9 +29,10 @@ export default {
 
 <style>
 #list-item-detail-content-container {
-  width: 90%;
   justify-content: center;
+  padding: 2px;
   margin: 0 auto !important;
+  margin-bottom: 5px !important;
 }
 #content-header {
   font-weight: 300;

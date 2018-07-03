@@ -1,0 +1,26 @@
+* {
+  margin: 0;
+  padding: 0;
+  outline: 0;
+}
+
+body {
+  font-size: 1em;
+  line-height: 1.2;
+  font-weight: 300;
+  font-family: Merriweather;
+  background-color: #ffffff;
+}
+
+ol,
+ul {
+  list-style: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+  font-family: 'Raleway'
+}
