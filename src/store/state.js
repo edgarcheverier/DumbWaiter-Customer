@@ -1,4 +1,5 @@
 export const state = {
+  cartList: [],
   restaurantKey: '',
   allRestaurants: [],
   longitude: 0,
