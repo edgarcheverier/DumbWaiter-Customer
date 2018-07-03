@@ -1,4 +1,13 @@
 export const mutations = {
+  finalOrder(state, arrayOfIds) {
+    state.finalOrder = arrayOfIds;
+  },
+  productsOrdened(state, orders) {
+    state.productsOrdened = orders;
+  },
+  connectionId(state, code) {
+    state.connectionId = code;
+  },
   cartList(state, list) {
     state.cartList = list;
   },
@@ -101,6 +110,7 @@ export const mutations = {
         }
       });
     });
+    state.restaurantId = info.id;
     state.restaurant = restaurantIfon;
     state.foodOptions = mains;
     state.drinksOptions = drinks;

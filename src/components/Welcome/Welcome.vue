@@ -16,6 +16,40 @@ export default {
     Navbar,
     WelcomeOptions,
   },
+  data: function() {
+    return {
+      userImage: {
+        backgroundImage: `url(http://graph.facebook.com/${
+          this.$store.state.customer.id
+        }/picture)`,
+      },
+    };
+  },
+  beforeCreate() {
+    this.$store.commit('updatePath', '/Maps');
+  },
+    handleClickFood(type) {
+      this.$store.commit('menuSelected', type);
+      console.log(type, this.$store.state.menuSelected);
+      this.$router.push('/List');
+    },
+    goToUser() {
+      this.$router.push('/User');
+    },
+    handleClickWaiter: () => {
+      M.toast({
+        html: 'The Waiter Is Coming :)',
+        classes: 'rounded',
+      });
+    },
+    tableButton() {
+      if (this.$store.state.restaurantKey == 'Connect') {
+        this.$router.push('/Connection');
+      } else {
+        console.log(this.$store.state.restaurantKey);
+      }
+    },
+  },
 };
 </script>
 

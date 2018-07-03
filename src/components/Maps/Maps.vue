@@ -1,5 +1,6 @@
 <template>
   <div>
+    <MapsNavbar />
     <modal 
       :width="'100%'"
       :height="400"
@@ -42,9 +43,12 @@
 </template>
 
 <script>
-// center=m.position
+import MapsNavbar from './MapsNavbar.vue';
 export default {
   name: 'Maps',
+  components: {
+    MapsNavbar,
+  },
   data() {
     return {
       title: '',

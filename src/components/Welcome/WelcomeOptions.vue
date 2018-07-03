@@ -2,7 +2,7 @@
   <div id="wrapper">
     <div class="button-container">
       <div class="button-btn-container">
-        <button @click="props.handleClickFood('Food')">
+        <button @click="handleClickFood('Food')">
           <i class="material-icons">local_dining</i>
         </button>    
         <button @click="props.handleClickFood('Drink')">
@@ -26,7 +26,7 @@
     </div>
     <div class="button-container">
       <div class="button-btn-container">
-        <button>
+        <button @click="tableButton">
           <i class="material-icons">border_outer</i>
         </button>    
         <button>
@@ -34,7 +34,7 @@
         </button>
       </div>
       <div class="button-label-container">
-        <h3>Connect</h3>
+        <h3>{{ userKey }}</h3>
         <h3>Waiter</h3>
       </div>
     </div>
@@ -54,8 +54,13 @@ export default {
       userTable: this.$store.state.table,
     };
   },
+  computed: {
+    userKey() {
+      return this.$store.state.restaurantKey;
+    },
+  },
   beforeCreate() {
-    this.$store.commit('updatePath', '/maps');
+    this.$store.commit('updatePath', '/Maps');
   },
   methods: {
     goCheckout() {
@@ -76,11 +81,12 @@ export default {
         classes: 'rounded',
       });
     },
-    tableButton: () => {
-      M.toast({
-        html: 'Your orders will arrive here',
-        classes: 'rounded',
-      });
+    tableButton() {
+      if (this.$store.state.restaurantKey == 'Connect') {
+        this.$router.push('/Connection');
+      } else {
+        console.log(this.$store.state.restaurantKey);
+      }
     },
   },
 };
