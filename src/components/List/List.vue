@@ -3,7 +3,7 @@
 </template>
 
 <script>
-import ListItem from '../../components/ListItem/ListItem';
+import ListItem from '../ListItem/ListItem';
 
 export default {
   name: 'List',

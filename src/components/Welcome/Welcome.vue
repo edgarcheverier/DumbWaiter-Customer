@@ -13,7 +13,7 @@
 </template>
 
 <script>
-import Navbar from '../../components/Navbar/Navbar';
+import Navbar from '../Navbar/Navbar';
 import WelcomeOptions from './WelcomeOptions.vue';
 export default {
   name: 'Welcome',

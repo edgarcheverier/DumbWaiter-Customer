@@ -26,7 +26,7 @@
 
 <script>
 import ItemCart from './ItemCart.vue';
-import Navbar from '../../components/Navbar/Navbar.vue';
+import Navbar from '../Navbar/Navbar.vue';
 export default {
   name: 'Cart',
   components: {
