@@ -1,4 +1,7 @@
 export const mutations = {
+  cartList(state, list) {
+    state.cartList = list;
+  },
   restaurantKey(state, key) {
     state.restaurantKey = key;
   },
@@ -17,6 +20,11 @@ export const mutations = {
   updateAmount(state, amount) {
     let currentValue = state.amount.total;
     currentValue += amount;
+    state.amount.total = currentValue;
+  },
+  subtracAmount(state, amount) {
+    let currentValue = state.amount.total;
+    currentValue -= amount;
     state.amount.total = currentValue;
   },
   menuSelected(state, option) {
