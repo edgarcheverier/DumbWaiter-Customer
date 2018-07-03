@@ -7,7 +7,7 @@
     <WelcomeOptions
       :handle-click-food="handleClickFood"
       :table-button="tableButton"
-      :user-table="userTable"
+      :user-key="userKey"
       :handle-click-waiter="handleClickWaiter" />
   </div>
 </template>
@@ -28,10 +28,13 @@ export default {
           this.$store.state.customer.id
         }/picture)`,
       },
-      userTable: this.$store.state.table,
     };
   },
-  computed: {},
+  computed: {
+    userKey() {
+      return this.$store.state.restaurantKey;
+    },
+  },
   /*
   async beforeCreate() {
     if (this.$store.state.customer.name !== undefined) {
@@ -63,11 +66,12 @@ export default {
         classes: 'rounded',
       });
     },
-    tableButton: () => {
-      M.toast({
-        html: 'Your ordeners will arrive here',
-        classes: 'rounded',
-      });
+    tableButton() {
+      if (this.$store.state.restaurantKey == 'Connect') {
+        this.$router.push('/Connection');
+      } else {
+        console.log(this.$store.state.restaurantKey);
+      }
     },
   },
 };
