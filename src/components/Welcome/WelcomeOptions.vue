@@ -28,7 +28,7 @@
           class="btn-floating btn-large waves-effect waves-light z-depth-4 blue lighten-1" 
           @click="props.tableButton"
         ><i class="material-icons">border_outer</i></button>
-        <label class="labelClass">Table Nº {{ props.userTable }}</label>
+        <label class="labelClass">{{ props.userKey }}</label>
       </div>
       <div class="buttonsLabel">
         <button 

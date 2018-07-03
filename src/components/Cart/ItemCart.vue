@@ -20,21 +20,4 @@ export default {
 </script>
 
 <style>
-.itemsContainers {
-  display: flex;
-  justify-content: center;
-  margin-top: 35px;
-  margin-left: 10px;
-  margin-right: 10px;
-}
-.priceCount {
-  display: flex;
-  justify-content: space-around;
-  margin-top: 25px;
-  margin-left: 10px;
-  margin-right: 10px;
-}
-.itemName {
-  color: white;
-}
 </style>

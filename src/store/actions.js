@@ -1,10 +1,7 @@
 import gql from 'graphql-tag';
 
 import graphqlClient from '../graphql';
-import {
-  GET_RESTAURANT,
-  GET_RESTAURANTS,
-} from '../querys/querys';
+import { GET_RESTAURANTS } from '../querys/querys';
 
 export const actions = {
   async getRestaurant({ commit }) {
@@ -22,18 +19,57 @@ export const actions = {
       response.data.restaurant
     );
   },
-  /*
-  async getDataRest({ commit }, id) {
-    let response = await graphqlClient.query({
-      query: gql`
-        ${GET_RESTAURANT}
+
+  async submitOrder({ commit }, arg) {
+    let response = await graphqlClient.mutate({
+      mutation: gql`
+      mutation {
+        createOrder(
+          products: "${arg.array}"
+          connectionId: ${arg.id}
+          price: ${arg.amount}
+        ) {
+          id
+          status
+          products {
+            product {
+              name
+              price
+              categories {
+                name
+              }
+            }
+            price
+          }
+        }
+      }
       `,
-      //variables: { bookId: id },
     });
-    console.log('restaurant!!!', response.data);
-    await commit('mutateRestaurant', response.data);
+    await commit(
+      'productsOrdened',
+      response.data.createOrder.products
+    );
   },
-  */
+
+  async getConnectionId({ commit }, arg) {
+    let response = await graphqlClient.mutate({
+      mutation: gql`
+      mutation {
+        addConnection(
+          restaurantId: ${arg.id} 
+          code: "${arg.code}"
+        ){
+          id
+        } 
+      }
+    `,
+    });
+    await commit(
+      'connectionId',
+      response.data.addConnection.id
+    );
+  },
+
   async getLocation({ commit }, id) {
     const success = async pos => {
       let crd = pos.coords;
