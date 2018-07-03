@@ -98,8 +98,7 @@ i {
 button {
   width: 9em;
   height: 9em;
-  border-radius: 4px;
-  border-radius: 4px;
+  border: 0;
   background-color: inherit;
   box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.15),
     0 6px 6px rgba(0, 0, 0, 0.23);
