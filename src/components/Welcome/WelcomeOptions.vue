@@ -26,12 +26,17 @@
     </div>
     <div class="button-container">
       <div class="button-btn-container">
+        
+        
         <button @click="tableButton">
           <i class="material-icons">border_outer</i>
-        </button>    
+        </button> 
+      
+       
         <button>
           <i class="material-icons">face</i>
         </button>
+     
       </div>
       <div class="button-label-container">
         <h3>{{ userKey }}</h3>
