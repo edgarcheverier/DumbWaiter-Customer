@@ -167,16 +167,16 @@ export default {
 
 <style>
 .removeButton {
-  color: white;
+  color: black;
 }
 
 .orderButton {
-  border: 0.5px solid white;
-  background-color: white;
+  border: 0.5px solid black;
+  background-color: black;
   font-size: 15px;
   margin-top: 20px;
   padding: 5px 30px;
-  color: black;
+  color: white;
 }
 .itemsContainers {
   display: flex;
@@ -193,7 +193,7 @@ export default {
   margin-right: 10px;
 }
 .itemName {
-  color: white;
+  color: black;
 }
 .priceContainer {
   display: flex;

@@ -64,7 +64,7 @@ export default {
 }
 #navbar-content {
   display: flex;
-  width: 93%;
+  width: 90%;
   margin: 0 auto;
   align-items: center;
   justify-content: space-between;
