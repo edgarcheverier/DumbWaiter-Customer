@@ -17,7 +17,7 @@
           <button 
             class="removeButton" 
             @click="() => addElements(item)" > + </button>
-          <p class="itemName">{{ item.price * item.count }} €</p>
+          <p class="itemName">{{ item.price }} €</p>
         </div>
       </div>
     </div>

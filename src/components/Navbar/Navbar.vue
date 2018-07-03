@@ -25,7 +25,7 @@ export default {
       return this.$store.state.navPath;
     },
     amount() {
-      return this.$store.state.amount.total;
+      return this.$store.state.amount.total.toPrecision(3);
     },
   },
   methods: {
