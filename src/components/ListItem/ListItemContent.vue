@@ -43,10 +43,10 @@ export default {
   methods: {
     handleClickModal(item) {
       this.$store.commit('itemSelected', {
-        id: item.ide,
+        id: item.id,
         name: item.name,
         price: item.price,
-        quantity: 1,
+        count: 1,
         description: item.description,
         photo: item.photos[0].url,
       });
@@ -60,6 +60,7 @@ export default {
         price: item.price,
       };
       this.$store.commit('pushCartList', itemSelect);
+      //this.$store.commit('itemSelected', itemSelect);
       this.$store.commit('updateAmount', itemSelect.price);
       //this.$swal(`${item.name} is added to your Cart`);
       this.$refs.order.open();
