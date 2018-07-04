@@ -1,26 +1,19 @@
 import Vue from 'vue';
 import VModal from 'vue-js-modal';
 import VueRouter from 'vue-router';
-import store from './store/store.js';
-import * as VueGoogleMaps from 'vue2-google-maps';
-import SweetModal from 'sweet-modal-vue/src/plugin.js';
-import FBSignInButton from 'vue-facebook-signin-button';
 
 import Maps from './components/Maps/Maps.vue';
 import List from './components/List/List.vue';
 import Cart from './components/Cart/Cart.vue';
 import Orders from './components/Cart/CartOrders.vue';
-import VueStripeCheckout from 'vue-stripe-checkout';
 import User from './components/User/User.vue';
 import Login from './components/Login/Login.vue';
 import VueStripeCheckout from 'vue-stripe-checkout';
 import Welcome from './components/Welcome/Welcome.vue';
 import Connection from './components/Connection/Connection.vue';
 
-import VueRouter from 'vue-router';
 import FBSignInButton from 'vue-facebook-signin-button';
 import * as VueGoogleMaps from 'vue2-google-maps';
-import VModal from 'vue-js-modal';
 import Toast from 'vue-easy-toast';
 import VueSweetalert2 from 'vue-sweetalert2';
 import VueCurrencyFilter from 'vue-currency-filter';
@@ -88,7 +81,6 @@ const router = new VueRouter({
     { path: '/welcome', component: Welcome },
     { path: '/connection', component: Connection },
     { path: '/user', component: User },
-    { path: '/detail', component: ListItemDetail },
     { path: '/list', component: List },
     { path: '/cart', component: Cart },
     { path: '/orders', component: Orders },
