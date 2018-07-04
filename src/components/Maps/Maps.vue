@@ -1,34 +1,12 @@
 <template>
   <div>
     <MapsNavbar />
-    <div 
-      v-if="getLongitude == 0" 
-      class="loaderContainer">
-      <CubeSpin/>
+    <div
+      v-if="getLongitude == 0"
+      id="spinner-container">
+      <rotate-loader
+        :color="color"/>
     </div>
-    <modal 
-      :width="'100%'"
-      :height="400"
-      name="rest"
-      @before-open="beforeOpen"
-      @before-close="beforeClose">
-      <div class="titleContainer">
-        <b>{{ title }}</b>
-      </div>
-      <div class="imageContainer">
-        <img 
-          :src="image" 
-          class="imageSize">  
-      </div>
-      <div class="descriptionContainer">
-        <b class="descriptionMaps">{{ description }}</b>
-      </div>
-      <div class="buttonContainer">
-        <button 
-          class="buttonStyle" 
-          @click="selectRestaurant">Go to {{ title }} !</button>
-      </div>
-    </modal>
     <GmapMap
       v-if="getLongitude !== 0" 
       :center="{lat:getLatitude, lng:getLongitude}"
@@ -38,32 +16,57 @@
     >
       <GmapMarker
         v-for="(item, index) in getRestaurants" 
-        v-if="getLongitude !== 0"
         :key="index"
         :position="{lat: Number(item.latitude), lng: Number(item.longitude)}"
         :clickable="true"
         :draggable="true"
-        @click="() => showRestaurant(item)"
+        @click="handleClickRestaurant(item)"
       />
     </GmapMap>
+    <sweet-modal 
+      ref="map" 
+      :enable-mobile-fullscreen="false"
+    >
+      <div id="modal-wrapper">
+        <div id="resto-name">
+          <h3>{{ name }}</h3>
+        </div>
+        <img 
+          id="resto-image"
+          :src="image" 
+        >
+        <div id="resto-description">
+          <p>{{ description }}</p>
+        </div>
+      </div>
+      <button 
+        id="resto-button" 
+        @click="selectRestaurant()">Go to {{ name }}!</button>
+    </sweet-modal>
   </div>
 </template>
 
+// TODO: refactor all of this, fix spinner position
+
 <script>
-import CubeSpin from '../../../node_modules/vue-loading-spinner/src/components/Circle2.vue';
+import MapModal from './MapModal';
+import RotateLoader from 'vue-spinner/src/RotateLoader.vue';
 import MapsNavbar from './MapsNavbar.vue';
+
 export default {
   name: 'Maps',
   components: {
     MapsNavbar,
-    CubeSpin,
+    RotateLoader,
+    MapModal,
   },
   data() {
     return {
       loading: false,
-      title: '',
+      name: '',
       image: '',
       description: '',
+      color: '#ff5555',
       restaurantSelected: {},
     };
   },
@@ -81,91 +84,80 @@ export default {
   async beforeCreate() {
     await this.$store.dispatch('getLocation');
     await this.$store.dispatch('getRestaurant');
-    console.log(
-      'all restaurants state',
-      this.$store.state.allRestaurants
-    );
   },
   methods: {
-    beforeOpen(event) {},
-    beforeClose(event) {
-      console.log(event);
-      // If modal was open less then 5000 ms - prevent closing it
+    handleClickRestaurant(item) {
+      this.name = item.name;
+      this.image = item.photos[0].url;
+      this.description = item.description;
+      this.restaurantSelected = item;
+      this.$refs.map.open(item);
     },
     selectRestaurant() {
       this.$store.commit(
         'mutateRestaurant',
         this.restaurantSelected
       );
-      console.log(
-        'restaurant Selected ',
-        this.restaurantSelected
-      );
-      this.$router.push('/Welcome');
-    },
-    showRestaurant(item) {
-      this.$modal.show('rest');
-      this.title = item.name;
-      this.image = item.photos[0].url;
-      this.description = item.description;
-      this.restaurantSelected = item;
-    },
-    hideModal() {
-      this.$modal.hide('rest');
+      this.$router.push('/welcome');
     },
   },
 };
 </script>
 
-
-
-<style>
+<style scoped>
+#wrapper {
+  display: flex;
+  height: 100vh;
+  width: 100%;
+}
 .descriptionMaps {
+  width: 90%;
   height: 50px;
-  white-space: wrap;
+  margin: 0 auto;
   overflow: hidden;
-  text-overflow: ellipsis;
-  font-family: Raleway;
   font-weight: 400;
   font-size: 0.9em;
+  white-space: wrap;
+  font-family: Raleway;
+  text-overflow: ellipsis;
+}
+#modal-wrapper {
   width: 90%;
+  display: flex;
   margin: 0 auto;
+  text-align: left;
+  flex-direction: column;
 }
-.titleContainer {
-  display: flex;
-  justify-content: center;
-  margin-bottom: 20px;
-  margin-top: 10px;
+#resto-image {
+  height: 25vh;
+  border-radius: 4px;
 }
-.imageContainer {
-  display: flex;
-  justify-content: center;
+#resto-name {
+  text-align: center;
+  margin-bottom: 10px;
 }
-.imageSize {
-  width: 300px;
-  height: 170px;
+#resto-description {
+  margin: 10px 0;
+  font-weight: 200;
+  font-size: 0.8em;
 }
-.descriptionContainer {
-  display: flex;
-  justify-content: center;
-  margin-top: 25px;
+#resto-button {
+  width: 100%;
+  height: 40px;
+  font-weight: 600;
+  font-size: 0.9em;
+  color: #ffffff;
+  font-family: Raleway;
+  background-color: #ff5555;
+  border: 1px #ff5555 solid;
 }
-.buttonContainer {
-  display: flex;
-  justify-content: center;
-  margin-top: 25px;
-}
-.buttonStyle {
-  color: blue;
-}
-.loaderContainer {
+#spinner-container {
   display: flex;
   justify-content: center;
   margin-top: 250px;
 }
-div.spinner.spinner--circle-2 {
-  width: 80px !important;
-  height: 80px !important;
-  border-color: #ff5555 rgb(65, 9, 9) !important;
+#spinner {
+  color: #ff5555;
 }
+@import '../../assets/styles/global.css';
 </style>

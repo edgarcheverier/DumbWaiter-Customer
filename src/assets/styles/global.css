@@ -28,20 +28,14 @@ h5 {
 .sweet-content {
   padding: 0 !important;
   width: 100% !important;
+  margin-top: 20px;
 }
 
 .sweet-action-close {
   z-index: 99999;
-  height: 4em !important;
-  color: red !important;
+  color: #ff5555 !important;
+  background: #ffffff !important;
 }
-
-.sweet-content {
-  width: 100%;
-  padding: 0;
-}
-
-.VueCarousel {}
 
 .VueCarousel-slide {
   height: 175px;
@@ -49,7 +43,6 @@ h5 {
   text-overflow: ellipsis;
   margin-right: 10px !important;
   flex-shrink: 1 !important;
-  /* flex-grow: 0 !important; */
 }
 
 .VueCarousel-inner {

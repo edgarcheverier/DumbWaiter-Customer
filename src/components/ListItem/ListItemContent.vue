@@ -8,7 +8,7 @@
     </div>
     <p id="list-item-price">{{ price }} €</p>
     <button 
-      id="list-item-checkout-button"
+      id="list-item-order-button"
       @click="() => addItem(item)" 
     >
       <ion-icon 
@@ -18,8 +18,13 @@
     <Modal 
       ref="modal" 
     />
+    <sweet-modal 
+      ref="order" 
+      :enable-mobile-fullscreen="false"
+      icon="success">
+      <p id="order-confirm">{{ name }} has been added to your order!</p> 
+    </sweet-modal>
   </div>
-
 </template>
 
 <script>
@@ -57,7 +62,8 @@ export default {
       this.$store.commit('pushCartList', itemSelect);
       //this.$store.commit('itemSelected', itemSelect);
       this.$store.commit('updateAmount', itemSelect.price);
-      this.$swal(`${item.name} is added to your Cart`);
+      //this.$swal(`${item.name} is added to your Cart`);
+      this.$refs.order.open();
       console.log('itemSelected', itemSelect);
       console.log('carList', this.$store.state.cartList);
     },
@@ -108,7 +114,7 @@ export default {
   top: 74%;
   left: 5%;
 }
-#list-item-checkout-button {
+#list-item-order-button {
   position: absolute;
   top: 71%;
   right: 3%;
@@ -116,5 +122,11 @@ export default {
 }
 #checkout {
   font-size: 2rem;
+}
+#order-confirm {
+  width: 80%;
+  margin: 0 auto;
+  font-size: 0.8em;
+  margin-bottom: 10px;
 }
 </style>
