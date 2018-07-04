@@ -9,7 +9,7 @@
     <p id="list-item-price">{{ price }} €</p>
     <button 
       id="list-item-order-button"
-      @click="handleClickOrder" 
+      @click="() => addItem(item)" 
     >
       <ion-icon 
         id="checkout" 
@@ -52,20 +52,19 @@ export default {
       });
       this.$refs.modal.open();
     },
-    handleClickOrder(item) {
-      this.$refs.order.open();
-    },
     addItem(item) {
       let itemSelect = {
         id: item.id,
-        quantity: 1,
+        count: 1,
         name: item.name,
         price: item.price,
       };
-      this.$store.commit('shoppingList', itemSelect);
+      this.$store.commit('pushCartList', itemSelect);
       this.$store.commit('updateAmount', itemSelect.price);
-      this.$swal(`${item.name} is added to your Cart`);
-      console.log('before to go to the cart', itemSelect);
+      //this.$swal(`${item.name} is added to your Cart`);
+      this.$refs.order.open();
+      console.log('itemSelected', itemSelect);
+      console.log('carList', this.$store.state.cartList);
     },
   },
 };
