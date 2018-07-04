@@ -1,53 +1,33 @@
 <template>
-  <div>
-    <MapsNavbar />
-    <modal 
-      :width="'100%'"
-      :height="400"
-      name="rest"
-      @before-open="beforeOpen"
-      @before-close="beforeClose">
-      <div class="titleContainer">
-        <b>{{ title }}</b>
-      </div>
-      <div class="imageContainer">
-        <img 
-          :src="image" 
-          class="imageSize">  
-      </div>
-      <div class="descriptionContainer">
-        <b>{{ description }}</b>
-      </div>
-      <div class="buttonContainer">
-        <button 
-          class="buttonStyle" 
-          @click="selectRestaurant">Go to {{ title }} Restaurant</button>
-      </div>
-    </modal>
+  <div class="wrapper">
+    <Navbar />
     <GmapMap
       :center="{lat:getLatitude, lng:getLongitude}"
       :zoom="15"
       map-type-id="terrain"
-      style="width: 100%; height: 850px"
-    >
+      style="width: 100%; height: 750px">
       <GmapMarker
         v-for="(item, index) in getRestaurants"
         :key="index"
         :position="{lat: Number(item.latitude), lng: Number(item.longitude)}"
         :clickable="true"
         :draggable="true"
-        @click="() => showRestaurant(item)"
+        @click="handleClickModal(item)"
       />
     </GmapMap>
+    <MapModal 
+      ref="modal"/>
   </div>
 </template>
 
 <script>
-import MapsNavbar from './MapsNavbar.vue';
+import Navbar from '../Navbar/Navbar.vue';
+import MapModal from './MapModal';
 export default {
   name: 'Maps',
   components: {
-    MapsNavbar,
+    Navbar,
+    MapModal,
   },
   data() {
     return {
@@ -93,6 +73,9 @@ export default {
       );
       this.$router.push('/Welcome');
     },
+    handleClickModal(item) {
+      this.$refs.modal.open();
+    },
     showRestaurant(item) {
       this.$modal.show('rest');
       this.title = item.name;
@@ -109,7 +92,7 @@ export default {
 
 
 
-<style>
+<style scoped>
 div.v--modal-box.v--modal {
 }
 .titleContainer {

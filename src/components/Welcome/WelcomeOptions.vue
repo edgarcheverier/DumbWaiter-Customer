@@ -26,24 +26,35 @@
     </div>
     <div class="button-container">
       <div class="button-btn-container">
-        <button @click="tableButton">
+
+        <button @click="handleClickConnect">
           <i class="material-icons">border_outer</i>
-        </button>    
+        </button> 
+       
         <button>
           <i class="material-icons">face</i>
         </button>
+     
       </div>
       <div class="button-label-container">
         <h3>{{ userKey }}</h3>
         <h3>Waiter</h3>
       </div>
+      <sweet-modal ref="connect">
+        boom
+      </sweet-modal>
     </div>
   </div>
 </template>
 
 <script>
+import { SweetModal, SweetModalTab } from 'sweet-modal-vue';
+import Connection from '../Connection/Connection';
 export default {
   name: 'WelcomeOptions',
+  components: {
+    SweetModal,
+  },
   data: function() {
     return {
       userImage: {
@@ -80,6 +91,9 @@ export default {
         html: 'The Waiter Is Coming :)',
         classes: 'rounded',
       });
+    },
+    handleClickConnect() {
+      this.$refs.connect.open();
     },
     tableButton() {
       if (this.$store.state.restaurantKey == 'Connect') {
@@ -134,6 +148,10 @@ h3 {
 .label-solo {
   display: flex;
   justify-content: center;
+}
+.sweet-modal {
+  color: #000;
+  background-color: papayawhip;
 }
 @import '../../assets/styles/global.css';
 </style>
