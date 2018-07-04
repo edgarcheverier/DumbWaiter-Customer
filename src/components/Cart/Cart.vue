@@ -216,4 +216,10 @@ export default {
   margin-top: 15px;
   margin-bottom: 15px;
 }
+.buttonContainer {
+  margin-top: 15px;
+  margin-bottom: 15px;
+  display: flex;
+  justify-content: center;
+}
 </style>
