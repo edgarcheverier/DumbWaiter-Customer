@@ -122,7 +122,7 @@ export default {
 
     removeElements(item) {
       if (item.count > 0) {
-        let arr = this.$store.state.cartList.map(ele => {
+        this.$store.state.cartList.map(ele => {
           if (ele.id === item.id) {
             return {
               id: item.id,
@@ -134,18 +134,14 @@ export default {
             return item;
           }
         });
-        console.log(arr);
-        this.$store.commit('cartList', arr);
         this.$store.commit('subtracAmount', item.price);
       }
       if (item.count == 0) {
-        let arr = [].concat(this.$store.state.shoppingList);
-        arr.map((ele, index) => {
+        this.$store.state.shoppingList.map((ele, index) => {
           if (ele.id === item.id) {
             arr.splice(index, 1);
           }
         });
-        this.$store.commit('cartList', arr);
       }
       this.$forceUpdate();
     },

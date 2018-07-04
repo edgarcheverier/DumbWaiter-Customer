@@ -55,7 +55,6 @@ export default {
         price: item.price,
       };
       this.$store.commit('pushCartList', itemSelect);
-      //this.$store.commit('itemSelected', itemSelect);
       this.$store.commit('updateAmount', itemSelect.price);
       this.$swal(`${item.name} is added to your Cart`);
       console.log('itemSelected', itemSelect);
