@@ -8,7 +8,6 @@
     @error="onSignInError">
     <ion-icon 
       id="fb-login-icon" 
-      key="logo"
       name="logo-facebook"/>
     <p id="fb-login-text">Login with Facebook</p>
   </fb-signin-button>

@@ -1,6 +1,5 @@
 <template>
   <div>
-    <Navbar />
     <div class="fromContainer">
       <input 
         placeholder="Enter the key please"
@@ -15,13 +14,9 @@
 </template>
 
 <script>
-import Navbar from '../Navbar/Navbar.vue';
-
 export default {
   name: 'Connection',
-  components: {
-    Navbar,
-  },
+  components: {},
   data: function() {
     return {
       key: '',

@@ -3,7 +3,6 @@
     <Navbar/>
     <WelcomeOptions/>
   </div>
-
 </template>
 
 <script>
