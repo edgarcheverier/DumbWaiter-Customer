@@ -51,10 +51,10 @@ export default {
   methods: {
     handleClickModal(item) {
       this.$store.commit('itemSelected', {
-        id: item.ide,
+        id: item.id,
         name: item.name,
         price: item.price,
-        quantity: 1,
+        count: 1,
         description: item.description,
         photo: item.photos[0].url,
       });

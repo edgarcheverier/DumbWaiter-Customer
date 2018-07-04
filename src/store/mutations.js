@@ -14,6 +14,9 @@ export const mutations = {
   cartList(state, list) {
     state.cartList = list;
   },
+  pushCartList(state, list) {
+    state.cartList.push(list);
+  },
   restaurantKey(state, key) {
     state.restaurantKey = key;
   },

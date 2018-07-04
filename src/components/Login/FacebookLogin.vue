@@ -6,15 +6,17 @@
     name="action"
     @success="onSignInSuccess"
     @error="onSignInError">
-    <ion-icon 
-      id="fb-login-icon" 
-      name="logo-facebook"/>
     <p id="fb-login-text">Login with Facebook</p>
   </fb-signin-button>
   
 </template>
 
 <script>
+/*
+    <ion-icon 
+      id="fb-login-icon" 
+      name="logo-facebook"/>
+*/
 import authService from '../../services/auth.service';
 
 window.fbAsyncInit = function() {
