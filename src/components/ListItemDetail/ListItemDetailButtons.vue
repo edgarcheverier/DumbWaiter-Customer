@@ -7,7 +7,7 @@
     <div>
       <button 
         id="count-increase" 
-        @click="substract">
+        @click="subtract">
         <i class="tiny material-icons">remove</i>
       </button>
       <button 
@@ -33,7 +33,7 @@ export default {
     add() {
       this.quantity++;
     },
-    substract() {
+    subtract() {
       if (this.quantity >= 2) {
         this.quantity--;
       }
@@ -60,12 +60,14 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 #list-item-detail-buttons-container {
-  width: 90%;
+  width: 80%;
   display: flex;
+  margin: 0 auto;
+  margin-bottom: 20px;
   align-items: center;
-  margin: 0 auto !important;
+  font-family: Raleway;
   flex-direction: row-reverse;
   justify-content: space-between;
 }
@@ -74,18 +76,14 @@ export default {
   height: 40px;
   color: #fff;
   font-weight: 700;
-  margin-left: 40px;
   border-radius: 4px;
-  font-family: Raleway;
   background: #0a3d62;
 }
 #count-tracker {
-  font-size: 0.8em;
-  font-weight: 600;
-  margin-top: 10px;
-  margin-left: 30px;
+  font-size: 0.9em;
+  font-weight: 400;
   align-self: center;
-  font-family: 'Raleway';
+  font-family: Raleway;
 }
 #count-increase,
 #count-decrease {
@@ -99,4 +97,5 @@ export default {
 .material-icons {
   margin-top: 1px;
 }
+@import '../../assets/styles/global.css';
 </style>

@@ -31,7 +31,11 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
+sweet-modal {
+  padding: 0;
+  margin: 0;
+}
 .sweet-content {
   width: 100%;
   padding: 0 !important;
@@ -40,10 +44,8 @@ export default {
   color: red !important;
   z-index: 99999 !important;
 }
-#content-header {
-  width: 90%;
-}
 #detail-hero-image {
   height: 260px;
 }
+@import '../../assets/styles/global.css';
 </style>

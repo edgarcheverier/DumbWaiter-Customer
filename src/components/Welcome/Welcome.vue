@@ -61,6 +61,5 @@ export default {
   flex-direction: column;
   background-color: #0a3d62;
 }
-
 @import '../../assets/styles/global.css';
 </style>

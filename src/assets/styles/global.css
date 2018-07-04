@@ -1,4 +1,4 @@
-* {
+html {
   margin: 0;
   padding: 0;
   outline: 0;
@@ -23,4 +23,24 @@ h3,
 h4,
 h5 {
   font-family: 'Raleway'
+}
+
+.sweet-content {
+  width: 100%;
+  padding: 0 !important;
+}
+
+.sweet-action-close {
+  color: red !important;
+  z-index: 99999 !important;
+}
+
+.sweet-content {
+  width: 100%;
+  padding: 0 !important;
+}
+
+.VueCarousel-slide {
+  height: 175px;
+  margin-right: 5px;
 }

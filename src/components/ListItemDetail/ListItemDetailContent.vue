@@ -1,8 +1,8 @@
 <template>
   <div id="list-item-detail-content-container">
     <h1 id="content-header">{{ name }} - {{ price }}€</h1>
-    <list-item-detail-break/> 
     <p id="content-description">{{ description }} </p>
+    <list-item-detail-break/>
   </div>
 </template>
 
@@ -27,23 +27,23 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 #list-item-detail-content-container {
+  display: flex;
+  width: 80%;
+  margin: 0 auto;
+  flex-direction: column;
   justify-content: center;
-  padding: 2px;
-  margin: 0 auto !important;
-  margin-bottom: 5px !important;
 }
 #content-header {
-  font-weight: 300;
-  font-size: 1.7em;
-  margin-top: 10px;
-  margin-bottom: 10px;
-  font-family: Raleway;
+  font-weight: 200;
+  font-size: 1.8em;
+  margin: 20px 0;
+  line-height: 1.2;
 }
 #content-description {
-  font-weight: 300;
-  font-size: 0.8em;
-  font-family: Merriweather;
+  font-weight: 200;
+  font-size: 0.9em;
 }
+@import '../../assets/styles/global.css';
 </style>
