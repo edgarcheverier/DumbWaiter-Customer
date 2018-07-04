@@ -10,7 +10,7 @@
         <div class="card">
           <img 
             :src="item.photos[0].url"
-            alt="soup bowl, asian"
+            alt=""
             @click="() => handleclickimage(item)"> 
           <p>{{ item.name }}</p>
         </div>

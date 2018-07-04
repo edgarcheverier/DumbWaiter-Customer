@@ -8,10 +8,10 @@
     @error="onSignInError">
     <ion-icon 
       id="fb-login-icon" 
-      key="logo"
       name="logo-facebook"/>
     <p id="fb-login-text">Login with Facebook</p>
   </fb-signin-button>
+  
 </template>
 
 <script>
@@ -94,7 +94,7 @@ export default {
 #fb-login-icon {
   width: 2.5em;
   height: 2.5em;
-  margin-right: 20px;
+  margin-right: 10px;
 }
 #fb-login-text {
   font-size: 1em;
