@@ -56,7 +56,7 @@ export default {
       };
       this.$store.commit('shoppingList', itemSelect);
       this.$store.commit('updateAmount', itemSelect.price);
-      alert(`${item.name} added to the Cart`);
+      this.$swal(`${item.name} is added to your Cart`);
       console.log('before to go to the cart', itemSelect);
     },
   },

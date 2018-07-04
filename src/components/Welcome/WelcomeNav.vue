@@ -8,16 +8,14 @@
       </button>
       <p 
         v-if="amount > 0" 
-        class="price">{{ amount }} €</p>
+        class="price">{{ amount | currency }}</p>
       <p 
         v-if="amount <= 0" 
         class="price">{{ restaurantName }} </p>
       <button
-        v-if="currentPath != '/Cart'"
         id="checkout-button"
         @click="goCheckout" >
       <ion-icon name="ios-card"/></button>
-      <div v-if="currentPath == '/Cart'"/>
     </div>
   </div>
 </template>
@@ -31,9 +29,6 @@ export default {
     };
   },
   computed: {
-    path() {
-      return this.$store.state.navPath;
-    },
     amount() {
       return this.$store.state.amount.total.toPrecision(4);
     },
@@ -43,7 +38,7 @@ export default {
   },
   methods: {
     goBack() {
-      this.$router.push(this.path);
+      this.$router.push('/Maps');
     },
     goCheckout() {
       this.$router.push('/Cart');

@@ -9,12 +9,25 @@ import FBSignInButton from 'vue-facebook-signin-button';
 import Maps from './components/Maps/Maps.vue';
 import List from './components/List/List.vue';
 import Cart from './components/Cart/Cart.vue';
+import Orders from './components/Cart/CartOrders.vue';
+import VueStripeCheckout from 'vue-stripe-checkout';
 import User from './components/User/User.vue';
 import Login from './components/Login/Login.vue';
 import VueStripeCheckout from 'vue-stripe-checkout';
 import Welcome from './components/Welcome/Welcome.vue';
 import Connection from './components/Connection/Connection.vue';
-import ListItemDetail from './components/ListItemDetail/ListItemDetail.vue';
+
+import VueRouter from 'vue-router';
+import FBSignInButton from 'vue-facebook-signin-button';
+import * as VueGoogleMaps from 'vue2-google-maps';
+import VModal from 'vue-js-modal';
+import Toast from 'vue-easy-toast';
+import VueSweetalert2 from 'vue-sweetalert2';
+import VueCurrencyFilter from 'vue-currency-filter';
+
+import store from './store/store.js';
+
+import SweetModal from 'sweet-modal-vue/src/plugin.js';
 
 const options = {
   key: 'pk_test_fLPmqxecZJczNSmVGLv3YN1c',
@@ -55,6 +68,16 @@ Vue.use(VueRouter);
 Vue.use(VueStripeCheckout, options);
 Vue.use(FBSignInButton);
 Vue.use(SweetModal);
+Vue.use(Toast);
+Vue.use(VueSweetalert2);
+Vue.use(VueCurrencyFilter, {
+  symbol: '€',
+  thousandsSeparator: ',',
+  fractionCount: 2,
+  fractionSeparator: '.',
+  symbolPosition: 'back',
+  symbolSpacing: true,
+});
 
 const router = new VueRouter({
   mode: 'history',
@@ -68,6 +91,7 @@ const router = new VueRouter({
     { path: '/detail', component: ListItemDetail },
     { path: '/list', component: List },
     { path: '/cart', component: Cart },
+    { path: '/orders', component: Orders },
   ],
 });
 

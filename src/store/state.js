@@ -1,8 +1,9 @@
 export const state = {
+  Orders: [],
   finalOrder: [],
   productsOrdened: [],
   restaurantId: 0, // restaurant id
-  restaurantKey: 'Connect', // restaurant code
+  restaurantKey: 'Code', // restaurant code
   connectionId: Number, // code after the connection
   shoppingList: [], // from ListItem id, quantity, name, price
   cartList: [], // from Cart

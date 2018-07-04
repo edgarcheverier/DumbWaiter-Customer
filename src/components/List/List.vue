@@ -15,6 +15,7 @@ export default {
     if (this.$store.state.customer.name == undefined) {
       this.$router.push('/');
     }
+    this.$store.commit('updatePath', '/Welcome');
   },
   methods: {},
 };

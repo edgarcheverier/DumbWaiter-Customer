@@ -1,9 +1,9 @@
 <template>
   <div>
-    <Navbar />
+    <ConnectionNav />
     <div class="fromContainer">
       <input 
-        placeholder="Enter the key please"
+        placeholder="Insert Your Code Please"
         class="inputClass"
         type="text" 
         @keyup="handlerInput">
@@ -15,12 +15,11 @@
 </template>
 
 <script>
-import Navbar from '../Navbar/Navbar.vue';
-
+import ConnectionNav from './ConnectionNav.vue';
 export default {
   name: 'Connection',
   components: {
-    Navbar,
+    ConnectionNav,
   },
   data: function() {
     return {
@@ -59,12 +58,14 @@ export default {
 .buttonClass {
   border: 0.5px solid white;
   background-color: white;
-  font-size: 15px;
+  font-size: 18px;
   margin-top: 20px;
   padding: 5px 30px;
-  color: black;
+  color: blue;
 }
 .inputClass {
-  padding: 7px 50px;
+  text-align: center;
+  padding: 8px 60px;
+  border: solid 0.5px black;
 }
 </style>

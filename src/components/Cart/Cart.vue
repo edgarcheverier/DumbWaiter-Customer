@@ -1,9 +1,10 @@
 <template>
   <div>
-    <Navbar />
+    <CartNav />
     <div>
       <div 
         v-for="(item, index) in cartList" 
+        v-if="item.count !== 0"
         :key="index" 
         class="listContainer">
         <div class="itemsContainers">
@@ -32,14 +33,14 @@
         <hr>
       </div>
       <div 
-        v-if="userKey !== 'Connect'" 
+        v-if="userKey !== 'Code'" 
         class="buttonContainer">
         <button 
           class="orderButton" 
           @click="SubmitOrder">Order Now</button>
       </div>
       <div 
-        v-if="userKey == 'Connect'" 
+        v-if="userKey == 'Code'" 
         class="buttonContainer">
         <button 
           class="orderButton" 
@@ -51,11 +52,11 @@
 
 <script>
 import ItemCart from './ItemCart.vue';
-import Navbar from '../Navbar/Navbar.vue';
+import CartNav from './CartNav.vue';
 export default {
   name: 'Cart',
   components: {
-    Navbar,
+    CartNav,
     ItemCart,
   },
   data: function() {
@@ -67,7 +68,6 @@ export default {
       cartList: [],
     };
   },
-  computed: {},
   beforeCreate() {
     this.$store.commit('updatePath', '/List');
   },
@@ -99,20 +99,24 @@ export default {
           }
         }
       });
-      console.log(arrayOfId.join(','));
-      console.log(
-        'SubmitOrder Total:',
-        this.$store.state.amount.total
-      );
-      console.log(
-        'SubmitOrder connectionId:',
-        this.connectionId
-      );
       this.$store.dispatch('submitOrder', {
         array: arrayOfId.join(','),
         id: this.connectionId,
-        amount: this.$store.state.amount.total,
+        amount: this.$store.state.amount.total.toPrecision(
+          4
+        ),
       });
+      this.$store.commit('Orders', {
+        amount: this.$store.state.amount.total.toPrecision(
+          4
+        ),
+        products: this.cartList,
+      });
+      this.$store.commit('cartList', []);
+      this.$store.commit('restartAmount');
+      this.$store.commit('refreshShoppingList');
+      this.$swal('Your order is in process thank you!');
+      this.$forceUpdate();
       this.$router.push('/Welcome');
     },
 
@@ -135,8 +139,17 @@ export default {
         console.log(arr);
         this.$store.commit('cartList', arr);
         this.$store.commit('subtracAmount', item.price);
-        this.$forceUpdate();
       }
+      if (item.count == 0) {
+        let arr = [].concat(this.$store.state.shoppingList);
+        arr.map((ele, index) => {
+          if (ele.id === item.id) {
+            arr.splice(index, 1);
+          }
+        });
+        this.$store.commit('cartList', arr);
+      }
+      this.$forceUpdate();
     },
 
     addElements(item) {
@@ -167,16 +180,17 @@ export default {
 
 <style>
 .removeButton {
-  color: white;
+  color: #28abfa;
 }
 
 .orderButton {
-  border: 0.5px solid white;
-  background-color: white;
+  border: 0.5px solid #28abfa;
+  background-color: #28abfa;
   font-size: 15px;
-  margin-top: 20px;
+  margin-top: 15px;
+  margin-bottom: 15px;
   padding: 5px 30px;
-  color: black;
+  color: white;
 }
 .itemsContainers {
   display: flex;
@@ -193,7 +207,7 @@ export default {
   margin-right: 10px;
 }
 .itemName {
-  color: white;
+  color: #064d78;
 }
 .priceContainer {
   display: flex;

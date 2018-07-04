@@ -5,7 +5,7 @@
         <button @click="handleClickFood('Food')">
           <i class="material-icons">local_dining</i>
         </button>    
-        <button @click="props.handleClickFood('Drink')">
+        <button @click="handleClickFood('Drinks')">
           <i class="material-icons">local_bar</i>
         </button>
       </div>
@@ -16,7 +16,7 @@
     </div>
     <div class="button-container">
       <div class="button-btn-container btn-solo">
-        <button @click="props.handleClickFood('Dessert')">
+        <button @click="handleClickFood('Desserts')">
           <i class="material-icons">cake</i>
         </button>
       </div>
@@ -30,16 +30,14 @@
         
         <button @click="tableButton">
           <i class="material-icons">border_outer</i>
-        </button> 
-      
-       
-        <button>
+        </button>    
+        <button @click="handleClickWaiter">
           <i class="material-icons">face</i>
         </button>
      
       </div>
       <div class="button-label-container">
-        <h3>{{ userKey }}</h3>
+        <h3 class="userKeyClass">{{ userKey }}</h3>
         <h3>Waiter</h3>
       </div>
     </div>
@@ -64,9 +62,6 @@ export default {
       return this.$store.state.restaurantKey;
     },
   },
-  beforeCreate() {
-    this.$store.commit('updatePath', '/Maps');
-  },
   methods: {
     goCheckout() {
       console.log('on my way');
@@ -80,14 +75,15 @@ export default {
     goToUser() {
       this.$router.push('/user');
     },
-    handleClickWaiter: () => {
-      M.toast({
-        html: 'The Waiter Is Coming :)',
-        classes: 'rounded',
+    handleClickWaiter() {
+      this.$toast('The Waiter Is Comming :)', {
+        horizontalPosition: 'center',
+        verticalPosition: 'bottom',
+        duration: 2000,
       });
     },
     tableButton() {
-      if (this.$store.state.restaurantKey == 'Connect') {
+      if (this.$store.state.restaurantKey == 'Code') {
         this.$router.push('/Connection');
       } else {
         console.log(this.$store.state.restaurantKey);
@@ -107,12 +103,13 @@ i {
   color: #ffffff;
 }
 button {
+  border-radius: 15px;
   width: 9em;
   height: 9em;
   border: 0;
   background-color: inherit;
-  box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.15),
-    0 6px 6px rgba(0, 0, 0, 0.23);
+  box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.1),
+    0 6px 6px rgba(0, 0, 0, 0.1);
 }
 h3 {
   font-weight: 300;

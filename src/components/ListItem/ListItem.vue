@@ -1,6 +1,6 @@
 <template>
   <div id="wrapper">
-    <Navbar/>
+    <ListItemNav/>
     <ul>
       <li 
         v-for="(item, index) in items" 
@@ -22,14 +22,14 @@
 </template>
 
 <script>
-import Navbar from '../Navbar/Navbar';
+import ListItemNav from './ListItemNav.vue';
 import ListItemImage from './ListItemImage';
 import ListItemContent from './ListItemContent';
 
 export default {
   name: 'ListItem',
   components: {
-    Navbar,
+    ListItemNav,
     ListItemImage,
     ListItemContent,
   },
