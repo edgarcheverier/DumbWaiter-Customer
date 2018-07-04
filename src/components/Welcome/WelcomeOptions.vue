@@ -4,7 +4,7 @@
       <div class="button-btn-container">
         <button @click="handleClickFood('Food')">
           <i class="material-icons">local_dining</i>
-        </button>    
+        </button>
         <button @click="handleClickFood('Drinks')">
           <i class="material-icons">local_bar</i>
         </button>
@@ -26,15 +26,15 @@
     </div>
     <div class="button-container">
       <div class="button-btn-container">
-        
-        
+
+
         <button @click="tableButton">
           <i class="material-icons">border_outer</i>
-        </button>    
+        </button>
         <button @click="handleClickWaiter">
           <i class="material-icons">face</i>
         </button>
-     
+
       </div>
       <div class="button-label-container">
         <h3 class="userKeyClass">{{ userKey }}</h3>
@@ -76,6 +76,10 @@ export default {
       this.$router.push('/user');
     },
     handleClickWaiter() {
+      this.$store.dispatch('callWaiter', {
+        restaurantId: this.$store.state.restaurantId,
+        tableCode: this.$store.state.restaurantKey,
+      });
       this.$toast('The Waiter Is Comming :)', {
         horizontalPosition: 'center',
         verticalPosition: 'bottom',

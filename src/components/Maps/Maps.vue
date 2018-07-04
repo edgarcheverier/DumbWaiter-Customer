@@ -8,14 +8,14 @@
         :color="color"/>
     </div>
     <GmapMap
-      v-if="getLongitude !== 0" 
+      v-if="getLongitude !== 0"
       :center="{lat:getLatitude, lng:getLongitude}"
       :zoom="15"
       map-type-id="terrain"
       style="width: 100%; height: 850px"
     >
       <GmapMarker
-        v-for="(item, index) in getRestaurants" 
+        v-for="(item, index) in getRestaurants"
         :key="index"
         :position="{lat: Number(item.latitude), lng: Number(item.longitude)}"
         :clickable="true"
@@ -23,24 +23,24 @@
         @click="handleClickRestaurant(item)"
       />
     </GmapMap>
-    <sweet-modal 
-      ref="map" 
+    <sweet-modal
+      ref="map"
       :enable-mobile-fullscreen="false"
     >
       <div id="modal-wrapper">
         <div id="resto-name">
           <h3>{{ name }}</h3>
         </div>
-        <img 
+        <img
           id="resto-image"
-          :src="image" 
+          :src="image"
         >
         <div id="resto-description">
           <p>{{ description }}</p>
         </div>
       </div>
-      <button 
-        id="resto-button" 
+      <button
+        id="resto-button"
         @click="selectRestaurant()">Go to {{ name }}!</button>
     </sweet-modal>
   </div>

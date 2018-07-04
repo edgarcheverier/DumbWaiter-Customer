@@ -52,16 +52,32 @@ export const actions = {
     );
   },
 
+  async callWaiter({ commit }, args) {
+    console.log(args);
+    let response = await graphqlClient.mutate({
+      mutation: gql`
+      mutation {
+        callWaiter(
+          restaurantId: ${args.restaurantId}
+          tableCode: "${args.tableCode}"
+        ) {
+          id
+          }
+        }
+      `,
+    });
+  },
+
   async getConnectionId({ commit }, arg) {
     let response = await graphqlClient.mutate({
       mutation: gql`
       mutation {
         addConnection(
-          restaurantId: ${arg.id} 
+          restaurantId: ${arg.id}
           code: "${arg.code}"
         ){
           id
-        } 
+        }
       }
     `,
     });
