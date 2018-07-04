@@ -1,9 +1,12 @@
 <template>
   <div>
     <MapsNavbar />
-    <div 
+    <div
       v-if="getLongitude == 0"
-      class="loaderContainer"/>
+      id="spinner-container">
+      <rotate-loader
+        :color="color"/>
+    </div>
     <GmapMap
       v-if="getLongitude !== 0" 
       :center="{lat:getLatitude, lng:getLongitude}"
@@ -20,9 +23,6 @@
         @click="handleClickRestaurant(item)"
       />
     </GmapMap>
-    <div id="spinner-container">
-      <rise-loader :color="color"/>
-    </div>
     <sweet-modal 
       ref="map" 
       :enable-mobile-fullscreen="false"
@@ -43,7 +43,6 @@
         id="resto-button" 
         @click="selectRestaurant()">Go to {{ name }}!</button>
     </sweet-modal>
-    
   </div>
 </template>
 
@@ -51,14 +50,14 @@
 
 <script>
 import MapModal from './MapModal';
-import RiseLoader from 'vue-spinner/src/RiseLoader.vue';
+import RotateLoader from 'vue-spinner/src/RotateLoader.vue';
 import MapsNavbar from './MapsNavbar.vue';
 
 export default {
   name: 'Maps',
   components: {
     MapsNavbar,
-    RiseLoader,
+    RotateLoader,
     MapModal,
   },
   data() {
@@ -153,11 +152,9 @@ export default {
   border: 1px #ff5555 solid;
 }
 #spinner-container {
-  height: 100vh;
   display: flex;
-  position: absolute;
-  justify-items: center;
-  align-content: center;
+  justify-content: center;
+  margin-top: 250px;
 }
 #spinner {
   color: #ff5555;

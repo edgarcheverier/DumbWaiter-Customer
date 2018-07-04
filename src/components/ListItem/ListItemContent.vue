@@ -127,5 +127,6 @@ export default {
   width: 80%;
   margin: 0 auto;
   font-size: 0.8em;
+  margin-bottom: 10px;
 }
 </style>
