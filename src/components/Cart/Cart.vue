@@ -61,42 +61,43 @@ export default {
   },
   data: function() {
     return {
-      shoppingListData: [],
       total: this.$store.state.amount.total,
       userKey: this.$store.state.restaurantKey,
       connectionId: this.$store.state.connectionId,
-      cartList: [],
+      //cartList: this.$store.state.cartList,
     };
   },
-  beforeCreate() {
-    this.$store.commit('updatePath', '/List');
+  computed: {
+    cartList() {
+      return this.$store.state.cartList;
+    },
   },
   mounted() {
-    this.shoppingListData = this.$store.state.shoppingList;
     this.total = this.$store.state.amount.total;
-    let map = this.shoppingListData.reduce((acc, cur) => {
-      const repeated = acc.find(el => el.id === cur.id);
-      if (repeated) {
-        repeated.count++;
-      } else {
-        acc.push(Object.assign(cur, { count: 1 }));
-      }
-      return acc;
-    }, []);
-    console.log(map);
+    console.log('carlist:', this.$store.state.cartList);
+    let map = this.$store.state.cartList.reduce(
+      (acc, cur) => {
+        const repeated = acc.find(el => el.id === cur.id);
+        if (repeated !== undefined) {
+          repeated.count++;
+        } else {
+          acc.push(cur);
+        }
+        return acc;
+      },
+      []
+    );
+
+    console.log('map reducer:', map);
     this.$store.commit('cartList', map);
-    this.cartList = this.$store.state.cartList;
+    //this.cartList = this.$store.state.cartList;
   },
   methods: {
     SubmitOrder() {
       let arrayOfId = [];
-      this.cartList.map(ele => {
-        if (ele.count == 1) {
+      this.$store.state.cartList.map(ele => {
+        for (let i = 0; i < ele.count; i++) {
           arrayOfId.push(ele.id);
-        } else {
-          for (let i = 0; i < ele.count; i++) {
-            arrayOfId.push(ele.id);
-          }
         }
       });
       this.$store.dispatch('submitOrder', {
@@ -110,11 +111,10 @@ export default {
         amount: this.$store.state.amount.total.toPrecision(
           4
         ),
-        products: this.cartList,
+        products: this.$store.state.cartList,
       });
       this.$store.commit('cartList', []);
       this.$store.commit('restartAmount');
-      this.$store.commit('refreshShoppingList');
       this.$swal('Your order is in process thank you!');
       this.$forceUpdate();
       this.$router.push('/Welcome');
@@ -122,20 +122,18 @@ export default {
 
     removeElements(item) {
       if (item.count > 0) {
-        let arr = this.$store.state.shoppingList.map(
-          ele => {
-            if (ele.id === item.id) {
-              return {
-                id: item.id,
-                name: item.name,
-                price: item.price,
-                count: item.count--,
-              };
-            } else {
-              return item;
-            }
+        let arr = this.$store.state.cartList.map(ele => {
+          if (ele.id === item.id) {
+            return {
+              id: item.id,
+              name: item.name,
+              price: item.price,
+              count: item.count--,
+            };
+          } else {
+            return item;
           }
-        );
+        });
         console.log(arr);
         this.$store.commit('cartList', arr);
         this.$store.commit('subtracAmount', item.price);
@@ -153,7 +151,11 @@ export default {
     },
 
     addElements(item) {
-      let arr = this.$store.state.shoppingList.map(ele => {
+      console.log(
+        'from Cart Cartlist:',
+        this.$store.state.cartList
+      );
+      this.$store.state.cartList.map(ele => {
         if (ele.id === item.id) {
           return {
             id: item.id,
@@ -165,12 +167,15 @@ export default {
           return ele;
         }
       });
-      console.log(arr);
-      this.$store.commit('cartList', arr);
+      // console.log('arr', arr);
+      // this.$store.commit('cartList', arr);
+      console.log(
+        'from Cart Cartlist:',
+        this.$store.state.cartList
+      );
       this.$store.commit('updateAmount', item.price);
       this.$forceUpdate();
     },
-
     goToConnect() {
       this.$router.push('/Connection');
     },
