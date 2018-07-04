@@ -17,8 +17,9 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 #detail-hero-image {
   height: 220px;
 }
+@import '../../assets/styles/global.css';
 </style>

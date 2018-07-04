@@ -1,14 +1,20 @@
 import Vue from 'vue';
+import VModal from 'vue-js-modal';
+import VueRouter from 'vue-router';
+import store from './store/store.js';
+import * as VueGoogleMaps from 'vue2-google-maps';
+import SweetModal from 'sweet-modal-vue/src/plugin.js';
+import FBSignInButton from 'vue-facebook-signin-button';
 
-import Login from './components/Login/Login.vue';
 import Maps from './components/Maps/Maps.vue';
 import List from './components/List/List.vue';
-import Welcome from './components/Welcome/Welcome.vue';
-import ListItemDetail from './components/ListItemDetail/ListItemDetail.vue';
 import Cart from './components/Cart/Cart.vue';
 import Orders from './components/Cart/CartOrders.vue';
 import VueStripeCheckout from 'vue-stripe-checkout';
 import User from './components/User/User.vue';
+import Login from './components/Login/Login.vue';
+import VueStripeCheckout from 'vue-stripe-checkout';
+import Welcome from './components/Welcome/Welcome.vue';
 import Connection from './components/Connection/Connection.vue';
 
 import VueRouter from 'vue-router';
@@ -78,14 +84,14 @@ const router = new VueRouter({
   base: __dirname,
   routes: [
     { path: '/', component: Login },
-    { path: '/Maps', component: Maps },
-    { path: '/Welcome', component: Welcome },
-    { path: '/Connection', component: Connection },
-    { path: '/User', component: User },
-    { path: '/Detail', component: ListItemDetail },
-    { path: '/List', component: List },
-    { path: '/Cart', component: Cart },
-    { path: '/Orders', component: Orders },
+    { path: '/maps', component: Maps },
+    { path: '/welcome', component: Welcome },
+    { path: '/connection', component: Connection },
+    { path: '/user', component: User },
+    { path: '/detail', component: ListItemDetail },
+    { path: '/list', component: List },
+    { path: '/cart', component: Cart },
+    { path: '/orders', component: Orders },
   ],
 });
 

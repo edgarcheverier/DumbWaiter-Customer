@@ -3,7 +3,6 @@
     <list-item-detail-image/>
     <list-item-detail-content/> 
     <list-item-detail-buttons/>
-    <list-item-detail-break/> 
     <list-item-detail-carousel/>  
   </div>
 </template>
@@ -12,7 +11,7 @@
 import Navbar from '../Navbar/Navbar';
 import ListItemDetailBreak from './ListItemDetailBreak';
 import ListItemDetailImage from './ListiItemDetailImage';
-import ListItemDetailCarousel from '../Carousel/Carousel';
+import ListItemDetailCarousel from './ListItemDetailCarousel';
 import ListItemDetailContent from './ListItemDetailContent';
 import ListItemDetailButtons from './ListItemDetailButtons';
 
@@ -43,4 +42,5 @@ export default {
   flex-direction: column;
   padding-bottom: 10px;
 }
+@import '../../assets/styles/global.css';
 </style>

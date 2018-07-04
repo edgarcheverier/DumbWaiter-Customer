@@ -36,24 +36,12 @@ export default {
     item: Object,
   },
   methods: {
-    handleclickimage(item) {
-      console.log(item);
-      this.$store.commit('itemSelected', {
-        id: item.id,
-        name: item.name,
-        price: item.price,
-        quantity: 1,
-        description: item.description,
-        photo: item.photos[0].url,
-      });
-      console.log(this.$store.state.itemSelected);
-      this.$router.push('/detail');
-    },
     handleClickModal(item) {
       this.$store.commit('itemSelected', {
         id: item.ide,
         name: item.name,
         price: item.price,
+        quantity: 1,
         description: item.description,
         photo: item.photos[0].url,
       });

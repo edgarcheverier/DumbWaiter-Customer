@@ -9,12 +9,13 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 #break {
-  width: 90%;
-  opacity: 0.4;
+  width: 100%;
+  opacity: 0.5;
   display: flex;
   align-self: center;
-  margin: 20px 0 !important;
+  margin: 20px 0;
 }
+@import '../../assets/styles/global.css';
 </style>
