@@ -1,8 +1,7 @@
 <template>
   <div id="mapnavbar-container">
-
     <div id="mapnavbar-content">
-      <p class="title"> Dumbwaiter  </p>
+      <h1 class="title">Dumbwaiter</h1>
     </div>
   </div>
 </template>
@@ -37,7 +36,7 @@ export default {
 };
 </script>
 
-<style>
+<style >
 #mapnavbar-container {
   top: 0;
   background-color: #fff;
@@ -49,16 +48,15 @@ export default {
 }
 #mapnavbar-content {
   width: 90%;
-  margin: 0 auto;
   display: flex;
-  font-weight: 700;
-  font-family: Raleway;
-  justify-content: center;
+  margin: 0 auto;
   align-items: center;
+  justify-content: center;
 }
 .title {
+  color: #ff5555;
+  font-size: 1.5em;
   font-weight: 600;
-  color: #eb2f06;
-  font-size: 1.3em;
+  text-transform: uppercase;
 }
 </style>
