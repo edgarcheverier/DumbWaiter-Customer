@@ -1,20 +1,20 @@
 <template>
-  <Spinner 
-    id="spinner"/>
+  <pulse-loader 
+    :loading="loading" 
+    :color="color" 
+    :size="size"/>
 </template>
 
 <script>
-import CubeSpin from '../../../node_modules/vue-loading-spinner/src/components/Circle2.vue';
+import PulseLoader from 'vue-spinner/src/PulseLoader.vue';
 export default {
   name: 'Spinner',
+  components: {
+    PulseLoader,
+  },
 };
 </script>
 
 <style scoped>
-#spinner {
-  height: 70px;
-  width: 70px;
-  color: papayawhip;
-}
 @import '../../assets/styles/global.css';
 </style>

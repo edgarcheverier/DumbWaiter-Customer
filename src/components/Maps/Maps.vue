@@ -2,7 +2,7 @@
   <div>
     <MapsNavbar />
     <div 
-      v-if="getLongitude == 0" 
+      v-if="getLongitude == 0"
       class="loaderContainer"/>
     <GmapMap
       v-if="getLongitude !== 0" 
@@ -20,11 +20,14 @@
         @click="handleClickRestaurant(item)"
       />
     </GmapMap>
+    <div id="spinner-container">
+      <rise-loader :color="color"/>
+    </div>
     <sweet-modal 
       ref="map" 
       :enable-mobile-fullscreen="false"
     >
-      <div id="wrapper">
+      <div id="modal-wrapper">
         <div id="resto-name">
           <h3>{{ name }}</h3>
         </div>
@@ -40,20 +43,21 @@
         id="resto-button" 
         @click="selectRestaurant()">Go to {{ name }}!</button>
     </sweet-modal>
+    
   </div>
 </template>
 
 <script>
 import MapModal from './MapModal';
+import RiseLoader from 'vue-spinner/src/RiseLoader.vue';
 import MapsNavbar from './MapsNavbar.vue';
-import Spinner from '../Spinner/Spinner';
 
 export default {
   name: 'Maps',
   components: {
     MapsNavbar,
+    RiseLoader,
     MapModal,
-    Spinner,
   },
   data() {
     return {
@@ -61,6 +65,7 @@ export default {
       name: '',
       image: '',
       description: '',
+      color: '#ff5555',
       restaurantSelected: {},
     };
   },
@@ -99,18 +104,23 @@ export default {
 </script>
 
 <style scoped>
+#wrapper {
+  display: flex;
+  height: 100vh;
+  width: 100%;
+}
 .descriptionMaps {
+  width: 90%;
   height: 50px;
-  white-space: wrap;
+  margin: 0 auto;
   overflow: hidden;
-  text-overflow: ellipsis;
-  font-family: Raleway;
   font-weight: 400;
   font-size: 0.9em;
-  width: 90%;
-  margin: 0 auto;
+  white-space: wrap;
+  font-family: Raleway;
+  text-overflow: ellipsis;
 }
-#wrapper {
+#modal-wrapper {
   width: 90%;
   display: flex;
   margin: 0 auto;
@@ -139,6 +149,16 @@ export default {
   font-family: Raleway;
   background-color: #ff5555;
   border: 1px #ff5555 solid;
+}
+#spinner-container {
+  height: 100vh;
+  display: flex;
+  position: absolute;
+  justify-items: center;
+  align-content: center;
+}
+#spinner {
+  color: #ff5555;
 }
 @import '../../assets/styles/global.css';
 </style>
