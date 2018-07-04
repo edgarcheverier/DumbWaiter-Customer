@@ -56,16 +56,23 @@ export default {
   justify-content: center;
 }
 .buttonClass {
-  border: 0.5px solid white;
-  background-color: white;
+  background-color: #ff5555;
+  border-radius: 7px;
+  border: none;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
   font-size: 18px;
-  margin-top: 20px;
-  padding: 5px 30px;
-  color: blue;
+  margin: 24px 2px;
+  cursor: pointer;
+  padding: 14px 50px;
 }
 .inputClass {
+  border-radius: 7px;
   text-align: center;
-  padding: 8px 60px;
+  padding: 15px 85px;
   border: solid 0.5px black;
+  font-size: 17px;
 }
 </style>

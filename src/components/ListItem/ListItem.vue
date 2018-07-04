@@ -1,7 +1,7 @@
 <template>
   <div id="wrapper">
     <ListItemNav/>
-    <ul>
+    <ul class="listItemUl">
       <li 
         v-for="(item, index) in items" 
         :key="index"  
@@ -76,5 +76,10 @@ export default {
   text-align: center;
   margin: 0 auto;
   width: 95%;
+}
+.listItemUl {
+  overflow: scroll;
+  margin-top: 12px;
+  height: 1000px;
 }
 </style>
