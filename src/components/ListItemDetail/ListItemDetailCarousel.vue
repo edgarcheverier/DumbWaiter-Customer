@@ -1,5 +1,5 @@
 <template>
-  <div class="mover">
+  <div class="wrapper">
     <h3>Currently trending: </h3>
     <carousel 
       :pagination-enabled="false" 
@@ -10,8 +10,8 @@
         <div class="card">
           <img 
             :src="item.photos[0].url"
-            alt="soup bowl, asian"
-            @click="() => handleclickimage(item)"> 
+            alt=""
+            @click="() => handleClickModal(item)">
           <p>{{ item.name }}</p>
         </div>
       </slide>
@@ -49,56 +49,55 @@ export default {
     }
   },
   methods: {
-    handleclickimage(item) {
+    handleClickModal(item) {
       this.$store.commit('itemSelected', {
         id: item.ide,
         name: item.name,
         price: item.price,
+        quantity: 1,
         description: item.description,
         photo: item.photos[0].url,
       });
-      this.$router.push('/detail');
+      this.$refs.modal.open();
     },
   },
 };
 </script>
 
 <style scoped>
-* {
-  margin: 0;
-  padding: 0;
-}
-.VueCarousel-slide:first-child {
-  height: 160px;
-  margin-left: 20px;
+.wrapper {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
 }
 .card {
-  background: #fff;
-  border-radius: 4px;
-  display: inline-block;
-  height: 145px;
-  position: relative;
   width: 150px;
-  z-index: 99999 !important;
+  height: 130px;
+  border-radius: 4px;
+  line-height: 1.1;
+  background: #fff;
+  text-align: center;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15),
     0 6px 6px rgba(0, 0, 0, 0.23);
 }
 .card img {
-  height: 100px;
   width: 150px;
-  border-top-right-radius: 4px;
-  border-top-left-radius: 4px;
+  height: 90px;
+  border-radius: 4px;
 }
 .card p {
   font-family: Raleway;
-  font-weight: 600;
+  font-weight: 400;
   font-size: 0.8em;
-  margin-left: 7px;
 }
 h3 {
-  font-family: Raleway;
-  font-weight: 700;
+  font-weight: 400;
   font-size: 1.1em;
-  margin: 0 0 10px 20px;
+  text-align: left;
+  margin: 0 0 10px 38px;
 }
+.VueCarousel-slide:first-child {
+  margin-left: 38px;
+}
+@import '../../assets/styles/global.css';
 </style>
