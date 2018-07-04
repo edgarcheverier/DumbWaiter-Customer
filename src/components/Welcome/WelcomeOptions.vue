@@ -41,8 +41,7 @@
         <h3>Waiter</h3>
       </div>
       <sweet-modal ref="connect">
-        <Connection/>
-        b00m!
+        boom
       </sweet-modal>
     </div>
   </div>
