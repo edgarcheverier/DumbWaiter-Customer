@@ -31,6 +31,7 @@ export default {
 #list-item-detail-content-container {
   display: flex;
   width: 80%;
+  height: 30vh;
   margin: 0 auto;
   flex-direction: column;
   justify-content: center;

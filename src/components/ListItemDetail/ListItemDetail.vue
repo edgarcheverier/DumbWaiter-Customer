@@ -11,7 +11,7 @@
 import Navbar from '../Navbar/Navbar';
 import ListItemDetailBreak from './ListItemDetailBreak';
 import ListItemDetailImage from './ListiItemDetailImage';
-import ListItemDetailCarousel from '../Carousel/Carousel';
+import ListItemDetailCarousel from './ListItemDetailCarousel';
 import ListItemDetailContent from './ListItemDetailContent';
 import ListItemDetailButtons from './ListItemDetailButtons';
 

@@ -1,15 +1,14 @@
 <template>
   <sweet-modal 
-    ref="jim" 
-  >
+    ref="jim">
     <list-item-detail/>
-    
   </sweet-modal>
 </template>
 
 <script>
 import Navbar from '../Navbar/Navbar';
 import ListItemDetail from '../ListItemDetail/ListItemDetail';
+
 export default {
   name: 'Modal',
   components: {
@@ -32,18 +31,6 @@ export default {
 </script>
 
 <style scoped>
-sweet-modal {
-  padding: 0;
-  margin: 0;
-}
-.sweet-content {
-  width: 100%;
-  padding: 0 !important;
-}
-.sweet-action-close {
-  color: red !important;
-  z-index: 99999 !important;
-}
 #detail-hero-image {
   height: 260px;
 }

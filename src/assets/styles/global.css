@@ -26,21 +26,32 @@ h5 {
 }
 
 .sweet-content {
-  width: 100%;
   padding: 0 !important;
+  width: 100% !important;
 }
 
 .sweet-action-close {
+  z-index: 99999;
+  height: 4em !important;
   color: red !important;
-  z-index: 99999 !important;
 }
 
 .sweet-content {
   width: 100%;
-  padding: 0 !important;
+  padding: 0;
 }
+
+.VueCarousel {}
 
 .VueCarousel-slide {
   height: 175px;
-  margin-right: 5px;
+  white-space: wrap;
+  text-overflow: ellipsis;
+  margin-right: 10px !important;
+  flex-shrink: 1 !important;
+  /* flex-grow: 0 !important; */
+}
+
+.VueCarousel-inner {
+  visibility: visible !important;
 }
