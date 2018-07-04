@@ -1,6 +1,11 @@
 <template>
   <div>
     <MapsNavbar />
+    <div 
+      v-if="getLongitude == 0" 
+      class="loaderContainer">
+      <CubeSpin/>
+    </div>
     <modal 
       :width="'100%'"
       :height="400"
@@ -16,22 +21,24 @@
           class="imageSize">  
       </div>
       <div class="descriptionContainer">
-        <b>{{ description }}</b>
+        <b class="descriptionMaps">{{ description }}</b>
       </div>
       <div class="buttonContainer">
         <button 
           class="buttonStyle" 
-          @click="selectRestaurant">Go to {{ title }} Restaurant</button>
+          @click="selectRestaurant">Go to {{ title }} !</button>
       </div>
     </modal>
     <GmapMap
+      v-if="getLongitude !== 0" 
       :center="{lat:getLatitude, lng:getLongitude}"
       :zoom="15"
       map-type-id="terrain"
       style="width: 100%; height: 850px"
     >
       <GmapMarker
-        v-for="(item, index) in getRestaurants"
+        v-for="(item, index) in getRestaurants" 
+        v-if="getLongitude !== 0"
         :key="index"
         :position="{lat: Number(item.latitude), lng: Number(item.longitude)}"
         :clickable="true"
@@ -43,14 +50,17 @@
 </template>
 
 <script>
+import CubeSpin from '../../../node_modules/vue-loading-spinner/src/components/Circle2.vue';
 import MapsNavbar from './MapsNavbar.vue';
 export default {
   name: 'Maps',
   components: {
     MapsNavbar,
+    CubeSpin,
   },
   data() {
     return {
+      loading: false,
       title: '',
       image: '',
       description: '',
@@ -110,7 +120,16 @@ export default {
 
 
 <style>
-div.v--modal-box.v--modal {
+.descriptionMaps {
+  height: 50px;
+  white-space: wrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-family: Raleway;
+  font-weight: 400;
+  font-size: 0.9em;
+  width: 90%;
+  margin: 0 auto;
 }
 .titleContainer {
   display: flex;
@@ -138,5 +157,15 @@ div.v--modal-box.v--modal {
 }
 .buttonStyle {
   color: blue;
+}
+.loaderContainer {
+  display: flex;
+  justify-content: center;
+  margin-top: 250px;
+}
+div.spinner.spinner--circle-2 {
+  width: 80px !important;
+  height: 80px !important;
+  border-color: #ff5555 rgb(65, 9, 9) !important;
 }
 </style>

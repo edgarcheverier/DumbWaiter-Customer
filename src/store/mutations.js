@@ -1,4 +1,7 @@
 export const mutations = {
+  Orders(state, order) {
+    state.Orders.push(order);
+  },
   finalOrder(state, arrayOfIds) {
     state.finalOrder = arrayOfIds;
   },
@@ -35,6 +38,9 @@ export const mutations = {
     let currentValue = state.amount.total;
     currentValue -= amount;
     state.amount.total = currentValue;
+  },
+  restartAmount(state) {
+    state.amount.total = 0;
   },
   menuSelected(state, option) {
     state.menuSelected = option;
@@ -86,6 +92,9 @@ export const mutations = {
         state.shoppingList.push(product);
       }
     }
+  },
+  refreshShoppingList(state) {
+    state.shoppingList = [];
   },
   mutateRestaurant(state, info) {
     let drinks = [];

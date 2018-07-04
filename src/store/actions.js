@@ -21,6 +21,7 @@ export const actions = {
   },
 
   async submitOrder({ commit }, arg) {
+    console.log('submitOrder', arg.array, arg.amount);
     let response = await graphqlClient.mutate({
       mutation: gql`
       mutation {
