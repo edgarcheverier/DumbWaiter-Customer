@@ -1,7 +1,15 @@
 <template>
   <div>
     <CartNav />
-    <div>
+    <div 
+      v-if="!cartList[0]" 
+      class="NoOrdersContainer">
+      <h2 class="NoOrdersTitle">You don't have any products yet</h2>
+      <button 
+        class="NoOrdersButton" 
+        @click="goBack">Go Back </button>
+    </div>
+    <div v-if="cartList[0]">
       <div 
         v-for="(item, index) in cartList" 
         v-if="item.count !== 0"
@@ -72,6 +80,11 @@ export default {
       return this.$store.state.cartList;
     },
   },
+  beforeCreate() {
+    if (!this.$store.state.customer.id) {
+      this.$router.push('/');
+    }
+  },
   mounted() {
     this.total = this.$store.state.amount.total;
     console.log('carlist:', this.$store.state.cartList);
@@ -119,7 +132,9 @@ export default {
       this.$forceUpdate();
       this.$router.push('/Welcome');
     },
-
+    goBack() {
+      this.$router.push('/welcome');
+    },
     removeElements(item) {
       if (item.count > 0) {
         this.$store.state.cartList.map(ele => {

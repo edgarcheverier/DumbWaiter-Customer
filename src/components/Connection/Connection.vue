@@ -28,7 +28,9 @@ export default {
     };
   },
   beforeCreate() {
-    this.$store.commit('updatePath', '/Welcome');
+    if (!this.$store.state.customer.id) {
+      this.$router.push('/');
+    }
   },
   methods: {
     handlerInput(e) {

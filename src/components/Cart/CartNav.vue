@@ -12,11 +12,7 @@
       <p 
         v-if="amount <= 0" 
         class="price">{{ restaurantName }} </p>
-      <button @click="goToOrders">
-        <ion-icon
-          id="back-button"
-          name="appstore"/>
-      </button>
+      <div/>
     </div>
   </div>
 </template>
@@ -40,9 +36,6 @@ export default {
   methods: {
     goBack() {
       this.$router.push('/Welcome');
-    },
-    goToOrders() {
-      this.$router.push('/Orders');
     },
   },
 };
