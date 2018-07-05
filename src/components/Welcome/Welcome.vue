@@ -25,6 +25,11 @@ export default {
       },
     };
   },
+  beforeCreate() {
+    if (!this.$store.state.customer.id) {
+      this.$router.push('/');
+    }
+  },
 };
 </script>
 

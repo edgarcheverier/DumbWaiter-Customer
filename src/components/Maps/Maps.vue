@@ -36,7 +36,7 @@
           :src="image"
         >
         <div id="resto-description">
-          <p>{{ description }}</p>
+          <p class="descriptionMaps">{{ description }}</p>
         </div>
       </div>
       <button
@@ -80,6 +80,9 @@ export default {
     },
   },
   async beforeCreate() {
+    if (!this.$store.state.customer.id) {
+      this.$router.push('/');
+    }
     await this.$store.dispatch('getLocation');
     await this.$store.dispatch('getRestaurant');
   },

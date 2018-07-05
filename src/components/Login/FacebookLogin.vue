@@ -8,13 +8,13 @@
     @error="onSignInError">
     <p id="fb-login-text">Login with Facebook</p>
   </fb-signin-button>
-  
+
 </template>
 
 <script>
 /*
-    <ion-icon 
-      id="fb-login-icon" 
+    <ion-icon
+      id="fb-login-icon"
       name="logo-facebook"/>
 */
 import authService from '../../services/auth.service';
@@ -66,6 +66,10 @@ export default {
       const authFacebook = await authService.authFacebook(
         response.authResponse,
         response => {
+          localStorage.setItem(
+            'user',
+            JSON.stringify(response.user)
+          );
           this.$store.commit(
             'customerInformation',
             response.user
