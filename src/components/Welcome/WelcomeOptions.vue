@@ -46,6 +46,27 @@
       @click="tableButton">
       <h3 class="userKeyClass">{{ userKey }}</h3>
     </div>
+    <sweet-modal
+      ref="connect"
+      :enable-mobile-fullscreen="false"
+    >
+      <div id="modal-wrapper">
+        <div id="connect-name">
+          <h3>Welcome!</h3>
+        </div>
+        <div id="connect-input-container">
+          <input 
+            id="connect-input"
+            type="text" 
+            placeholder="please insert your code" 
+            @keyup="handlerInput">
+          <button 
+            id="connect-button"
+            @click="triggerConnection" 
+          >Connect</button>
+        </div>
+      </div>
+    </sweet-modal>
   </div>
 </template>
 
@@ -60,6 +81,8 @@ export default {
         }/picture)`,
       },
       userTable: this.$store.state.table,
+      key: '',
+      restaurantId: this.$store.state.restaurantId,
     };
   },
   computed: {
@@ -76,6 +99,9 @@ export default {
       this.$store.commit('menuSelected', type);
       console.log(type, this.$store.state.menuSelected);
       this.$router.push('/list');
+    },
+    handlerInput(e) {
+      this.key = e.target.value.toUpperCase();
     },
     goToUser() {
       this.$router.push('/user');
@@ -96,7 +122,8 @@ export default {
     },
     tableButton() {
       if (this.$store.state.restaurantKey == 'Code') {
-        this.$router.push('/Connection');
+        //this.$router.push('/Connection');
+        this.$refs.connect.open();
       } else {
         this.$toast(
           `this: ${
@@ -109,6 +136,33 @@ export default {
           }
         );
       }
+    },
+    triggerConnection() {
+      this.$store.commit('restaurantKey', this.key);
+      this.$store.dispatch('getConnectionId', {
+        id: this.restaurantId,
+        code: this.key,
+      });
+      const user = JSON.parse(localStorage.getItem('user'));
+      const subscribe = this.$store.dispatch(
+        'subscribeToProductChange',
+        {
+          userId: user.id,
+          callback: data => {
+            const status = data.productStatus;
+            this.$toast(
+              `Your product has change status to
+                ${status}`,
+              {
+                horizontalPosition: 'center',
+                verticalPosition: 'bottom',
+                duration: 4000,
+              }
+            );
+          },
+        }
+      );
+      this.$refs.connect.close();
     },
   },
 };
@@ -157,6 +211,62 @@ h3 {
 .label-solo {
   display: flex;
   justify-content: center;
+}
+#modal-wrapper {
+  width: 100%;
+  display: flex;
+  margin: 0 auto;
+  text-align: left;
+  flex-direction: column;
+}
+#connect-name {
+  text-align: center;
+  margin-bottom: 10px;
+  color: #ff5555;
+}
+#connect-input {
+  height: 40px;
+  width: 80%;
+  margin: 0 auto;
+  display: flex;
+  border: 1px solid #ff5555;
+  border-radius: 4px;
+}
+#connect-button {
+  width: 100%;
+  height: 40px;
+  font-weight: 600;
+  font-size: 0.9em;
+  color: #ffffff;
+  font-family: Raleway;
+  background-color: #ff5555;
+  border: 1px #ff5555 solid;
+  border-radius: 0;
+  margin-top: 20px !important;
+}
+input {
+  text-indent: 10px;
+  font-family: Merriweather;
+  font-size: 0.8;
+}
+input:focus {
+  outline: none;
+}
+.OrdersClass {
+  margin-left: -10px;
+}
+.CodeContainer {
+  display: flex;
+  justify-content: center;
+  border-radius: 15px;
+  padding: 5px 10px;
+  margin-top: 15px;
+  box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.1),
+    0 6px 6px rgba(0, 0, 0, 0.1);
+}
+ {
+  color: #ff5555 !important;
+  background-color: #ffffff !important;
 }
 .OrdersClass {
   margin-left: -10px;
