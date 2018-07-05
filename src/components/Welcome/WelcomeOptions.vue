@@ -26,6 +26,7 @@
     </div>
     <div class="button-container">
       <div class="button-btn-container">
+<<<<<<< HEAD
 
 
 <<<<<<< HEAD
@@ -33,12 +34,14 @@
 =======
         <button @click="goToOrders">
 >>>>>>> develop
+=======
+        <button @click="goToOrders">
+>>>>>>> d4a8035117b7ac5674e9e140defc335fa090995e
           <i class="material-icons">border_outer</i>
         </button>
         <button @click="handleClickWaiter">
           <i class="material-icons">face</i>
         </button>
-
       </div>
       <div class="button-label-container">
         <h3 class="OrdersClass">Orders</h3>
@@ -46,13 +49,19 @@
       </div>
     </div>
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> d4a8035117b7ac5674e9e140defc335fa090995e
     <div 
       class="CodeContainer" 
       @click="tableButton">
       <h3 class="userKeyClass">{{ userKey }}</h3>
     </div>
+<<<<<<< HEAD
 >>>>>>> develop
+=======
+>>>>>>> d4a8035117b7ac5674e9e140defc335fa090995e
     <sweet-modal
       ref="connect"
       :enable-mobile-fullscreen="false"
@@ -143,7 +152,14 @@ export default {
       });
     },
 <<<<<<< HEAD
+<<<<<<< HEAD
     handleClickConnect() {
+=======
+    goToOrders() {
+      this.$router.push('/Orders');
+    },
+    tableButton() {
+>>>>>>> d4a8035117b7ac5674e9e140defc335fa090995e
       if (this.$store.state.restaurantKey == 'Code') {
 =======
     goToOrders() {
@@ -155,7 +171,11 @@ export default {
 >>>>>>> develop
         this.$refs.connect.open();
       } else {
+<<<<<<< HEAD
         this.$toast(
+=======
+          this.$toast(
+>>>>>>> d4a8035117b7ac5674e9e140defc335fa090995e
           `this: ${
             this.$store.state.restaurantKey
           } is the reference of your table`,
@@ -295,12 +315,15 @@ input:focus {
   outline: none;
 }
 <<<<<<< HEAD
+<<<<<<< HEAD
 .easy-toast-default {
   background-color: #ffffff;
 }
 .et-content {
   color: #ff5555;
 =======
+=======
+>>>>>>> d4a8035117b7ac5674e9e140defc335fa090995e
 .OrdersClass {
   margin-left: -10px;
 }
