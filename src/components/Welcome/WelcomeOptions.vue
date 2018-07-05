@@ -103,9 +103,10 @@ export default {
         restaurantId: this.$store.state.restaurantId,
         tableCode: this.$store.state.restaurantKey,
       });
-      this.$toast('The Waiter Is Comming :)', {
+      this.$toast('The Waiter is Coming!', {
         horizontalPosition: 'center',
         verticalPosition: 'bottom',
+        transition: 'slide-up',
         duration: 2000,
       });
     },
@@ -190,23 +191,25 @@ h3 {
   font-weight: 600;
   font-size: 0.9em;
   color: #ffffff;
+  border-radius: 0;
   font-family: Raleway;
   background-color: #ff5555;
   border: 1px #ff5555 solid;
-  border-radius: 0;
   margin-top: 20px !important;
 }
 input {
   text-indent: 10px;
-  font-family: Merriweather;
   font-size: 0.8;
+  font-family: Merriweather;
 }
 input:focus {
   outline: none;
 }
- {
-  color: #ff5555 !important;
-  background-color: #ffffff !important;
+.easy-toast-default {
+  background-color: #ffffff;
+}
+.et-content {
+  color: #ff5555;
 }
 @import '../../assets/styles/global.css';
 </style>

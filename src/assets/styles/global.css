@@ -28,12 +28,11 @@ h5 {
 .sweet-content {
   padding: 0 !important;
   width: 100% !important;
-  margin-top: 20px;
 }
 
 .sweet-action-close {
   z-index: 99999;
-  color: #ff5555 !important;
+  color: #ffffff !important;
 }
 
 .VueCarousel-slide {
@@ -46,4 +45,15 @@ h5 {
 
 .VueCarousel-inner {
   visibility: visible !important;
+}
+
+.et-wrapper {
+  background-color: #ffffff !important;
+  border-radius: 0 !important;
+  border-top-left-radius: 4px !important;
+  border-top-right-radius: 4px !important;
+}
+
+.et-content {
+  color: #ff5555;
 }
