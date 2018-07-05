@@ -10,7 +10,6 @@ import User from './components/User/User.vue';
 import Login from './components/Login/Login.vue';
 import VueStripeCheckout from 'vue-stripe-checkout';
 import Welcome from './components/Welcome/Welcome.vue';
-import Connection from './components/Connection/Connection.vue';
 
 import FBSignInButton from 'vue-facebook-signin-button';
 import * as VueGoogleMaps from 'vue2-google-maps';
@@ -79,7 +78,6 @@ const router = new VueRouter({
     { path: '/', component: Login },
     { path: '/maps', component: Maps },
     { path: '/welcome', component: Welcome },
-    { path: '/connection', component: Connection },
     { path: '/user', component: User },
     { path: '/list', component: List },
     { path: '/cart', component: Cart },

@@ -4,7 +4,7 @@
     <div
       v-if="getLongitude == 0"
       id="spinner-container">
-      <rotate-loader
+      <rise-loader
         :color="color"/>
     </div>
     <GmapMap
@@ -46,18 +46,16 @@
   </div>
 </template>
 
-// TODO: refactor all of this, fix spinner position
-
 <script>
 import MapModal from './MapModal';
-import RotateLoader from 'vue-spinner/src/RotateLoader.vue';
+import RiseLoader from 'vue-spinner/src/RiseLoader.vue';
 import MapsNavbar from './MapsNavbar.vue';
 
 export default {
   name: 'Maps',
   components: {
     MapsNavbar,
-    RotateLoader,
+    RiseLoader,
     MapModal,
   },
   data() {

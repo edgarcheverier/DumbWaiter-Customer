@@ -28,7 +28,7 @@
       <div class="button-btn-container">
 
 
-        <button @click="tableButton">
+        <button @click="handleClickConnect">
           <i class="material-icons">border_outer</i>
         </button>
         <button @click="handleClickWaiter">
@@ -41,6 +41,29 @@
         <h3>Waiter</h3>
       </div>
     </div>
+    <sweet-modal
+      ref="connect"
+      :enable-mobile-fullscreen="false"
+    >
+      <div id="modal-wrapper">
+        <div id="connect-name">
+          <h3>Welcome!</h3>
+        </div>
+        <div id="connect-input-container">
+          <form action="submit">
+            <input 
+              id="connect-input"
+              type="text" 
+              placeholder="please insert your code" 
+              @keyup="handleInput">
+            <button 
+              id="connect-button" 
+            >Connect</button>
+          </form>
+        </div>
+      </div>
+    </sweet-modal>
+
   </div>
 </template>
 
@@ -86,9 +109,9 @@ export default {
         duration: 2000,
       });
     },
-    tableButton() {
+    handleClickConnect() {
       if (this.$store.state.restaurantKey == 'Code') {
-        this.$router.push('/Connection');
+        this.$refs.connect.open();
       } else {
         console.log(this.$store.state.restaurantKey);
       }
@@ -140,6 +163,50 @@ h3 {
 .label-solo {
   display: flex;
   justify-content: center;
+}
+#modal-wrapper {
+  width: 100%;
+  display: flex;
+  margin: 0 auto;
+  text-align: left;
+  flex-direction: column;
+}
+#connect-name {
+  text-align: center;
+  margin-bottom: 10px;
+  color: #ff5555;
+}
+#connect-input {
+  height: 40px;
+  width: 80%;
+  margin: 0 auto;
+  display: flex;
+  border: 1px solid #ff5555;
+  border-radius: 4px;
+}
+#connect-button {
+  width: 100%;
+  height: 40px;
+  font-weight: 600;
+  font-size: 0.9em;
+  color: #ffffff;
+  font-family: Raleway;
+  background-color: #ff5555;
+  border: 1px #ff5555 solid;
+  border-radius: 0;
+  margin-top: 20px !important;
+}
+input {
+  text-indent: 10px;
+  font-family: Merriweather;
+  font-size: 0.8;
+}
+input:focus {
+  outline: none;
+}
+ {
+  color: #ff5555 !important;
+  background-color: #ffffff !important;
 }
 @import '../../assets/styles/global.css';
 </style>
