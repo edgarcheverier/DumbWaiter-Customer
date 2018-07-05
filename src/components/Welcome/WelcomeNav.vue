@@ -67,18 +67,16 @@ export default {
 }
 #back-button {
   color: #eb2f06;
-  font-size: 2.1em;
-  margin-left: -7px;
+  font-size: 3.2em;
 }
 .price {
   font-weight: 600;
-  color: #eb2f06;
+  color: #ff5555;
   font-weight: 400;
   font-size: 1.5em;
 }
 ion-icon {
   font-size: 3.5em;
-  color: #eb2f06;
-  background-color: #fff;
+  color: #ff5555;
 }
 </style>

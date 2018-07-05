@@ -50,7 +50,7 @@ export default {
           callback: data => {
             const status = data.productStatus;
             this.$toast(
-              `Your product has change status to
+              `Your order is now 
                 ${status}`,
               {
                 horizontalPosition: 'center',
