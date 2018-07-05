@@ -1,10 +1,9 @@
 <template>
   <div id="wrapper">
     <div id="logo-container">
-      <h3 id="logo-text">Dumbwaiter</h3>
-      <img 
+      <img
         id="logo-image"
-        src="./../../assets/img/reception.svg" 
+        src="./../../assets/img/logo.svg"
         alt="logo">
     </div>
     <facebook-login/>
@@ -31,7 +30,7 @@ export default {
   flex-direction: column;
   background-size: cover;
   background-repeat: no-repeat;
-  background-image: url('https://images.unsplash.com/photo-1513792117172-ef6bc78042c1?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=370e34ca0e07fdcef373767f1c463090&auto=format&fit=crop&w=800&q=60');
+  background-image: url('../../assets/img/background.jpg');
 }
 #logo-container {
   margin-top: 40%;
@@ -47,9 +46,17 @@ export default {
   text-transform: uppercase;
 }
 #logo-image {
-  width: 8em;
-  height: 8em;
+  width: 20rem;
+  height: 20rem;
   margin: 15px;
+}
+div#fb-login-button {
+  position: fixed;
+  bottom: 0;
+  height: 90px;
+  padding: 25px 0;
+  font-size: 24px;
+  width: 100%;
 }
 @import '../../assets/styles/global.css';
 </style>

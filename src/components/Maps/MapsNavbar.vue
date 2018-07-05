@@ -1,7 +1,10 @@
 <template>
   <div id="mapnavbar-container">
     <div id="mapnavbar-content">
-      <h1 class="title">Dumbwaiter</h1>
+      <h1 class="title"><img
+        id="logo-image"
+        src="./../../assets/img/logo_horizontal_red.svg"
+        alt="logo"></h1>
     </div>
   </div>
 </template>
@@ -58,5 +61,9 @@ export default {
   font-size: 1.5em;
   font-weight: 600;
   text-transform: uppercase;
+  height: 40px;
+}
+.title img {
+  height: 40px;
 }
 </style>
