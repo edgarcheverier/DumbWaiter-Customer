@@ -26,19 +26,16 @@
     </div>
     <div class="button-container">
       <div class="button-btn-container">
-
-
-        <button @click="tableButton">
+        <button @click="goToOrders">
           <i class="material-icons">border_outer</i>
         </button>
         <button @click="handleClickWaiter">
           <i class="material-icons">face</i>
         </button>
-
       </div>
       <div class="button-label-container">
-        <h3 class="userKeyClass">{{ userKey }}</h3>
-        <h3>Waiter</h3>
+        <h3 class="OrdersClass">Orders</h3>
+        <h3 class="WaiterClass">Waiter</h3>
       </div>
     </div>
     <div 
@@ -113,6 +110,9 @@ export default {
         verticalPosition: 'bottom',
         duration: 2000,
       });
+    },
+    goToOrders() {
+      this.$router.push('/Orders');
     },
     tableButton() {
       if (this.$store.state.restaurantKey == 'Code') {
@@ -217,6 +217,18 @@ input {
 }
 input:focus {
   outline: none;
+}
+.OrdersClass {
+  margin-left: -10px;
+}
+.CodeContainer {
+  display: flex;
+  justify-content: center;
+  border-radius: 15px;
+  padding: 5px 10px;
+  margin-top: 15px;
+  box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.1),
+    0 6px 6px rgba(0, 0, 0, 0.1);
 }
  {
   color: #ff5555 !important;
