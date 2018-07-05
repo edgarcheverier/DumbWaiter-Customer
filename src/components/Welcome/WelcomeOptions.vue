@@ -111,9 +111,10 @@ export default {
         restaurantId: this.$store.state.restaurantId,
         tableCode: this.$store.state.restaurantKey,
       });
-      this.$toast('The Waiter Is Comming :)', {
+      this.$toast('The Waiter is Coming!', {
         horizontalPosition: 'center',
         verticalPosition: 'bottom',
+        transition: 'slide-up',
         duration: 2000,
       });
     },
@@ -151,7 +152,7 @@ export default {
           callback: data => {
             const status = data.productStatus;
             this.$toast(
-              `Your product has change status to
+              `Your order is now
                 ${status}`,
               {
                 horizontalPosition: 'center',
@@ -279,6 +280,12 @@ input:focus {
   margin-top: 15px;
   box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.1),
     0 6px 6px rgba(0, 0, 0, 0.1);
+}
+.easy-toast-default {
+  background-color: #ffffff;
+}
+.et-content {
+  color: #ff5555;
 }
 @import '../../assets/styles/global.css';
 </style>
