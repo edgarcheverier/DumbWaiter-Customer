@@ -2,6 +2,7 @@ import gql from 'graphql-tag';
 
 import graphqlClient from '../graphql';
 import { GET_RESTAURANTS } from '../querys/querys';
+import { ON_ORDER_PRODUCT_CHANGED } from '../querys/subscriptions';
 
 export const actions = {
   async getRestaurant({ commit }) {
@@ -10,14 +11,33 @@ export const actions = {
         ${GET_RESTAURANTS}
       `,
     });
-    await console.log(
-      'restaurants!!!',
-      response.data.restaurant
-    );
     await commit(
       'allRestaurants',
       response.data.restaurant
     );
+  },
+
+  async subscribeToProductChange({ commit }, args) {
+    const subscription = ON_ORDER_PRODUCT_CHANGED(
+      args.userId
+    );
+
+    graphqlClient
+      .subscribe({
+        query: gql`
+          ${subscription}
+        `,
+        variables: {},
+      })
+      .subscribe({
+        next(response) {
+          if (typeof args.callback === 'function') {
+            return args.callback(
+              response.data.onProductOrderChanged
+            );
+          }
+        },
+      });
   },
 
   async submitOrder({ commit }, arg) {

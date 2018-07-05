@@ -2,13 +2,13 @@
   <div>
     <ConnectionNav />
     <div class="fromContainer">
-      <input 
+      <input
         placeholder="Insert Your Code Please"
         class="inputClass"
-        type="text" 
+        type="text"
         @keyup="handlerInput">
-      <button 
-        class="buttonClass" 
+      <button
+        class="buttonClass"
         @click="triggerConnection">Connect Now</button>
     </div>
   </div>
@@ -35,12 +35,30 @@ export default {
       this.key = e.target.value.toUpperCase();
     },
     triggerConnection() {
-      console.log(this.key, this.restaurantId);
       this.$store.commit('restaurantKey', this.key);
       this.$store.dispatch('getConnectionId', {
         id: this.restaurantId,
         code: this.key,
       });
+      const user = JSON.parse(localStorage.getItem('user'));
+      const subscribe = this.$store.dispatch(
+        'subscribeToProductChange',
+        {
+          userId: user.id,
+          callback: data => {
+            const status = data.productStatus;
+            this.$toast(
+              `Your product has change status to
+                ${status}`,
+              {
+                horizontalPosition: 'center',
+                verticalPosition: 'bottom',
+                duration: 4000,
+              }
+            );
+          },
+        }
+      );
       this.$router.push('/Welcome');
     },
   },
