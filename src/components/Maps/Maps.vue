@@ -46,8 +46,6 @@
   </div>
 </template>
 
-// TODO: refactor all of this, fix spinner position
-
 <script>
 import MapModal from './MapModal';
 import RiseLoader from 'vue-spinner/src/RiseLoader.vue';

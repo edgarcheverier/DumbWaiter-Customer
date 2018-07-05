@@ -26,26 +26,42 @@
     </div>
     <div class="button-container">
       <div class="button-btn-container">
+<<<<<<< HEAD
 
 
+<<<<<<< HEAD
+        <button @click="handleClickConnect">
+=======
         <button @click="goToOrders">
+>>>>>>> develop
+=======
+        <button @click="goToOrders">
+>>>>>>> d4a8035117b7ac5674e9e140defc335fa090995e
           <i class="material-icons">border_outer</i>
         </button>
         <button @click="handleClickWaiter">
           <i class="material-icons">face</i>
         </button>
-
       </div>
       <div class="button-label-container">
         <h3 class="OrdersClass">Orders</h3>
         <h3 class="WaiterClass">Waiter</h3>
       </div>
     </div>
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+=======
+>>>>>>> d4a8035117b7ac5674e9e140defc335fa090995e
     <div 
       class="CodeContainer" 
       @click="tableButton">
       <h3 class="userKeyClass">{{ userKey }}</h3>
     </div>
+<<<<<<< HEAD
+>>>>>>> develop
+=======
+>>>>>>> d4a8035117b7ac5674e9e140defc335fa090995e
     <sweet-modal
       ref="connect"
       :enable-mobile-fullscreen="false"
@@ -55,6 +71,22 @@
           <h3>Welcome!</h3>
         </div>
         <div id="connect-input-container">
+<<<<<<< HEAD
+          <form action="submit">
+            <input 
+              id="connect-input"
+              type="text" 
+              placeholder="please insert your code" 
+              @keyup="handleInput">
+            <button 
+              id="connect-button" 
+            >Connect</button>
+          </form>
+        </div>
+      </div>
+    </sweet-modal>
+
+=======
           <input 
             id="connect-input"
             type="text" 
@@ -67,6 +99,7 @@
         </div>
       </div>
     </sweet-modal>
+>>>>>>> develop
   </div>
 </template>
 
@@ -111,21 +144,38 @@ export default {
         restaurantId: this.$store.state.restaurantId,
         tableCode: this.$store.state.restaurantKey,
       });
-      this.$toast('The Waiter Is Comming :)', {
+      this.$toast('The Waiter is Coming!', {
         horizontalPosition: 'center',
         verticalPosition: 'bottom',
+        transition: 'slide-up',
         duration: 2000,
       });
     },
+<<<<<<< HEAD
+<<<<<<< HEAD
+    handleClickConnect() {
+=======
+    goToOrders() {
+      this.$router.push('/Orders');
+    },
+    tableButton() {
+>>>>>>> d4a8035117b7ac5674e9e140defc335fa090995e
+      if (this.$store.state.restaurantKey == 'Code') {
+=======
     goToOrders() {
       this.$router.push('/Orders');
     },
     tableButton() {
       if (this.$store.state.restaurantKey == 'Code') {
         //this.$router.push('/Connection');
+>>>>>>> develop
         this.$refs.connect.open();
       } else {
+<<<<<<< HEAD
         this.$toast(
+=======
+          this.$toast(
+>>>>>>> d4a8035117b7ac5674e9e140defc335fa090995e
           `this: ${
             this.$store.state.restaurantKey
           } is the reference of your table`,
@@ -238,20 +288,42 @@ h3 {
   font-weight: 600;
   font-size: 0.9em;
   color: #ffffff;
+<<<<<<< HEAD
+  border-radius: 0;
+  font-family: Raleway;
+  background-color: #ff5555;
+  border: 1px #ff5555 solid;
+=======
   font-family: Raleway;
   background-color: #ff5555;
   border: 1px #ff5555 solid;
   border-radius: 0;
+>>>>>>> develop
   margin-top: 20px !important;
 }
 input {
   text-indent: 10px;
+<<<<<<< HEAD
+  font-size: 0.8;
+  font-family: Merriweather;
+=======
   font-family: Merriweather;
   font-size: 0.8;
+>>>>>>> develop
 }
 input:focus {
   outline: none;
 }
+<<<<<<< HEAD
+<<<<<<< HEAD
+.easy-toast-default {
+  background-color: #ffffff;
+}
+.et-content {
+  color: #ff5555;
+=======
+=======
+>>>>>>> d4a8035117b7ac5674e9e140defc335fa090995e
 .OrdersClass {
   margin-left: -10px;
 }
@@ -279,6 +351,7 @@ input:focus {
   margin-top: 15px;
   box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.1),
     0 6px 6px rgba(0, 0, 0, 0.1);
+>>>>>>> develop
 }
 @import '../../assets/styles/global.css';
 </style>
