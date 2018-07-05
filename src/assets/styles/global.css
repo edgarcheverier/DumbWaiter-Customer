@@ -36,8 +36,7 @@ h5 {
 
 .sweet-action-close {
   z-index: 99999;
-  color: #ff5555 !important;
-  background: #ffffff !important;
+  color: #ffffff !important;
 }
 
 .VueCarousel-slide {
@@ -51,3 +50,16 @@ h5 {
 .VueCarousel-inner {
   visibility: visible !important;
 }
+
+.et-wrapper {
+    opacity: 0.8;
+    background-color: #ff5555 !important;
+    border-radius: 0 !important;
+    border-top-left-radius: 4px !important;
+    border-top-right-radius: 4px !important;
+  }
+
+.et-content {
+color: white;
+} 	 
+
