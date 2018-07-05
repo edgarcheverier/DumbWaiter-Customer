@@ -41,6 +41,11 @@
         <h3>Waiter</h3>
       </div>
     </div>
+    <div 
+      class="CodeContainer" 
+      @click="tableButton">
+      <h3 class="userKeyClass">{{ userKey }}</h3>
+    </div>
     <sweet-modal
       ref="connect"
       :enable-mobile-fullscreen="false"
