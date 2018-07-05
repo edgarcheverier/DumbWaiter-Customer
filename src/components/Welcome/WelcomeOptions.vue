@@ -28,7 +28,7 @@
       <div class="button-btn-container">
 
 
-        <button @click="tableButton">
+        <button @click="goToOrders">
           <i class="material-icons">border_outer</i>
         </button>
         <button @click="handleClickWaiter">
@@ -37,9 +37,14 @@
 
       </div>
       <div class="button-label-container">
-        <h3 class="userKeyClass">{{ userKey }}</h3>
-        <h3>Waiter</h3>
+        <h3 class="OrdersClass">Orders</h3>
+        <h3 class="WaiterClass">Waiter</h3>
       </div>
+    </div>
+    <div 
+      class="CodeContainer" 
+      @click="tableButton">
+      <h3 class="userKeyClass">{{ userKey }}</h3>
     </div>
   </div>
 </template>
@@ -86,11 +91,23 @@ export default {
         duration: 2000,
       });
     },
+    goToOrders() {
+      this.$router.push('/Orders');
+    },
     tableButton() {
       if (this.$store.state.restaurantKey == 'Code') {
         this.$router.push('/Connection');
       } else {
-        console.log(this.$store.state.restaurantKey);
+        this.$toast(
+          `this: ${
+            this.$store.state.restaurantKey
+          } is the reference of your table`,
+          {
+            horizontalPosition: 'center',
+            verticalPosition: 'bottom',
+            duration: 2000,
+          }
+        );
       }
     },
   },
@@ -140,6 +157,18 @@ h3 {
 .label-solo {
   display: flex;
   justify-content: center;
+}
+.OrdersClass {
+  margin-left: -10px;
+}
+.CodeContainer {
+  display: flex;
+  justify-content: center;
+  border-radius: 15px;
+  padding: 5px 10px;
+  margin-top: 15px;
+  box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.1),
+    0 6px 6px rgba(0, 0, 0, 0.1);
 }
 @import '../../assets/styles/global.css';
 </style>

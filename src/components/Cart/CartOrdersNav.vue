@@ -27,7 +27,7 @@ export default {
   },
   methods: {
     goBack() {
-      this.$router.push('/Cart');
+      this.$router.push('/welcome');
     },
   },
 };
