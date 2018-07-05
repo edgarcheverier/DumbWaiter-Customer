@@ -28,7 +28,7 @@
       <div class="button-btn-container">
 
 
-        <button @click="handleClickConnect">
+        <button @click="tableButton">
           <i class="material-icons">border_outer</i>
         </button>
         <button @click="handleClickWaiter">
@@ -109,11 +109,20 @@ export default {
         duration: 2000,
       });
     },
-    handleClickConnect() {
+    tableButton() {
       if (this.$store.state.restaurantKey == 'Code') {
         this.$refs.connect.open();
       } else {
-        console.log(this.$store.state.restaurantKey);
+          this.$toast(
+          `this: ${
+            this.$store.state.restaurantKey
+          } is the reference of your table`,
+          {
+            horizontalPosition: 'center',
+            verticalPosition: 'bottom',
+            duration: 2000,
+          }
+        );
       }
     },
   },
