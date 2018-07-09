@@ -93,6 +93,8 @@ export default {
   display: flex;
   color: #ffffff;
   flex-direction: row;
+  font-family: Raleway;
+  font-weight: 200px;
   align-items: center;
   justify-content: center;
   background-color: #3b5998;

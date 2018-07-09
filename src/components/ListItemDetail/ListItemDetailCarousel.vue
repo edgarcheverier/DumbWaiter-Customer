@@ -58,7 +58,6 @@ export default {
         description: item.description,
         photo: item.photos[0].url,
       });
-      this.$refs.modal.open();
     },
   },
 };

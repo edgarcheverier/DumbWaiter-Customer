@@ -57,6 +57,9 @@ export default {
   justify-content: center;
 }
 .title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   color: #ff5555;
   font-size: 1.5em;
   font-weight: 600;
@@ -64,6 +67,6 @@ export default {
   height: 40px;
 }
 .title img {
-  height: 40px;
+  height: 25px;
 }
 </style>

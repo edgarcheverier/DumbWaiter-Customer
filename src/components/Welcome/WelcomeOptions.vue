@@ -107,6 +107,10 @@ export default {
       this.$router.push('/user');
     },
     handleClickWaiter() {
+      console.log(
+        this.$store.state.restaurantId,
+        this.$store.state.restaurantKey
+      );
       this.$store.dispatch('callWaiter', {
         restaurantId: this.$store.state.restaurantId,
         tableCode: this.$store.state.restaurantKey,
@@ -150,7 +154,10 @@ export default {
         {
           userId: user.id,
           callback: data => {
-            const status = data.productStatus;
+            const status = data.productStatus.replace(
+              '_',
+              ' '
+            );
             this.$toast(
               `Your order is now
                 ${status}`,

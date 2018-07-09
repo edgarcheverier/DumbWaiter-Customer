@@ -9,7 +9,9 @@
         class="NoOrdersButton" 
         @click="goBack">Go Back </button>
     </div>
-    <div v-if="cartList[0]">
+    <div 
+      v-if="cartList[0]" 
+      class="cartContainer">
       <div 
         v-for="(item, index) in cartList" 
         v-if="item.count !== 0"
@@ -236,5 +238,10 @@ export default {
   margin-bottom: 15px;
   display: flex;
   justify-content: center;
+}
+.cartContainer {
+  overflow: scroll;
+  margin-top: 12px;
+  height: 1000px;
 }
 </style>
