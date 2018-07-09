@@ -13,7 +13,7 @@ Smart Waiter customer side is a app which allows you to locate a restaurant, bro
 1. Clone the repo
 
 ```
-https://github.com/edgarcheverier/DumbWaiter-Customer
+https://github.com/edgarcheverier/Smart-Waiter-Customer
 cd dumbwaiter-customer
 ```
 
