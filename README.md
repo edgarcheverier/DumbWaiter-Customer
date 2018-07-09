@@ -14,7 +14,7 @@ Smart Waiter customer side is a app which allows you to locate a restaurant, bro
 
 ```
 https://github.com/edgarcheverier/Smart-Waiter-Customer
-cd dumbwaiter-customer
+cd Smart-Waiter-Customer
 ```
 
 2. Install dependencies
