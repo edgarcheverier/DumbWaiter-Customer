@@ -1,0 +1,16 @@
+h6.brand-logo.center.userTitle{
+  font-size: 23px;
+}
+
+i.material-icons.rightIcon {
+  margin-left: 1rem;
+}
+
+nav.usernav {
+  margin-bottom: 2rem;
+}
+
+a.btn-floating.btn-large.waves-effect.waves-light.userImage.z-depth-1{
+  width: 9rem;
+  height: 9rem;
+}
