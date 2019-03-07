@@ -20,3 +20,7 @@ yarn-error.log*
 *.sln
 *.sw*
 *.vs
+
+# API keys
+facebook.app.id.js
+google.api.key.js

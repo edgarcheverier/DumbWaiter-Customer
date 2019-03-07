@@ -18,10 +18,11 @@
       name="logo-facebook"/>
 */
 import authService from '../../services/auth.service';
+import fbId from './../../../facebook.app.id.js';
 
 window.fbAsyncInit = function() {
   FB.init({
-    appId: '246012439316213',
+    appId: fbId,
     cookie: true,
     xfbml: true,
     version: 'v3.0',
