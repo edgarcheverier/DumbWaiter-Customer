@@ -61,7 +61,10 @@ export default {
         this.$router.push('/maps');
       }
     });
+    //delete this later
+    //this.$router.push('/maps'); /////
   },
+
   methods: {
     async onSignInSuccess(response) {
       const authFacebook = await authService.authFacebook(
