@@ -3,7 +3,6 @@
 <p align="center">
 <img style="max-width:100px;max-height:500px;" src="https://firebasestorage.googleapis.com/v0/b/moving-free.appspot.com/o/car%2Fdumbwaiter.png?alt=media&token=03727d0e-bc6b-4c93-9018-6defa28c3a24" />
 </p>
-
 ----
 
 Smart Waiter customer side is a app which allows you to locate a restaurant, browse the menu, order and pay for a meal all from one single page application, ideal for those short on time who aren't able to be delayed by busy restaurant staff, or payment disputes. Just choose, click, eat and go.
@@ -25,10 +24,21 @@ npm install
 3. Facebook developers
 ```
 create a new app in facebook developers (https://developers.facebook.com/)
-in src/components/Login/FacebookLogin.vue replace the appId for your app id
 ```
 
-4. Start development server
+4. then create a file called **facebook.app.id.js** inside Smart-Waiter-Customer folder and copy contents below into it replacing with your Facebook id
+
+   1. ```
+      export default 'YOUR_FACEBOOK_APP_ID_HERE'
+      ```
+
+5. Next create a file called google.api.key.js inside the Smart-Waiter-Customer folder and copy contents below with your Google Maps API
+
+   1. ```
+      export default 'GOOGLE_MAPS_API_HERE';
+      ```
+
+6. Start development server
 ```
 npm run serve
 

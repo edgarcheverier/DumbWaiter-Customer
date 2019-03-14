@@ -22,6 +22,7 @@ const authFacebook = async (authResponse, callback) => {
       console.log(error);
     }
   );
+  
 };
 
 export default {

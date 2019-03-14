@@ -18,10 +18,11 @@
       name="logo-facebook"/>
 */
 import authService from '../../services/auth.service';
+import fbId from './../../../facebook.app.id.js';
 
 window.fbAsyncInit = function() {
   FB.init({
-    appId: '246012439316213',
+    appId: fbId,
     cookie: true,
     xfbml: true,
     version: 'v3.0',
@@ -60,7 +61,10 @@ export default {
         this.$router.push('/maps');
       }
     });
+    //delete this later
+    //this.$router.push('/maps'); /////
   },
+
   methods: {
     async onSignInSuccess(response) {
       const authFacebook = await authService.authFacebook(

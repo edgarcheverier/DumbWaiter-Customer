@@ -19,6 +19,7 @@ import VueSweetalert2 from 'vue-sweetalert2';
 import VueCurrencyFilter from 'vue-currency-filter';
 
 import store from './store/store.js';
+import googleKey from './../google.api.key';
 
 import SweetModal from 'sweet-modal-vue/src/plugin.js';
 
@@ -33,7 +34,7 @@ const options = {
 
 Vue.use(VueGoogleMaps, {
   load: {
-    key: 'AIzaSyDIoc4_3-rqbg3wlOOZJsqQhPBpTMSaL0Q',
+    key: googleKey,
     libraries: 'places', // This is required if you use the Autocomplete plugin
     // OR: libraries: 'places,drawing'
     // OR: libraries: 'places,drawing,visualization'

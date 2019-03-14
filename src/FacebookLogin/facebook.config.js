@@ -1,5 +1,7 @@
+import facebookAPI from './../../facebook.app.id'
+
 export const FacebookInformation = {
-  appId: '1001436943350657',
+  appId: facebookAPI,
   cookie: true,
   xfbml: true,
   version: 'v3.0',
